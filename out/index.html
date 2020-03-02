@@ -1,0 +1,920 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Reference Emjpm API</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen-a1ce949a.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-bccf8c07.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-c5541673.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;javascript&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-6f72888a.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#environnements" class="toc-h2 toc-link" data-title="Environnements">Environnements</a>
+                  </li>
+                  <li>
+                    <a href="#application-de-test" class="toc-h2 toc-link" data-title="Application de test">Application de test</a>
+                  </li>
+                  <li>
+                    <a href="#comptes-tokens-de-test" class="toc-h2 toc-link" data-title="Comptes / Tokens de test">Comptes / Tokens de test</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#authentification" class="toc-h1 toc-link" data-title="Authentification">Authentification</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#etapes" class="toc-h2 toc-link" data-title="Etapes">Etapes</a>
+                  </li>
+                  <li>
+                    <a href="#redirection" class="toc-h2 toc-link" data-title="Redirection">Redirection</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#mesures" class="toc-h1 toc-link" data-title="Mesures">Mesures</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#l-39-objet-mesure" class="toc-h2 toc-link" data-title="L'objet mesure">L'objet mesure</a>
+                  </li>
+                  <li>
+                    <a href="#lister-toutes-les-mesures" class="toc-h2 toc-link" data-title="Lister toutes les mesures">Lister toutes les mesures</a>
+                  </li>
+                  <li>
+                    <a href="#recuperer-une-mesure" class="toc-h2 toc-link" data-title="Récupérer une mesure">Récupérer une mesure</a>
+                  </li>
+                  <li>
+                    <a href="#creer-une-mesure" class="toc-h2 toc-link" data-title="Créer une mesure">Créer une mesure</a>
+                  </li>
+                  <li>
+                    <a href="#modifier-une-mesure" class="toc-h2 toc-link" data-title="Modifier une mesure">Modifier une mesure</a>
+                  </li>
+                  <li>
+                    <a href="#supprimer-une-mesure" class="toc-h2 toc-link" data-title="Supprimer une mesure">Supprimer une mesure</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='https://emjpm.fabrique.social.gouv.fr/application/token-request'>Obtenez des accès de production à l'api ici</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Bienvenue dans la documentation de l&#39;API eMJPM à destination des logiciels métiers, vous trouverez ici des guides et des documentations vous permettant de commencer aussi rapidement que possible.</p>
+
+<p>L&#39;API eMJPM est organisée en REST, elle retourne des réponses encodées en JSON,
+et utilise des verbes, des codes de réponses, et des méchanismes d&#39;authentification HTTP standard.</p>
+<h3 id='environnements'>Environnements</h3>
+<p><strong>Test</strong>  <a href="https://api-apitest-emjpm.dev.fabrique.social.gouv.fr">https://api-apitest-emjpm.dev.fabrique.social.gouv.fr</a></p>
+
+<p><strong>Production</strong> <a href="https://api-emjpm.fabrique.social.gouv.fr">https://api-emjpm.fabrique.social.gouv.fr</a></p>
+
+<p>Lors du développement de votre solution logicielle, nous vous recommandons d&#39;utiliser l&#39;environnement de test</p>
+
+<p><a href="https://api-apitest-emjpm.dev.fabrique.social.gouv.fr">https://api-apitest-emjpm.dev.fabrique.social.gouv.fr</a></p>
+
+<p>remplacez votre editor_id et votre editor_token de test par ceux obtenues suite à votre demande d&#39;autorisation</p>
+
+<p>L&#39;environnement de test est fonctionnellement identique à l&#39;environnement de production.</p>
+<h3 id='application-de-test'>Application de test</h3>
+<p>Afin de faciliter les tests, une application exemple est mis à disposition</p>
+
+<p><a href="https://emjpm-editor-demo.netlify.com">https://emjpm-editor-demo.netlify.com</a></p>
+
+<p>(Source <a href="https://github.com/SocialGouv/emjpm-editor-app">https://github.com/SocialGouv/emjpm-editor-app</a>)</p>
+
+<p>L&#39;application implémente une demande de token configurable via l&#39;interface,
+et des appels à l&#39;API <code>/mesures</code> avec autorisation, vous permettant de tester
+des identifiants et des retours d&#39;API rapidement sans code.</p>
+<h3 id='comptes-tokens-de-test'>Comptes / Tokens de test</h3>
+<p>Des comptes et tokens de test sont mis à disposition,
+<a href="https://api-apitest-emjpm.dev.fabrique.social.gouv.fr">https://api-apitest-emjpm.dev.fabrique.social.gouv.fr</a>,</p>
+
+<p>List des comptes utilisateur :</p>
+
+<table><thead>
+<tr>
+<th>email</th>
+<th>mot de passe</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>individuel-1302@justice.fr</td>
+<td>emjpm2019</td>
+</tr>
+<tr>
+<td>service-131@justice.fr</td>
+<td>emjpm2019</td>
+</tr>
+</tbody></table>
+
+<p>Liste des tokens d&#39;API :</p>
+
+<table><thead>
+<tr>
+<th>editor_id</th>
+<th>editor_token</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>test</td>
+</tr>
+<tr>
+<td>2</td>
+<td>test</td>
+</tr>
+<tr>
+<td>3</td>
+<td>test</td>
+</tr>
+</tbody></table>
+<h1 id='authentification'>Authentification</h1>
+<blockquote>
+<p>pour authoriser votre application à accèder à un compte utilisateur veuillez rediriger sur l&#39;url emjpm construite de la façon suivante:</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// url de redirection de test</span>
+<span class="kr">const</span> <span class="nx">emjpmAuthTestUrl</span> <span class="o">=</span> <span class="s2">`https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/application/authorization?editor_id=</span><span class="p">${</span><span class="nx">votre</span> <span class="nx">editor_id</span> <span class="nx">de</span> <span class="nx">test</span><span class="p">}</span><span class="s2">&amp;editor_token=</span><span class="p">${</span><span class="nx">votre</span> <span class="nx">editor_token</span> <span class="nx">de</span> <span class="nx">test</span><span class="p">}</span><span class="s2">&amp;redirect_url=</span><span class="p">${</span><span class="nx">url</span> <span class="nx">de</span> <span class="nx">redirection</span> <span class="nx">vers</span> <span class="nx">votre</span> <span class="nx">application</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+
+<span class="c1">// exemple avec des informations de test</span>
+<span class="kr">const</span> <span class="nx">finalUrl</span> <span class="o">=</span> <span class="s2">"https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/application/authorization?editor_id=1&amp;editor_token=abcd&amp;redirect_url=http://exemple.com"</span>
+
+<span class="c1">// url de redirection de production</span>
+<span class="kr">const</span> <span class="nx">emjpmAuthTestUrl</span> <span class="o">=</span> <span class="s2">`https://api-emjpm.fabrique.social.gouv.fr/application/authorization?editor_id=</span><span class="p">${</span><span class="nx">votre</span> <span class="nx">editor_id</span> <span class="nx">de</span> <span class="nx">prod</span><span class="p">}</span><span class="s2">&amp;editor_token=</span><span class="p">${</span><span class="nx">votre</span> <span class="nx">editor_token</span> <span class="nx">de</span> <span class="nx">prod</span><span class="p">}</span><span class="s2">&amp;redirect_url=</span><span class="p">${</span><span class="nx">url</span> <span class="nx">de</span> <span class="nx">redirection</span> <span class="nx">vers</span> <span class="nx">votre</span> <span class="nx">application</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+
+<span class="c1">// exemple avec des informations de prod</span>
+<span class="kr">const</span> <span class="nx">finalUrl</span> <span class="o">=</span> <span class="s2">"https://api-emjpm.fabrique.social.gouv.fr/application/authorization?editor_id=1&amp;editor_token=abcd&amp;redirect_url=http://exemple.com"</span>
+</code></pre>
+<blockquote>
+<p>Soyez sur de remplacer les informations d&#39;exemple avec les votres</p>
+
+<p>Une fois la redirection vers votre application faite vous receverez un token utilisateur sous la forme suivante</p>
+</blockquote>
+<pre class="highlight javascript"><code>
+<span class="kr">const</span> <span class="nx">exampleUrl</span> <span class="o">=</span> <span class="s2">"https://emjpm-editor-demo.netlify.com/?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tLyIsInVpZCI6InJhdTRLZm9WdmVpQ1R4bUZvQTBIbEJ6dDZnSjRoMFVYNVBnUHN1R2tEdDJjMEF4dnE1RENsVmZ0RFh0NWF1U0x1bmlBb3lpWUlQOXdRWTI2OVlaVTVRNVlyTFpTMDFpTjNKZlVveUxKTGhLQUJ1Z0NXY3FGQnduS1FFaDk0RlBPIiwidXNlcklkIjoxMzAyLCJlZGl0b3JJZCI6IjEiLCJlZGl0b3JUb2tlbiI6Imc1dmc0bXV1NDZzIiwiaWF0IjoxNTgyMTA2MTk4LCJzdWIiOiJyYXU0S2ZvVnZlaUNUeG1Gb0EwSGxCenQ2Z0o0aDBVWDVQZ1BzdUdrRHQyYzBBeHZxNURDbFZmdERYdDVhdVNMdW5pQW95aVlJUDl3UVkyNjlZWlU1UTVZckxaUzAxaU4zSmZVb3lMSkxoS0FCdWdDV2NxRkJ3bktRRWg5NEZQTyJ9.kOfoNKyBXPqkPzATRxtkbFGpJp38q57HlTbNOAzx_Gsjs1lYQUj3yNNXyS3VEB6bVbd7YEJ1DYS1fpXdSUauBFjKawOPvZ0St1vdDlkVhsHyCsiKE_8LtcgQ-rIVqWhgsuBh_YE-ybxq5YamGutcWtvcNBVhb526C1sjJry0bghM7FeK9WsQ2T70W3s4MIzjks9txDw1q55I86VJXK72xsqmjQnjufNukze9EqPmO0iIxTFRX9uZ4vaA0HO7xW1fcsXduyd3Qy1SkoUjdP0hJ94wxPb2HFApZUpWwIPuOqm4bmuopl1mANx0ncIXKizzq05-9q4ynfyra-E3iSaKqw"</span>
+
+<span class="c1">// soit le token suivant</span>
+<span class="nx">eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="p">.</span><span class="nx">eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0</span><span class="p">.</span><span class="nx">HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2</span><span class="o">-</span><span class="nx">E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv</span><span class="o">-</span><span class="nx">IfXwFdJZq0fZmhRW7atWQoMdBtB</span><span class="o">-</span><span class="nx">djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0</span><span class="o">-</span><span class="nx">tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz</span><span class="o">-</span><span class="nx">jEHh3zEGbv9qqVwQ879O23GPMeHE4w</span>
+</code></pre>
+<p>L&#39;API eMJPM utilise des tokens pour authentifier les requêtes via le méchanisme HTTP Bearer.</p>
+
+<p>Pour utiliser l&#39;API eMJPM en production (https://api-emjpm.fabrique.social.gouv.fr), vous devez obtenir un editor_id et un editor_token de production. Pour ce faire, veuillez remplir une demande d&#39;autorisation sur notre <a href="https://emjpm.fabrique.social.gouv.fr/application/token-request">page dédié</a>.</p>
+<h3 id='etapes'>Etapes</h3>
+<p>eMJPM utilise un système d&#39;oauth pour identifier les utilisateurs donnant accès à leur compte aux logiciels métiers.
+Pour se faire il suffit de faire une redirection depuis votre application jusqu&#39;à la page d&#39;authorisation utilisateur, la page à besoin de 3 paramètres</p>
+
+<ul>
+<li><code>editor_id</code> : votre editor_id</li>
+<li><code>editor_token</code>: votre editor_token</li>
+<li><code>redirect_url</code>: l&#39;url de redirection vers votre application</li>
+</ul>
+
+<p>une fois l&#39;autorisation accepté par l&#39;utilisateur, nous le redirigerons vers votre application en donnant en paramamètre le token de l&#39;utilisateur qui vous est lié.</p>
+
+<p>ce token vous permettra par la suite de passer des requetes sur l&#39;api Emjpm relative à cet utilisateur et votre application.</p>
+
+<p>L&#39;utilisateur peut révoquer l&#39;accès d&#39;un logiciel métier à son compte eMJPM.</p>
+<h3 id='redirection'>Redirection</h3>
+<p>exemple</p>
+
+<p><code>https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/application/authorization?editor_id=1&amp;editor_token=abcd&amp;redirect_url=http://exemple.com</code></p>
+<h1 id='mesures'>Mesures</h1><h2 id='l-39-objet-mesure'>L&#39;objet mesure</h2>
+<blockquote>
+<p>L&#39;objet mesure</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="nl">annee</span><span class="p">:</span> <span class="s2">"1983"</span><span class="p">,</span>
+  <span class="nx">antenne_id</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nx">civilite</span><span class="p">:</span> <span class="s2">"H"</span><span class="p">,</span>
+  <span class="nx">code_postal</span><span class="p">:</span> <span class="s2">"75015"</span><span class="p">,</span>
+  <span class="nx">ville</span><span class="p">:</span> <span class="s2">"paris"</span><span class="p">,</span>
+  <span class="nx">latitude</span><span class="p">:</span> <span class="s2">"45.8383"</span><span class="p">,</span>
+  <span class="nx">longitude</span><span class="p">:</span> <span class="s2">"1.01181"</span><span class="p">,</span>
+  <span class="nx">date_ouverture</span><span class="p">:</span> <span class="s2">"2020-02-20"</span><span class="p">,</span>
+  <span class="nx">department_id</span><span class="p">:</span> <span class="s2">"75"</span><span class="p">,</span>
+  <span class="nx">numero_dossier</span><span class="p">:</span> <span class="s2">"123123123"</span><span class="p">,</span>
+  <span class="nx">numero_rg</span><span class="p">:</span> <span class="s2">"RGXXXX123"</span><span class="p">,</span>
+  <span class="nx">residence</span><span class="p">:</span> <span class="s2">"En établissement"</span><span class="p">,</span>
+  <span class="nx">ti_id</span><span class="p">:</span> <span class="nx">global</span><span class="p">.</span><span class="nx">ti</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+  <span class="nx">type</span><span class="p">:</span> <span class="s2">"Curatelle renforcée aux biens et à la personne"</span>
+  <span class="nl">status</span><span class="p">:</span> <span class="s2">"Mesure en cours"</span>
+<span class="p">}</span>
+</code></pre><h3 id='attributs'>Attributs</h3>
+<p><strong>id</strong> <code>number</code></p>
+
+<p>ID de la mesure.</p>
+
+<p><strong>annee</strong> <code>number</code></p>
+
+<p>Année de naissance de la personne.</p>
+
+<p><strong>civilite</strong> <code>string</code></p>
+
+<p>Civilité de la personne, les valeurs possibles sont &quot;H&quot; et &quot;F&quot;.</p>
+
+<p><strong>code_postal</strong> <code>string</code></p>
+
+<p>Code postal de la personne.</p>
+
+<p><strong>ville</strong> <code>string</code></p>
+
+<p>Ville de la personne.</p>
+
+<p><strong>latitude</strong> <code>float</code></p>
+
+<p>Latitude de la personne.</p>
+
+<p><strong>longitude</strong> <code>float</code></p>
+
+<p>Longitude de la personne.</p>
+
+<p><strong>date_ouverture</strong> <code>date</code></p>
+
+<p>Date d&#39;ouverture de la mesure.</p>
+
+<p><strong>department_id</strong> <code>number</code></p>
+
+<p>ID du département de la mesure.</p>
+
+<p><strong>numero_dossier</strong> <code>string</code></p>
+
+<p>Numéro de dossier de la mesure.</p>
+
+<p><strong>numero_rg</strong> <code>string</code></p>
+
+<p>Numéro RG de la mesure.</p>
+
+<p><strong>residence</strong> <code>string</code></p>
+
+<p>Résidence de la personne.</p>
+
+<p><strong>ti_id</strong> <code>number</code></p>
+
+<p>ID du tribunal de la mesure.</p>
+
+<p><strong>status</strong> <code>string</code></p>
+
+<p>Status de la mesure, les valeurs possibles sont &quot;Eteindre mesure&quot; et &quot;Mesure en cours&quot;.</p>
+
+<p><strong>antenne_id</strong> <code>number</code></p>
+
+<p>ID de l&#39;antenne du service.</p>
+<h2 id='lister-toutes-les-mesures'>Lister toutes les mesures</h2>
+<blockquote>
+<p>GET /api/editors/mesures</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span>
+<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span> <span class="s2">"https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures?status=Mesure en cours"</span>
+
+<span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">emjpmApiMesuresUrl</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">token</span><span class="p">}</span><span class="s2">`</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>RESPONSE</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"mesures"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">87243</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ville"</span><span class="p">:</span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"etablissement"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"mandataire_id"</span><span class="p">:</span><span class="mi">877</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2019-10-21T09:57:36.723Z"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"annee"</span><span class="p">:</span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"Tutelle aux biens et à la personne"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"date_ouverture"</span><span class="p">:</span><span class="s2">"2019-01-08T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"residence"</span><span class="p">:</span><span class="s2">"En établissement"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"civilite"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"Mesure en cours"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"etablissement_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ti_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"cabinet"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"reason_extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"numero_rg"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"department_id"</span><span class="p">:</span><span class="mi">71</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"antenne_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"service_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"is_urgent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"judgment_date"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Retourne la liste de toutes les mesures associées à l&#39;utilisateur.
+Les mesures retournées sont triées, avec la mesure la plus récente apparaissant en premier.</p>
+<h3 id='parametres'>Paramètres</h3>
+<p><strong>status</strong> (optionnel)</p>
+
+<p>Retourne uniquement les mesures ayant ce status. Les valeurs possibles sont &quot;Mesure en cours&quot;, &quot;Mesure en attente&quot;.</p>
+<h3 id='retours'>Retours</h3><h2 id='recuperer-une-mesure'>Récupérer une mesure</h2>
+<blockquote>
+<p>GET /api/editors/mesures/:id</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span>
+<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span> <span class="s2">"https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures/1"</span>
+
+<span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">emjpmApiMesuresUrl</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">token</span><span class="p">}</span><span class="s2">`</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>REPONSE</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">87243</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"ville"</span><span class="p">:</span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"etablissement"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"mandataire_id"</span><span class="p">:</span><span class="mi">877</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2019-10-21T09:57:36.723Z"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"annee"</span><span class="p">:</span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"Tutelle aux biens et à la personne"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"date_ouverture"</span><span class="p">:</span><span class="s2">"2019-01-08T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"residence"</span><span class="p">:</span><span class="s2">"En établissement"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"civilite"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"Mesure en cours"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"etablissement_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"ti_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"cabinet"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"reason_extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"numero_rg"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"department_id"</span><span class="p">:</span><span class="mi">71</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"antenne_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"service_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"is_urgent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"judgment_date"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"latitude"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"longitude"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Récupère la mesure associée à l&#39;ID passé.</p>
+<h3 id='retours-2'>Retours</h3>
+<p>Retourne l&#39;objet <a href="/?javascript#l-39-objet-mesure">mesure</a>.
+Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est retournée.</p>
+<h2 id='creer-une-mesure'>Créer une mesure</h2>
+<blockquote>
+<p>POST /api/editors/mesures</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span>
+<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span> <span class="s2">"https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures en cours"</span>
+
+<span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">emjpmApiMesuresUrl</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s2">"post"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">token</span><span class="p">}</span><span class="s2">`</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>REPONSE</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">87243</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"ville"</span><span class="p">:</span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"etablissement"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"mandataire_id"</span><span class="p">:</span><span class="mi">877</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2019-10-21T09:57:36.723Z"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"annee"</span><span class="p">:</span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"Tutelle aux biens et à la personne"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"date_ouverture"</span><span class="p">:</span><span class="s2">"2019-01-08T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"residence"</span><span class="p">:</span><span class="s2">"En établissement"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"civilite"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"Mesure en cours"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"etablissement_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"ti_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"cabinet"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"reason_extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"numero_rg"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"department_id"</span><span class="p">:</span><span class="mi">71</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"antenne_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"service_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"is_urgent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"judgment_date"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"latitude"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"longitude"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Créer une mesure avec les paramètres passés.
+Tous les paramètres sont obligatoires sauf indiqué par <code>(optionnel)</code>.</p>
+<h3 id='parametres-2'>Paramètres</h3>
+<p><strong>annee</strong> <code>number</code></p>
+
+<p>Année de naissance de la personne.</p>
+
+<p><strong>civilite</strong> <code>string</code></p>
+
+<p>Civilité de la personne, les valeurs possibles sont &quot;H&quot; et &quot;F&quot;.</p>
+
+<p><strong>code_postal</strong> <code>string</code></p>
+
+<p>Code postal de la personne.</p>
+
+<p><strong>ville</strong> <code>string</code></p>
+
+<p>Ville de la personne.</p>
+
+<p><strong>latitude</strong> <code>float</code></p>
+
+<p>Latitude de la personne.</p>
+
+<p><strong>longitude</strong> <code>float</code></p>
+
+<p>Longitude de la personne.</p>
+
+<p><strong>date_ouverture</strong> <code>date</code></p>
+
+<p>Date d&#39;ouverture de la mesure.</p>
+
+<p><strong>department_id</strong> <code>number</code></p>
+
+<p>ID du département de la mesure.</p>
+
+<p><strong>numero_dossier</strong> <code>string</code></p>
+
+<p>Numéro de dossier de la mesure.</p>
+
+<p><strong>numero_rg</strong> <code>string</code></p>
+
+<p>Numéro RG de la mesure.</p>
+
+<p><strong>residence</strong> <code>string</code></p>
+
+<p>Résidence de la personne.</p>
+
+<p><strong>ti_id</strong> <code>number</code></p>
+
+<p>ID du tribunal de la mesure.</p>
+
+<p><strong>status</strong> <code>string</code></p>
+
+<p>Status de la mesure, les valeurs possibles sont &quot;Eteindre mesure&quot; et &quot;Mesure en cours&quot;.</p>
+
+<p><strong>antenne_id</strong> <code>number</code> <code>optionnel</code></p>
+
+<p>ID de l&#39;antenne du service.</p>
+<h3 id='retours-3'>Retours</h3>
+<p>Retourne l&#39;objet <a href="/?javascript#l-39-objet-mesure">mesure</a>.
+Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est retournée.</p>
+<h2 id='modifier-une-mesure'>Modifier une mesure</h2>
+<blockquote>
+<p>PUT /api/editors/mesures/:id</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span>
+<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span> <span class="s2">"https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures/1"</span>
+
+<span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">emjpmApiMesuresUrl</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s2">"put"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">token</span><span class="p">}</span><span class="s2">`</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>REPONSE</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">87243</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"ville"</span><span class="p">:</span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"etablissement"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"mandataire_id"</span><span class="p">:</span><span class="mi">877</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2019-10-21T09:57:36.723Z"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"annee"</span><span class="p">:</span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"Tutelle aux biens et à la personne"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"date_ouverture"</span><span class="p">:</span><span class="s2">"2019-01-08T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"residence"</span><span class="p">:</span><span class="s2">"En établissement"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"civilite"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"Mesure en cours"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"etablissement_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"ti_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"cabinet"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"reason_extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"numero_rg"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"department_id"</span><span class="p">:</span><span class="mi">71</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"antenne_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"service_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"is_urgent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"judgment_date"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"latitude"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"longitude"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Modifie la mesure avec les paramètres passés.
+Tous les paramètres non passées resteront inchangés.
+Cette requête accepte quasiment les mêmes paramètres que pour la création d&#39;une mesure.</p>
+<h3 id='parametres-3'>Paramètres</h3>
+<p><strong>annee</strong> <code>number</code></p>
+
+<p>Année de naissance de la personne.</p>
+
+<p><strong>civilite</strong> <code>string</code></p>
+
+<p>Civilité de la personne, les valeurs possibles sont &quot;H&quot; et &quot;F&quot;.</p>
+
+<p><strong>code_postal</strong> <code>string</code></p>
+
+<p>Code postal de la personne.</p>
+
+<p><strong>ville</strong> <code>string</code></p>
+
+<p>Ville de la personne.</p>
+
+<p><strong>latitude</strong> <code>float</code></p>
+
+<p>Latitude de la personne.</p>
+
+<p><strong>longitude</strong> <code>float</code></p>
+
+<p>Longitude de la personne.</p>
+
+<p><strong>date_ouverture</strong> <code>date</code></p>
+
+<p>Date d&#39;ouverture de la mesure.</p>
+
+<p><strong>department_id</strong> <code>number</code></p>
+
+<p>ID du département de la mesure.</p>
+
+<p><strong>numero_dossier</strong> <code>string</code></p>
+
+<p>Numéro de dossier de la mesure.</p>
+
+<p><strong>numero_rg</strong> <code>string</code></p>
+
+<p>Numéro RG de la mesure.</p>
+
+<p><strong>residence</strong> <code>string</code></p>
+
+<p>Résidence de la personne.</p>
+
+<p><strong>ti_id</strong> <code>number</code></p>
+
+<p>ID du tribunal de la mesure.</p>
+
+<p><strong>status</strong> <code>string</code></p>
+
+<p>Status de la mesure, les valeurs possibles sont &quot;Eteindre mesure&quot; et &quot;Mesure en cours&quot;.</p>
+
+<p><strong>antenne_id</strong> <code>number</code></p>
+
+<p>ID de l&#39;antenne du service.</p>
+<h3 id='retours-4'>Retours</h3>
+<p>Retourne l&#39;objet <a href="/?javascript#l-39-objet-mesure">mesure</a>.
+Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est retournée.</p>
+<h2 id='supprimer-une-mesure'>Supprimer une mesure</h2>
+<blockquote>
+<p>DELETE /api/editors/mesures/:id</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span>
+<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span> <span class="s2">"https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures/1"</span>
+
+<span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">emjpmApiMesuresUrl</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s2">"delete"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">token</span><span class="p">}</span><span class="s2">`</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>REPONSE</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"mesures"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">87243</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ville"</span><span class="p">:</span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"etablissement"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"mandataire_id"</span><span class="p">:</span><span class="mi">877</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2019-10-21T09:57:36.723Z"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"annee"</span><span class="p">:</span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"Tutelle aux biens et à la personne"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"date_ouverture"</span><span class="p">:</span><span class="s2">"2019-01-08T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"residence"</span><span class="p">:</span><span class="s2">"En établissement"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"civilite"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"Mesure en cours"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"etablissement_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ti_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"cabinet"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"reason_extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"numero_rg"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"department_id"</span><span class="p">:</span><span class="mi">71</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"antenne_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"service_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"is_urgent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"judgment_date"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Supprime la mesure associé à l&#39;ID passé.</p>
+<h3 id='retours-5'>Retours</h3>
+<p>Retourne l&#39;objet <a href="/?javascript#l-39-objet-mesure">mesure</a> supprimé.
+Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est retournée.</p>
+<h1 id='errors'>Errors</h1>
+<aside class="notice">
+This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+</aside>
+
+<p>The Kittn API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified kitten could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The kitten requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
