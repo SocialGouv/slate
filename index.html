@@ -283,7 +283,7 @@
 <p>L&#39;API eMJPM est organisée en REST, elle retourne des réponses encodées en JSON,
 et utilise des verbes, des codes de réponses, et des méchanismes d&#39;authentification HTTP standard.</p>
 <h3 id='environnements'>Environnements</h3>
-<p><strong>Test</strong>  <a href="https://api-apitest-emjpm.dev.fabrique.social.gouv.fr">https://api-apitest-emjpm.dev.fabrique.social.gouv.fr</a></p>
+<p><strong>Test</strong> <a href="https://api-apitest-emjpm.dev.fabrique.social.gouv.fr">https://api-apitest-emjpm.dev.fabrique.social.gouv.fr</a></p>
 
 <p><strong>Production</strong> <a href="https://api-emjpm.fabrique.social.gouv.fr">https://api-emjpm.fabrique.social.gouv.fr</a></p>
 
@@ -317,11 +317,27 @@ des identifiants et des retours d&#39;API rapidement sans code.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>individuel-1302@justice.fr</td>
+<td>admin: admin-45@justice.fr</td>
 <td>emjpm2019</td>
 </tr>
 <tr>
-<td>service-131@justice.fr</td>
+<td>individuel: individuel-134@justice.fr</td>
+<td>emjpm2019</td>
+</tr>
+<tr>
+<td>ti: ti-136@justice.fr</td>
+<td>emjpm2019</td>
+</tr>
+<tr>
+<td>prepose: prepose-63@justice.fr</td>
+<td>emjpm2019</td>
+</tr>
+<tr>
+<td>direction: direction-823@justice.fr</td>
+<td>emjpm2019</td>
+</tr>
+<tr>
+<td>service: service-363@justice.fr</td>
 <td>emjpm2019</td>
 </tr>
 </tbody></table>
@@ -336,15 +352,15 @@ des identifiants et des retours d&#39;API rapidement sans code.</p>
 </thead><tbody>
 <tr>
 <td>1</td>
-<td>test</td>
+<td>53tes5gy1zk</td>
 </tr>
 <tr>
 <td>2</td>
-<td>test</td>
+<td>dlz65bkdzmi</td>
 </tr>
 <tr>
 <td>3</td>
-<td>test</td>
+<td>ds3a96tf9l</td>
 </tr>
 </tbody></table>
 <h1 id='authentification'>Authentification</h1>
@@ -368,11 +384,18 @@ des identifiants et des retours d&#39;API rapidement sans code.</p>
 
 <p>Une fois la redirection vers votre application faite vous receverez un token utilisateur sous la forme suivante</p>
 </blockquote>
-<pre class="highlight javascript"><code>
-<span class="kr">const</span> <span class="nx">exampleUrl</span> <span class="o">=</span> <span class="s2">"https://emjpm-editor-demo.netlify.com/?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tLyIsInVpZCI6InJhdTRLZm9WdmVpQ1R4bUZvQTBIbEJ6dDZnSjRoMFVYNVBnUHN1R2tEdDJjMEF4dnE1RENsVmZ0RFh0NWF1U0x1bmlBb3lpWUlQOXdRWTI2OVlaVTVRNVlyTFpTMDFpTjNKZlVveUxKTGhLQUJ1Z0NXY3FGQnduS1FFaDk0RlBPIiwidXNlcklkIjoxMzAyLCJlZGl0b3JJZCI6IjEiLCJlZGl0b3JUb2tlbiI6Imc1dmc0bXV1NDZzIiwiaWF0IjoxNTgyMTA2MTk4LCJzdWIiOiJyYXU0S2ZvVnZlaUNUeG1Gb0EwSGxCenQ2Z0o0aDBVWDVQZ1BzdUdrRHQyYzBBeHZxNURDbFZmdERYdDVhdVNMdW5pQW95aVlJUDl3UVkyNjlZWlU1UTVZckxaUzAxaU4zSmZVb3lMSkxoS0FCdWdDV2NxRkJ3bktRRWg5NEZQTyJ9.kOfoNKyBXPqkPzATRxtkbFGpJp38q57HlTbNOAzx_Gsjs1lYQUj3yNNXyS3VEB6bVbd7YEJ1DYS1fpXdSUauBFjKawOPvZ0St1vdDlkVhsHyCsiKE_8LtcgQ-rIVqWhgsuBh_YE-ybxq5YamGutcWtvcNBVhb526C1sjJry0bghM7FeK9WsQ2T70W3s4MIzjks9txDw1q55I86VJXK72xsqmjQnjufNukze9EqPmO0iIxTFRX9uZ4vaA0HO7xW1fcsXduyd3Qy1SkoUjdP0hJ94wxPb2HFApZUpWwIPuOqm4bmuopl1mANx0ncIXKizzq05-9q4ynfyra-E3iSaKqw"</span>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">exampleUrl</span> <span class="o">=</span>
+  <span class="s2">"https://emjpm-editor-demo.netlify.com/?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tLyIsInVpZCI6InJhdTRLZm9WdmVpQ1R4bUZvQTBIbEJ6dDZnSjRoMFVYNVBnUHN1R2tEdDJjMEF4dnE1RENsVmZ0RFh0NWF1U0x1bmlBb3lpWUlQOXdRWTI2OVlaVTVRNVlyTFpTMDFpTjNKZlVveUxKTGhLQUJ1Z0NXY3FGQnduS1FFaDk0RlBPIiwidXNlcklkIjoxMzAyLCJlZGl0b3JJZCI6IjEiLCJlZGl0b3JUb2tlbiI6Imc1dmc0bXV1NDZzIiwiaWF0IjoxNTgyMTA2MTk4LCJzdWIiOiJyYXU0S2ZvVnZlaUNUeG1Gb0EwSGxCenQ2Z0o0aDBVWDVQZ1BzdUdrRHQyYzBBeHZxNURDbFZmdERYdDVhdVNMdW5pQW95aVlJUDl3UVkyNjlZWlU1UTVZckxaUzAxaU4zSmZVb3lMSkxoS0FCdWdDV2NxRkJ3bktRRWg5NEZQTyJ9.kOfoNKyBXPqkPzATRxtkbFGpJp38q57HlTbNOAzx_Gsjs1lYQUj3yNNXyS3VEB6bVbd7YEJ1DYS1fpXdSUauBFjKawOPvZ0St1vdDlkVhsHyCsiKE_8LtcgQ-rIVqWhgsuBh_YE-ybxq5YamGutcWtvcNBVhb526C1sjJry0bghM7FeK9WsQ2T70W3s4MIzjks9txDw1q55I86VJXK72xsqmjQnjufNukze9EqPmO0iIxTFRX9uZ4vaA0HO7xW1fcsXduyd3Qy1SkoUjdP0hJ94wxPb2HFApZUpWwIPuOqm4bmuopl1mANx0ncIXKizzq05-9q4ynfyra-E3iSaKqw"</span><span class="p">;</span>
 
 <span class="c1">// soit le token suivant</span>
-<span class="nx">eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="p">.</span><span class="nx">eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0</span><span class="p">.</span><span class="nx">HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2</span><span class="o">-</span><span class="nx">E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv</span><span class="o">-</span><span class="nx">IfXwFdJZq0fZmhRW7atWQoMdBtB</span><span class="o">-</span><span class="nx">djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0</span><span class="o">-</span><span class="nx">tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz</span><span class="o">-</span><span class="nx">jEHh3zEGbv9qqVwQ879O23GPMeHE4w</span>
+<span class="nx">eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9</span>
+  <span class="p">.</span><span class="nx">eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0</span>
+  <span class="p">.</span><span class="nx">HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2</span> <span class="o">-</span>
+  <span class="nx">E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv</span> <span class="o">-</span>
+  <span class="nx">IfXwFdJZq0fZmhRW7atWQoMdBtB</span> <span class="o">-</span>
+  <span class="nx">djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0</span> <span class="o">-</span>
+  <span class="nx">tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz</span> <span class="o">-</span>
+  <span class="nx">jEHh3zEGbv9qqVwQ879O23GPMeHE4w</span><span class="p">;</span>
 </code></pre>
 <p>L&#39;API eMJPM utilise des tokens pour authentifier les requêtes via le méchanisme HTTP Bearer.</p>
 
@@ -481,8 +504,10 @@ Pour se faire il suffit de faire une redirection depuis votre application jusqu&
 <blockquote>
 <p>GET /api/editors/mesures</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span>
-<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span> <span class="s2">"https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures?status=Mesure en cours"</span>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span>
+  <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span>
+  <span class="s2">"https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures?status=Mesure en cours"</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">emjpmApiMesuresUrl</span><span class="p">,</span> <span class="p">{</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
@@ -494,36 +519,36 @@ Pour se faire il suffit de faire une redirection depuis votre application jusqu&
 <p>RESPONSE</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"mesures"</span><span class="p">:[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-         </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">87243</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ville"</span><span class="p">:</span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"etablissement"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"mandataire_id"</span><span class="p">:</span><span class="mi">877</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2019-10-21T09:57:36.723Z"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"annee"</span><span class="p">:</span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"Tutelle aux biens et à la personne"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"date_ouverture"</span><span class="p">:</span><span class="s2">"2019-01-08T00:00:00.000Z"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"residence"</span><span class="p">:</span><span class="s2">"En établissement"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"civilite"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"Mesure en cours"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"etablissement_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ti_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"cabinet"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"reason_extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"numero_rg"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"department_id"</span><span class="p">:</span><span class="mi">71</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"antenne_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"service_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"is_urgent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"judgment_date"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="kc">null</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-   </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"mesures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">87243</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"etablissement"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"mandataire_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">877</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-21T09:57:36.723Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"annee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tutelle aux biens et à la personne"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_ouverture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-08T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"residence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"En établissement"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"civilite"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mesure en cours"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"extinction"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"etablissement_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ti_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cabinet"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"reason_extinction"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"numero_rg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">71</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"antenne_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"service_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_urgent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"judgment_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Retourne la liste de toutes les mesures associées à l&#39;utilisateur.
@@ -536,8 +561,10 @@ Les mesures retournées sont triées, avec la mesure la plus récente apparaissa
 <blockquote>
 <p>GET /api/editors/mesures/:id</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span>
-<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span> <span class="s2">"https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures/1"</span>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span>
+  <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span>
+  <span class="s2">"https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures/1"</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">emjpmApiMesuresUrl</span><span class="p">,</span> <span class="p">{</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
@@ -549,32 +576,32 @@ Les mesures retournées sont triées, avec la mesure la plus récente apparaissa
 <p>REPONSE</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">87243</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"ville"</span><span class="p">:</span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"etablissement"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"mandataire_id"</span><span class="p">:</span><span class="mi">877</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2019-10-21T09:57:36.723Z"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"annee"</span><span class="p">:</span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"Tutelle aux biens et à la personne"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"date_ouverture"</span><span class="p">:</span><span class="s2">"2019-01-08T00:00:00.000Z"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"residence"</span><span class="p">:</span><span class="s2">"En établissement"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"civilite"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"Mesure en cours"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"etablissement_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"ti_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"cabinet"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"reason_extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"numero_rg"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"department_id"</span><span class="p">:</span><span class="mi">71</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"antenne_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"service_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"is_urgent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"judgment_date"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"latitude"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"longitude"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">87243</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"etablissement"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"mandataire_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">877</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-21T09:57:36.723Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"annee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tutelle aux biens et à la personne"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_ouverture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-08T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"residence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"En établissement"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"civilite"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mesure en cours"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"extinction"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"etablissement_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ti_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cabinet"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reason_extinction"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"numero_rg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">71</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"antenne_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"service_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_urgent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"judgment_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Récupère la mesure associée à l&#39;ID passé.</p>
@@ -585,8 +612,10 @@ Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est 
 <blockquote>
 <p>POST /api/editors/mesures</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span>
-<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span> <span class="s2">"https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures en cours"</span>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span>
+  <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span>
+  <span class="s2">"https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures en cours"</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">emjpmApiMesuresUrl</span><span class="p">,</span> <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s2">"post"</span><span class="p">,</span>
@@ -599,32 +628,32 @@ Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est 
 <p>REPONSE</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">87243</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"ville"</span><span class="p">:</span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"etablissement"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"mandataire_id"</span><span class="p">:</span><span class="mi">877</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2019-10-21T09:57:36.723Z"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"annee"</span><span class="p">:</span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"Tutelle aux biens et à la personne"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"date_ouverture"</span><span class="p">:</span><span class="s2">"2019-01-08T00:00:00.000Z"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"residence"</span><span class="p">:</span><span class="s2">"En établissement"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"civilite"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"Mesure en cours"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"etablissement_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"ti_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"cabinet"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"reason_extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"numero_rg"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"department_id"</span><span class="p">:</span><span class="mi">71</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"antenne_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"service_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"is_urgent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"judgment_date"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"latitude"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"longitude"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">87243</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"etablissement"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"mandataire_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">877</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-21T09:57:36.723Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"annee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tutelle aux biens et à la personne"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_ouverture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-08T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"residence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"En établissement"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"civilite"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mesure en cours"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"extinction"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"etablissement_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ti_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cabinet"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reason_extinction"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"numero_rg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">71</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"antenne_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"service_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_urgent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"judgment_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Créer une mesure avec les paramètres passés.
@@ -692,8 +721,10 @@ Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est 
 <blockquote>
 <p>PUT /api/editors/mesures/:id</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span>
-<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span> <span class="s2">"https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures/1"</span>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span>
+  <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span>
+  <span class="s2">"https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures/1"</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">emjpmApiMesuresUrl</span><span class="p">,</span> <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s2">"put"</span><span class="p">,</span>
@@ -706,32 +737,32 @@ Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est 
 <p>REPONSE</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">87243</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"ville"</span><span class="p">:</span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"etablissement"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"mandataire_id"</span><span class="p">:</span><span class="mi">877</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2019-10-21T09:57:36.723Z"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"annee"</span><span class="p">:</span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"Tutelle aux biens et à la personne"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"date_ouverture"</span><span class="p">:</span><span class="s2">"2019-01-08T00:00:00.000Z"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"residence"</span><span class="p">:</span><span class="s2">"En établissement"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"civilite"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"Mesure en cours"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"etablissement_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"ti_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"cabinet"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"reason_extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"numero_rg"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"department_id"</span><span class="p">:</span><span class="mi">71</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"antenne_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"service_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"is_urgent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"judgment_date"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"latitude"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"longitude"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">87243</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"etablissement"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"mandataire_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">877</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-21T09:57:36.723Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"annee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tutelle aux biens et à la personne"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_ouverture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-08T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"residence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"En établissement"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"civilite"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mesure en cours"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"extinction"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"etablissement_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ti_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cabinet"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reason_extinction"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"numero_rg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">71</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"antenne_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"service_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_urgent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"judgment_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Modifie la mesure avec les paramètres passés.
@@ -800,8 +831,10 @@ Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est 
 <blockquote>
 <p>DELETE /api/editors/mesures/:id</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span>
-<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span> <span class="s2">"https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures/1"</span>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span>
+  <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span>
+  <span class="s2">"https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures/1"</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">emjpmApiMesuresUrl</span><span class="p">,</span> <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s2">"delete"</span><span class="p">,</span>
@@ -814,36 +847,36 @@ Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est 
 <p>REPONSE</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"mesures"</span><span class="p">:[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-         </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">87243</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ville"</span><span class="p">:</span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"etablissement"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"mandataire_id"</span><span class="p">:</span><span class="mi">877</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2019-10-21T09:57:36.723Z"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"annee"</span><span class="p">:</span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"Tutelle aux biens et à la personne"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"date_ouverture"</span><span class="p">:</span><span class="s2">"2019-01-08T00:00:00.000Z"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"residence"</span><span class="p">:</span><span class="s2">"En établissement"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"civilite"</span><span class="p">:</span><span class="s2">"H"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"Mesure en cours"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"etablissement_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ti_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"cabinet"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"reason_extinction"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"numero_rg"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"department_id"</span><span class="p">:</span><span class="mi">71</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"antenne_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"service_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"is_urgent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"judgment_date"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"latitude"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"longitude"</span><span class="p">:</span><span class="kc">null</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-   </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"mesures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">87243</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"etablissement"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"mandataire_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">877</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-21T09:57:36.723Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"annee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tutelle aux biens et à la personne"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_ouverture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-08T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"residence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"En établissement"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"civilite"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mesure en cours"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"extinction"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"etablissement_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ti_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cabinet"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"reason_extinction"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"numero_rg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">71</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"antenne_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"service_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_urgent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"judgment_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Supprime la mesure associé à l&#39;ID passé.</p>
