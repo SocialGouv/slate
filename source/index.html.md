@@ -242,7 +242,7 @@ Lieu de vie du majeur protégé, les valeurs possibles sont "domicile", "etablis
 
 **type_etablissement**
 
-Type d'établissement, les valeurs possibles sont "etablissement_handicapes", "etablissement_personne_agee", "autre_etablissement_s_ms", "etablissement_hospitalier", ou "etablissement_psychiatrique".
+Type d'établissement, les valeurs possibles sont "etablissement_handicapes", "etablissement_personne_agee", "autre_etablissement", "autre_etablissement_s_ms", "etablissement_hospitalier", ou "etablissement_psychiatrique".
 
 **civilite** `string`
 
@@ -632,6 +632,7 @@ const response = await fetch(emjpmApiMesuresUrl, {
   "date_premier_mesure": "2020-01-01",
   "date_protection_en_cours": "2020-01-01",
   "resultat_revision": "allegement",
+  "tribunal_siret": "17971111400134",
   "etats": [
     {
       "id": 112,
