@@ -121,7 +121,7 @@ Si l’utilisateur de votre app ne souhaite pas utiliser le login EMJPM et cliqu
 Pour obtenir un token d’accès, passez un appel HTTP GET au point de terminaison OAuth suivant :
 
 ```
-POST https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/oauth/token?client_id={votre id editeur}&redirect_uri={url de redirection}&client_secret={secret}&code={authorization code}
+POST https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/oauth/token?client_id={votre id editeur}&redirect_uri={url de redirection}&client_secret={secret}&code={authorization code}&grant_type=authorization_code
 ```
 
 Ce point de terminaison doit présenter les paramètres suivants :
@@ -137,6 +137,9 @@ Votre clé secrète unique. Cette clé secrète ne doit jamais être intégrée 
 
 **code**
 Le paramètre reçu issu de la redirection de la boîte de dialogue Login mentionnée plus haut.
+
+**grant_type**
+`authorization_code`
 
 Réponse
 
