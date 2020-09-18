@@ -429,7 +429,7 @@ des identifiants et des retours d&#39;API rapidement sans code.</p>
 </blockquote>
 <h2 id='echanger-le-code-contre-un-token-d-acces'>Échanger le code contre un token d’accès</h2>
 <p>Pour obtenir un token d’accès, passez un appel HTTP GET au point de terminaison OAuth suivant :</p>
-<pre class="highlight plaintext"><code>POST https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/oauth/token?client_id={votre id editeur}&amp;redirect_uri={url de redirection}&amp;client_secret={secret}&amp;code={authorization code}
+<pre class="highlight plaintext"><code>POST https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/oauth/token?client_id={votre id editeur}&amp;redirect_uri={url de redirection}&amp;client_secret={secret}&amp;code={authorization code}&amp;grant_type=authorization_code
 </code></pre>
 <p>Ce point de terminaison doit présenter les paramètres suivants :</p>
 
@@ -444,6 +444,9 @@ Votre clé secrète unique. Cette clé secrète ne doit jamais être intégrée 
 
 <p><strong>code</strong>
 Le paramètre reçu issu de la redirection de la boîte de dialogue Login mentionnée plus haut.</p>
+
+<p><strong>grant_type</strong>
+<code>authorization_code</code></p>
 
 <p>Réponse</p>
 
