@@ -70,67 +70,90 @@ Liste des tokens d'API :
 | 2         | dlz65bkdzmi  |
 | 3         | ds3a96tf9l   |
 
-# Authentification
-
-> pour authoriser votre application à accèder à un compte utilisateur veuillez rediriger sur l'url emjpm construite de la façon suivante:
-
-```javascript
-// url de redirection de test
-const emjpmAuthTestUrl = `https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/application/authorization?editor_id=${votre editor_id de test}&editor_token=${votre editor_token de test}&redirect_url=${url de redirection vers votre application}`;
-
-// exemple avec des informations de test
-const finalUrl = "https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/application/authorization?editor_id=1&editor_token=abcd&redirect_url=http://exemple.com"
-
-// url de redirection de production
-const emjpmAuthTestUrl = `https://api-emjpm.fabrique.social.gouv.fr/application/authorization?editor_id=${votre editor_id de prod}&editor_token=${votre editor_token de prod}&redirect_url=${url de redirection vers votre application}`;
-
-// exemple avec des informations de prod
-const finalUrl = "https://api-emjpm.fabrique.social.gouv.fr/application/authorization?editor_id=1&editor_token=abcd&redirect_url=http://exemple.com"
-```
-
-> Soyez sur de remplacer les informations d'exemple avec les votres
-
-> Une fois la redirection vers votre application faite vous receverez un token utilisateur sous la forme suivante
-
-```js
-const exampleUrl =
-  "https://emjpm-editor-app.fabrique.social.gouv.fr/?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tLyIsInVpZCI6InJhdTRLZm9WdmVpQ1R4bUZvQTBIbEJ6dDZnSjRoMFVYNVBnUHN1R2tEdDJjMEF4dnE1RENsVmZ0RFh0NWF1U0x1bmlBb3lpWUlQOXdRWTI2OVlaVTVRNVlyTFpTMDFpTjNKZlVveUxKTGhLQUJ1Z0NXY3FGQnduS1FFaDk0RlBPIiwidXNlcklkIjoxMzAyLCJlZGl0b3JJZCI6IjEiLCJlZGl0b3JUb2tlbiI6Imc1dmc0bXV1NDZzIiwiaWF0IjoxNTgyMTA2MTk4LCJzdWIiOiJyYXU0S2ZvVnZlaUNUeG1Gb0EwSGxCenQ2Z0o0aDBVWDVQZ1BzdUdrRHQyYzBBeHZxNURDbFZmdERYdDVhdVNMdW5pQW95aVlJUDl3UVkyNjlZWlU1UTVZckxaUzAxaU4zSmZVb3lMSkxoS0FCdWdDV2NxRkJ3bktRRWg5NEZQTyJ9.kOfoNKyBXPqkPzATRxtkbFGpJp38q57HlTbNOAzx_Gsjs1lYQUj3yNNXyS3VEB6bVbd7YEJ1DYS1fpXdSUauBFjKawOPvZ0St1vdDlkVhsHyCsiKE_8LtcgQ-rIVqWhgsuBh_YE-ybxq5YamGutcWtvcNBVhb526C1sjJry0bghM7FeK9WsQ2T70W3s4MIzjks9txDw1q55I86VJXK72xsqmjQnjufNukze9EqPmO0iIxTFRX9uZ4vaA0HO7xW1fcsXduyd3Qy1SkoUjdP0hJ94wxPb2HFApZUpWwIPuOqm4bmuopl1mANx0ncIXKizzq05-9q4ynfyra-E3iSaKqw";
-
-// soit le token suivant
-eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9
-  .eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0
-  .HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2 -
-  E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv -
-  IfXwFdJZq0fZmhRW7atWQoMdBtB -
-  djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0 -
-  tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz -
-  jEHh3zEGbv9qqVwQ879O23GPMeHE4w;
-```
+# Intégrer le login EMJPM en tant qu'editeur
 
 L'API eMJPM utilise des tokens pour authentifier les requêtes via le méchanisme HTTP Bearer.
 
 Pour utiliser l'API eMJPM en production (https://api-emjpm.fabrique.social.gouv.fr), vous devez obtenir un editor_id et un editor_token de production. Pour ce faire, veuillez remplir une demande d'autorisation sur notre [page dédié](https://emjpm.fabrique.social.gouv.fr/application/token-request).
 
-### Etapes
+# Inviter les utilisateurs à se connecter
 
-eMJPM utilise un système d'oauth pour identifier les utilisateurs donnant accès à leur compte aux logiciels métiers.
-Pour se faire il suffit de faire une redirection depuis votre application jusqu'à la page d'authorisation utilisateur, la page à besoin de 3 paramètres
+> pour autoriser votre application à accèder à un compte utilisateur veuillez rediriger sur l'url emjpm construite de la façon suivante:
 
-- `editor_id` : votre editor_id
-- `editor_token`: votre editor_token
-- `redirect_url`: l'url de redirection vers votre application
+**client_id**
 
-une fois l'autorisation accepté par l'utilisateur, nous le redirigerons vers votre application en donnant en paramamètre le token de l'utilisateur qui vous est lié.
+> L’ID editor qui vous a été fourni.
 
-ce token vous permettra par la suite de passer des requetes sur l'api Emjpm relative à cet utilisateur et votre application.
+**redirect_uri**
+
+> L’URL vers laquelle vous souhaitez rediriger l’utilisateur qui se connecte. Cette URL capturera la réponse provenant du login EMJPM.
+
+**state** (optionnel)
+
+> Une valeur de chaîne créée par votre app pour stabiliser la demande et le rappel. Ce paramètre doit être utilisé pour prévenir la falsification de demande intersite et vous sera renvoyé intact dans votre URI de redirection.
+
+```js
+const emjpmAuthTestUrl = `https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/application/authorization?client_id=${votre editor_id de test}&redirect_uri=${url de redirection vers votre application}&state={chaine aléatoire}`;
+```
+
+> Si l'utilisateur n'est pas déja connecté à EMJPM, il sera invité à se connecter, puis redirigé vers le processus de connexion. Vous n’avez rien à faire de votre côté pour activer ce comportement, car il s’exécute automatiquement.
+
+## L'utilisateur doit autoriser votre application à accéder à son compte
+
+À cette étape du processus de connexion, l’utilisateur accède à un écran de permissions et peut choisir d’annuler l’opération ou d’autoriser l’app à accéder à ses données.
+
+Dans tous les cas, le navigateur revient à l’app et les données indiquant si l’utilisateur s’est connecté ou s’il a annulé l’opération sont incluses à la réponse.
+
+## Connexion annulée
+
+Si l’utilisateur de votre app ne souhaite pas utiliser le login EMJPM et clique sur Annuler, il sera redirigé vers :
+
+```js
+`${url de redirection vers votre application}?error_reason=user_denied&error=access_denied&error_description=Permissions+error`
+```
+
+# Confirmer l’identité des utilisateurs
+
+> Lorsque le code est reçu, il doit être échangé contre un token d’accès à l’aide d’un point de terminaison. L’appel doit être effectué de serveur à serveur étant donné qu’il nécessite l’utilisation de votre clé secrète. (Votre clé secrète ne doit jamais se retrouver dans le code client.)
+
+## Échanger le code contre un token d’accès
+
+Pour obtenir un token d’accès, passez un appel HTTP GET au point de terminaison OAuth suivant :
+
+```
+POST https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/oauth/token?client_id={votre id editeur}&redirect_uri={url de redirection}&client_secret={secret}&code={authorization code}
+```
+
+Ce point de terminaison doit présenter les paramètres suivants :
+
+**client_id**
+Votre id editeur
+
+**redirect_uri**
+Cet argument est requis et doit être identique au request_uri initial que vous avez utilisé lorsque vous avez commencé le processus de connexion OAuth.
+
+**client_secret**
+Votre clé secrète unique. Cette clé secrète ne doit jamais être intégrée au code côté client ni à des fichiers binaires pouvant être décompilés. Elle doit absolument rester secrète étant donné qu’elle joue un rôle prépondérant dans la protection de votre app et de toutes les personnes qui l’utilisent.
+
+**code**
+Le paramètre reçu issu de la redirection de la boîte de dialogue Login mentionnée plus haut.
+
+Réponse
+
+La réponse que vous recevez de ce point de terminaison est renvoyée au format JSON. Si le renvoi s’est bien déroulé, il s’agit de :
+
+```json
+{
+    "access_token": {access-token},
+    "token_type": "Bearer",
+    "expires_in": {seconds-til-expiration},
+    "refresh_token": {refresh-token}
+}
+```
+
+L'access token vous permettra par la suite de passer des requetes sur l'api Emjpm relative à cet utilisateur et votre application.
 
 L'utilisateur peut révoquer l'accès d'un logiciel métier à son compte eMJPM.
-
-### Redirection
-
-exemple
-
-`https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/application/authorization?editor_id=1&editor_token=abcd&redirect_url=http://exemple.com`
 
 # Mesures
 
@@ -242,7 +265,7 @@ Lieu de vie du majeur protégé, les valeurs possibles sont "domicile", "etablis
 
 **type_etablissement**
 
-Type d'établissement, les valeurs possibles sont "etablissement_handicapes", "etablissement_personne_agee", "autre_etablissement_s_ms", "etablissement_hospitalier", ou "etablissement_psychiatrique".
+Type d'établissement, les valeurs possibles sont "etablissement_handicapes", "etablissement_personne_agee", "autre_etablissement", "autre_etablissement_s_ms", "etablissement_hospitalier", ou "etablissement_psychiatrique".
 
 **civilite** `string`
 
@@ -632,6 +655,7 @@ const response = await fetch(emjpmApiMesuresUrl, {
   "date_premier_mesure": "2020-01-01",
   "date_protection_en_cours": "2020-01-01",
   "resultat_revision": "allegement",
+  "tribunal_siret": "17971111400134",
   "etats": [
     {
       "id": 112,
