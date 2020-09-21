@@ -224,12 +224,6 @@
                   <li>
                     <a href="#environnements" class="toc-h2 toc-link" data-title="Environnements">Environnements</a>
                   </li>
-                  <li>
-                    <a href="#application-de-test" class="toc-h2 toc-link" data-title="Application de test">Application de test</a>
-                  </li>
-                  <li>
-                    <a href="#comptes-tokens-de-test" class="toc-h2 toc-link" data-title="Comptes / Tokens de test">Comptes / Tokens de test</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -313,82 +307,13 @@ et utilise des verbes, des codes de réponses, et des méchanismes d&#39;authent
 
 <p><a href="https://api-apitest-emjpm.dev.fabrique.social.gouv.fr">https://api-apitest-emjpm.dev.fabrique.social.gouv.fr</a></p>
 
-<p>remplacez votre editor_id et votre editor_token de test par ceux obtenues suite à votre demande d&#39;autorisation</p>
+<p>remplacez votre client_id et votre client_token de test par ceux obtenues suite à votre demande d&#39;autorisation</p>
 
 <p>L&#39;environnement de test est fonctionnellement identique à l&#39;environnement de production.</p>
-<h3 id='application-de-test'>Application de test</h3>
-<p>Afin de faciliter les tests, une application exemple est mis à disposition</p>
-
-<p><a href="https://emjpm-editor-app.fabrique.social.gouv.fr">https://emjpm-editor-app.fabrique.social.gouv.fr</a></p>
-
-<p>(Source <a href="https://github.com/SocialGouv/emjpm-editor-app">https://github.com/SocialGouv/emjpm-editor-app</a>)</p>
-
-<p>L&#39;application implémente une demande de token configurable via l&#39;interface,
-et des appels à l&#39;API <code>/mesures</code> avec autorisation, vous permettant de tester
-des identifiants et des retours d&#39;API rapidement sans code.</p>
-<h3 id='comptes-tokens-de-test'>Comptes / Tokens de test</h3>
-<p>Des comptes et tokens de test sont mis à disposition,
-<a href="https://api-apitest-emjpm.dev.fabrique.social.gouv.fr">https://api-apitest-emjpm.dev.fabrique.social.gouv.fr</a>,</p>
-
-<p>List des comptes utilisateur :</p>
-
-<table><thead>
-<tr>
-<th>email</th>
-<th>mot de passe</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>admin: admin-45@justice.fr</td>
-<td>emjpm2019</td>
-</tr>
-<tr>
-<td>individuel: individuel-134@justice.fr</td>
-<td>emjpm2019</td>
-</tr>
-<tr>
-<td>ti: ti-136@justice.fr</td>
-<td>emjpm2019</td>
-</tr>
-<tr>
-<td>prepose: prepose-63@justice.fr</td>
-<td>emjpm2019</td>
-</tr>
-<tr>
-<td>direction: direction-823@justice.fr</td>
-<td>emjpm2019</td>
-</tr>
-<tr>
-<td>service: service-363@justice.fr</td>
-<td>emjpm2019</td>
-</tr>
-</tbody></table>
-
-<p>Liste des tokens d&#39;API :</p>
-
-<table><thead>
-<tr>
-<th>editor_id</th>
-<th>editor_token</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>1</td>
-<td>53tes5gy1zk</td>
-</tr>
-<tr>
-<td>2</td>
-<td>dlz65bkdzmi</td>
-</tr>
-<tr>
-<td>3</td>
-<td>ds3a96tf9l</td>
-</tr>
-</tbody></table>
 <h1 id='integrer-le-login-emjpm-en-tant-qu-39-editeur'>Intégrer le login EMJPM en tant qu&#39;editeur</h1>
 <p>L&#39;API eMJPM utilise des tokens pour authentifier les requêtes via le méchanisme HTTP Bearer.</p>
 
-<p>Pour utiliser l&#39;API eMJPM en production (https://api-emjpm.fabrique.social.gouv.fr), vous devez obtenir un editor_id et un editor_token de production. Pour ce faire, veuillez remplir une demande d&#39;autorisation sur notre <a href="https://emjpm.fabrique.social.gouv.fr/application/token-request">page dédié</a>.</p>
+<p>Pour utiliser l&#39;API eMJPM en production (https://api-emjpm.fabrique.social.gouv.fr), vous devez obtenir un client_id et un client_token de production. Pour ce faire, veuillez remplir une demande d&#39;autorisation sur notre <a href="https://emjpm.fabrique.social.gouv.fr/application/token-request">page dédié</a>.</p>
 <h1 id='inviter-les-utilisateurs-a-se-connecter'>Inviter les utilisateurs à se connecter</h1>
 <blockquote>
 <p>pour autoriser votre application à accèder à un compte utilisateur veuillez rediriger sur l&#39;url emjpm construite de la façon suivante:</p>
@@ -411,7 +336,7 @@ des identifiants et des retours d&#39;API rapidement sans code.</p>
 <blockquote>
 <p>Une valeur de chaîne créée par votre app pour stabiliser la demande et le rappel. Ce paramètre doit être utilisé pour prévenir la falsification de demande intersite et vous sera renvoyé intact dans votre URI de redirection.</p>
 </blockquote>
-<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">emjpmAuthTestUrl</span> <span class="o">=</span> <span class="s2">`https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/application/authorization?client_id=</span><span class="p">${</span><span class="nx">votre</span> <span class="nx">editor_id</span> <span class="nx">de</span> <span class="nx">test</span><span class="p">}</span><span class="s2">&amp;redirect_uri=</span><span class="p">${</span><span class="nx">url</span> <span class="nx">de</span> <span class="nx">redirection</span> <span class="nx">vers</span> <span class="nx">votre</span> <span class="nx">application</span><span class="p">}</span><span class="s2">&amp;state={chaine aléatoire}`</span><span class="p">;</span>
+<pre class="highlight javascript"><code><span class="s2">`https://apitest-emjpm.dev.fabrique.social.gouv.fr/application/authorization?client_id=</span><span class="p">${</span><span class="nx">votre</span> <span class="nx">editor_id</span> <span class="nx">de</span> <span class="nx">test</span><span class="p">}</span><span class="s2">&amp;redirect_uri=</span><span class="p">${</span><span class="nx">url</span> <span class="nx">de</span> <span class="nx">redirection</span> <span class="nx">vers</span> <span class="nx">votre</span> <span class="nx">application</span><span class="p">}</span><span class="s2">&amp;state={chaine aléatoire}`</span><span class="p">;</span>
 </code></pre>
 <blockquote>
 <p>Si l&#39;utilisateur n&#39;est pas déja connecté à EMJPM, il sera invité à se connecter, puis redirigé vers le processus de connexion. Vous n’avez rien à faire de votre côté pour activer ce comportement, car il s’exécute automatiquement.</p>
@@ -429,7 +354,11 @@ des identifiants et des retours d&#39;API rapidement sans code.</p>
 </blockquote>
 <h2 id='echanger-le-code-contre-un-token-d-acces'>Échanger le code contre un token d’accès</h2>
 <p>Pour obtenir un token d’accès, passez un appel HTTP GET au point de terminaison OAuth suivant :</p>
-<pre class="highlight plaintext"><code>POST https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/oauth/token?client_id={votre id editeur}&amp;redirect_uri={url de redirection}&amp;client_secret={secret}&amp;code={authorization code}&amp;grant_type=authorization_code
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/oauth/token?</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">https://api-apitest-emjpm.dev.fabrique.social.gouv.fr</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+client_id={votre_identifiant_editeur}&amp;redirect_uri={url_de_redirection}&amp;client_secret={votre_secret_editeur}code={code_d_autorisation}&amp;grant_type=authorization_code
 </code></pre>
 <p>Ce point de terminaison doit présenter les paramètres suivants :</p>
 
@@ -446,7 +375,7 @@ Votre clé secrète unique. Cette clé secrète ne doit jamais être intégrée 
 Le paramètre reçu issu de la redirection de la boîte de dialogue Login mentionnée plus haut.</p>
 
 <p><strong>grant_type</strong>
-<code>authorization_code</code></p>
+doit être égal à <code>authorization_code</code></p>
 
 <p>Réponse</p>
 
@@ -469,8 +398,7 @@ Le paramètre reçu issu de la redirection de la boîte de dialogue Login mentio
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">138732</span><span class="p">,</span><span class="w">
   </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75015"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paris"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-02"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"annee_naissance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1989"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"annee_naissance"</span><span class="p">:</span><span class="w"> </span><span class="mi">1989</span><span class="p">,</span><span class="w">
   </span><span class="s2">"date_nomination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"date_fin_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"354354354354"</span><span class="p">,</span><span class="w">
@@ -488,7 +416,6 @@ Le paramètre reçu issu de la redirection de la boîte de dialogue Login mentio
   </span><span class="s2">"resultat_revision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allegement"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"etats"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">112</span><span class="p">,</span><span class="w">
       </span><span class="s2">"date_changement_etat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"nature_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mesure_accompagnement_judiciaire"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"champ_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"protection_bien_personne"</span><span class="p">,</span><span class="w">
@@ -502,11 +429,9 @@ Le paramètre reçu issu de la redirection de la boîte de dialogue Login mentio
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"ressources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"mesure_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">138671</span><span class="p">,</span><span class="w">
       </span><span class="s2">"annee"</span><span class="p">:</span><span class="w"> </span><span class="mi">2010</span><span class="p">,</span><span class="w">
       </span><span class="s2">"niveau_ressource"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"prestations_sociales"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[</span><span class="se">\"</span><span class="s2">PCH</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">RSA</span><span class="se">\"</span><span class="s2">]"</span><span class="w">
+      </span><span class="s2">"prestations_sociales"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"PCH"</span><span class="p">,</span><span class="s2">"RSA"</span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -523,11 +448,7 @@ Le paramètre reçu issu de la redirection de la boîte de dialogue Login mentio
 
 <p>Ville de la personne.</p>
 
-<p><strong>created_at</strong> <code>string</code></p>
-
-<p>Date de d&#39;insertion de la mesure en base de données</p>
-
-<p><strong>annee_naissance</strong> <code>string</code></p>
+<p><strong>annee_naissance</strong> <code>number</code></p>
 
 <p>Année de naissance de la personne.</p>
 
@@ -547,7 +468,7 @@ Le paramètre reçu issu de la redirection de la boîte de dialogue Login mentio
 
 <p>Numéro RG de la mesure.</p>
 
-<p><strong>antenne_id</strong> <code>string</code></p>
+<p><strong>antenne_id</strong> <code>number</code></p>
 
 <p>Dans le cas d&#39;un service mandataire, identifiant unique emjpm de l&#39;antenne&#39;</p>
 
@@ -589,8 +510,6 @@ Le paramètre reçu issu de la redirection de la boîte de dialogue Login mentio
 
 <p>Historique des états de la mesure</p>
 
-<p><strong>etats.[*].id</strong> <code>number</code></p>
-
 <p><strong>etats.[*].date_changement_etat</strong> <code>string</code></p>
 
 <p><strong>etats.[*].nature_mesure</strong> <code>string</code></p>
@@ -613,10 +532,6 @@ Le paramètre reçu issu de la redirection de la boîte de dialogue Login mentio
 
 <p>Historique des mesures de protection</p>
 
-<p><strong>ressources.[*].id</strong> <code>number</code></p>
-
-<p><strong>ressources.[*].mesure_id</strong> <code>number</code></p>
-
 <p><strong>ressources.[*].annee</strong> <code>number</code></p>
 
 <p><strong>ressources.[*].niveau_ressource</strong> <code>number</code></p>
@@ -626,90 +541,25 @@ Le paramètre reçu issu de la redirection de la boîte de dialogue Login mentio
 <blockquote>
 <p>GET /api/editors/mesures</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span>
-  <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span>
-  <span class="s2">"https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures?status=en_cours"</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">emjpmApiMesuresUrl</span><span class="p">,</span> <span class="p">{</span>
-  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">token</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
-  <span class="p">},</span>
-<span class="p">});</span>
+<pre class="highlight plaintext"><code>GET /api/editors/mesures HTTP/1.1
+Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures
+Authorization: Bearer {access-token}
 </code></pre>
-<blockquote>
-<p>RESPONSE</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"mesures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">138732</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75015"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paris"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-02"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"annee_naissance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1989"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"date_nomination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"date_fin_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"354354354354"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"numero_rg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RG4354354354"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"antenne_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">48.8402</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.29356</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"pays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"lieu_vie"</span><span class="p">:</span><span class="w"> </span><span class="s2">"etablissement"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type_etablissement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autre_etablissement_s_ms"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"civilite"</span><span class="p">:</span><span class="w"> </span><span class="s2">"monsieur"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"cause_sortie"</span><span class="p">:</span><span class="w"> </span><span class="s2">"caducite"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"date_premier_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"date_protection_en_cours"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"resultat_revision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allegement"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"etats"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">112</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"date_changement_etat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"nature_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mesure_accompagnement_judiciaire"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"champ_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"protection_bien_personne"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"lieu_vie"</span><span class="p">:</span><span class="w"> </span><span class="s2">"etablissement"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75015"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paris"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"pays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"type_etablissement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autre_etablissement_s_ms"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"etablissement_siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"ressources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"mesure_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">138671</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"annee"</span><span class="p">:</span><span class="w"> </span><span class="mi">2010</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"niveau_ressource"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"prestations_sociales"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[</span><span class="se">\"</span><span class="s2">PCH</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">RSA</span><span class="se">\"</span><span class="s2">]"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
 <p>Retourne la liste de toutes les mesures associées à l&#39;utilisateur.
 Les mesures retournées sont triées, avec la mesure la plus récente apparaissant en premier.</p>
 <h3 id='parametres'>Paramètres</h3>
 <p><strong>status</strong> (optionnel)</p>
 
 <p>Retourne uniquement les mesures ayant ce status. Les valeurs possibles sont &quot;en_attente&quot;, &quot;en_cours&quot;, ou &quot;eteinte&quot;.</p>
-<h3 id='retours'>Retours</h3><h2 id='recuperer-une-mesure'>Récupérer une mesure</h2>
+<h3 id='retours'>Retours</h3>
+<p>Retourne un tableau de <a href="/?javascript#l-39-objet-mesure">mesure</a>.</p>
+<h2 id='recuperer-une-mesure'>Récupérer une mesure</h2>
 <blockquote>
 <p>GET /api/editors/mesures/:id</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span>
-  <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span>
-  <span class="s2">"https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures/1"</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">emjpmApiMesuresUrl</span><span class="p">,</span> <span class="p">{</span>
-  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">token</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
-  <span class="p">},</span>
-<span class="p">});</span>
+<pre class="highlight plaintext"><code>GET /api/editors/mesures/{ID} HTTP/1.1
+Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
 </code></pre>
 <blockquote>
 <p>REPONSE</p>
@@ -718,8 +568,7 @@ Les mesures retournées sont triées, avec la mesure la plus récente apparaissa
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">138732</span><span class="p">,</span><span class="w">
   </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75015"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paris"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-02"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"annee_naissance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1989"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"annee_naissance"</span><span class="p">:</span><span class="w"> </span><span class="mi">1989</span><span class="p">,</span><span class="w">
   </span><span class="s2">"date_nomination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"date_fin_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"354354354354"</span><span class="p">,</span><span class="w">
@@ -737,7 +586,6 @@ Les mesures retournées sont triées, avec la mesure la plus récente apparaissa
   </span><span class="s2">"resultat_revision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allegement"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"etats"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">112</span><span class="p">,</span><span class="w">
       </span><span class="s2">"date_changement_etat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"nature_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mesure_accompagnement_judiciaire"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"champ_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"protection_bien_personne"</span><span class="p">,</span><span class="w">
@@ -751,11 +599,9 @@ Les mesures retournées sont triées, avec la mesure la plus récente apparaissa
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"ressources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"mesure_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">138671</span><span class="p">,</span><span class="w">
       </span><span class="s2">"annee"</span><span class="p">:</span><span class="w"> </span><span class="mi">2010</span><span class="p">,</span><span class="w">
       </span><span class="s2">"niveau_ressource"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"prestations_sociales"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[</span><span class="se">\"</span><span class="s2">PCH</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">RSA</span><span class="se">\"</span><span class="s2">]"</span><span class="w">
+      </span><span class="s2">"prestations_sociales"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"PCH"</span><span class="p">,</span><span class="s2">"RSA"</span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -768,261 +614,94 @@ Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est 
 <blockquote>
 <p>POST /api/editors/mesures</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span>
-  <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span>
-  <span class="s2">"https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures"</span><span class="p">;</span>
+<pre class="highlight plaintext"><code>POST /api/editors/mesures HTTP/1.1
+Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
+Content-Type: application/json
 
-<span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">emjpmApiMesuresUrl</span><span class="p">,</span> <span class="p">{</span>
-  <span class="na">method</span><span class="p">:</span> <span class="s2">"post"</span><span class="p">,</span>
-  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">token</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
-  <span class="p">},</span>
-<span class="p">});</span>
+{
+    "numero_rg": "2020202020",
+    "numero_dossier": "TESTES",
+    "annee_naissance": 1957,
+    "civilite": "monsieur",
+    "date_premier_mesure": "2019-02-14",
+    "date_nomination": "2019-02-14",
+    "date_protection_en_cours": "2019-04-18",
+    "tribunal_siret": "17690111400080",
+    "etats": [
+        {
+            "date_changement_etat": "2020-09-19",
+            "nature_mesure": "curatelle_simple",
+            "champ_mesure": "protection_bien_personne",
+            "lieu_vie": "domicile",
+            "code_postal": "22190",
+            "ville": "PLRIN SUR MER",
+            "pays": "FR",
+            "type_etablissement": "etablissement_handicapes"
+        }
+    ],
+    "ressources": [
+        {
+            "annee": 2019,
+            "niveau_ressource": 14246,
+            "prestations_sociales": []
+        }
+    ]
+}
 </code></pre>
-<blockquote>
-<p>REPONSE</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">138732</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75015"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paris"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-02"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"annee_naissance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1989"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"date_nomination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"date_fin_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"354354354354"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"numero_rg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RG4354354354"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"antenne_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">48.8402</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.29356</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"pays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"lieu_vie"</span><span class="p">:</span><span class="w"> </span><span class="s2">"etablissement"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type_etablissement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autre_etablissement_s_ms"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"civilite"</span><span class="p">:</span><span class="w"> </span><span class="s2">"monsieur"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cause_sortie"</span><span class="p">:</span><span class="w"> </span><span class="s2">"caducite"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"date_premier_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"date_protection_en_cours"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"resultat_revision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allegement"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"etats"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">112</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"date_changement_etat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"nature_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mesure_accompagnement_judiciaire"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"champ_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"protection_bien_personne"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"lieu_vie"</span><span class="p">:</span><span class="w"> </span><span class="s2">"etablissement"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75015"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paris"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"pays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type_etablissement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autre_etablissement_s_ms"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"etablissement_siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"ressources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"mesure_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">138671</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"annee"</span><span class="p">:</span><span class="w"> </span><span class="mi">2010</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"niveau_ressource"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"prestations_sociales"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[</span><span class="se">\"</span><span class="s2">PCH</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">RSA</span><span class="se">\"</span><span class="s2">]"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Créer une mesure avec les paramètres passés.
-Tous les paramètres sont obligatoires sauf indiqué par <code>(optionnel)</code>.</p>
+<p>Créer une mesure avec les paramètres passés.</p>
 <h3 id='parametres-2'>Paramètres</h3>
-<p><strong>annee_naissance</strong> <code>number</code></p>
-
-<p>Année de naissance de la personne.</p>
-
-<p><strong>antenne_id</strong> <code>number</code> <code>optionnel</code></p>
-
-<p>ID de l&#39;antenne du service.</p>
-
-<p><strong>cause_sortie</strong> <code>string</code></p>
-
-<p>Causes de sortie de la mesure de protection, les valeurs possibles sont &quot;mainlevee&quot;, &quot;deces&quot;, &quot;caducite&quot;, &quot;dessaisissement_famille&quot;, ou &quot;dessaisissement_autre_mjpm&quot;.</p>
-
-<p><strong>civilite</strong> <code>string</code></p>
-
-<p>Civilité de la personne, les valeurs possibles sont &quot;H&quot; et &quot;F&quot;.</p>
-
-<p><strong>date_fin_mesure</strong> <code>date</code></p>
-
-<p><strong>date_nomination</strong> <code>date</code></p>
-
-<p><strong>date_premier_mesure</strong> <code>date</code></p>
-
-<p><strong>date_protection_en_cours</strong> <code>date</code></p>
-
-<p><strong>numero_dossier</strong> <code>string</code></p>
-
-<p>Numéro de dossier de la mesure.</p>
-
-<p><strong>numero_rg</strong> <code>string</code></p>
-
-<p>Numéro RG de la mesure.</p>
-
-<p><strong>tribunal_siret</strong> <code>string</code></p>
-
-<p>Siret du tribunal ayant attribué la mesure de protection.</p>
-
-<p><strong>tribunal_cabinet</strong> <code>string</code> <code>optionnel</code></p>
-
-<p>Cabinet du tribunal ayant attribué la mesure de protection.</p>
-
-<p><strong>etats</strong> <code>array</code></p>
-
-<p>Historique des état d&#39;une mesure de protection. Comprend les champs suivants:</p>
-
-<ul>
-<li>date_changement_etat: <code>string</code> <code>unique</code> Date de changement d&#39;état de la protection (exemple: 2020-02-01)</li>
-<li>nature_mesure: <code>string</code> Nature de la mesure de protection, les valeurs possibles sont &quot;curatelle_simple&quot;, &quot;curatelle_renforcee&quot;, &quot;tutelle&quot;, &quot;sauvegarde_justice&quot;, &quot;mesure_accompagnement_judiciaire&quot;, &quot;subroge_curateur&quot;, &quot;subroge_tuteur&quot;, &quot;mandat_protection_future&quot;, ou &quot;mesure_ad_hoc&quot;.</li>
-<li>champ_mesure: <code>string</code> Champ de la mesure de protection, les valeurs possibles sont &quot;protection_bien&quot;, &quot;protection_personne&quot;, ou &quot;protection_bien_personne&quot;.</li>
-</ul>
-
-<p><strong>ressources</strong> <code>array</code></p>
-
-<p>Historique des mesures de protection. Comprend les champs suivants:</p>
-
-<ul>
-<li>annee <code>number</code> <code>optionnel</code></li>
-<li>niveau_ressource: <code>number</code></li>
-<li>prestations_sociales: <code>array</code> Liste des prestations sociales perçues, les valeurs possibles sont &quot;AAH&quot;, &quot;PCH&quot;, &quot;ASI&quot;, &quot;RSA&quot;, &quot;ALS&quot;, &quot;APL&quot;, &quot;ASPA&quot;, ou &quot;APA&quot;.</li>
-</ul>
+<p>un objet <a href="/?javascript#l-39-objet-mesure">mesure</a>.</p>
 <h3 id='retours-3'>Retours</h3>
-<p>Retourne l&#39;objet <a href="/?javascript#l-39-objet-mesure">mesure</a>.
-Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est retournée.</p>
+<p>Retourne l&#39;objet <a href="/?javascript#l-39-objet-mesure">mesure</a> avec l&#39;identifiant de la mesure créée.</p>
 <h2 id='modifier-une-mesure'>Modifier une mesure</h2>
 <blockquote>
 <p>PUT /api/editors/mesures/:id</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span>
-  <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span>
-  <span class="s2">"https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures/1"</span><span class="p">;</span>
+<pre class="highlight plaintext"><code>PUT /api/editors/mesures/{ID} HTTP/1.1
+Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
+Content-Type: application/json
 
-<span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">emjpmApiMesuresUrl</span><span class="p">,</span> <span class="p">{</span>
-  <span class="na">method</span><span class="p">:</span> <span class="s2">"put"</span><span class="p">,</span>
-  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">token</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
-  <span class="p">},</span>
-<span class="p">});</span>
+{
+    "id": 147853
+    "numero_rg": "2020202020",
+    "numero_dossier": "TESTES",
+    "annee_naissance": 1957,
+    "civilite": "madame",
+    "date_premier_mesure": "2019-02-14",
+    "date_nomination": "2019-02-14",
+    "date_protection_en_cours": "2019-04-18",
+    "tribunal_siret": "17690111400080",
+    "etats": [
+        {
+            "date_changement_etat": "2020-09-19",
+            "nature_mesure": "curatelle_simple",
+            "champ_mesure": "protection_bien_personne",
+            "lieu_vie": "domicile",
+            "code_postal": "22190",
+            "ville": "PLRIN SUR MER",
+            "pays": "FR",
+            "type_etablissement": "etablissement_handicapes"
+        }
+    ],
+    "ressources": [
+        {
+            "annee": 2019,
+            "niveau_ressource": 14246,
+            "prestations_sociales": []
+        },
+        {
+            "annee": 2018,
+            "niveau_ressource": 15500,
+            "prestations_sociales": ["PCH","RSA"]
+        }
+    ]
+}
 </code></pre>
-<blockquote>
-<p>REPONSE</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">138732</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75015"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paris"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-02"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"annee_naissance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1989"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"date_nomination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"date_fin_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"numero_dossier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"354354354354"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"numero_rg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RG4354354354"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"antenne_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">48.8402</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.29356</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"pays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"lieu_vie"</span><span class="p">:</span><span class="w"> </span><span class="s2">"etablissement"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type_etablissement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autre_etablissement_s_ms"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"civilite"</span><span class="p">:</span><span class="w"> </span><span class="s2">"monsieur"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cause_sortie"</span><span class="p">:</span><span class="w"> </span><span class="s2">"caducite"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"date_premier_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"date_protection_en_cours"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"resultat_revision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allegement"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"tribunal_siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17971111400134"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"etats"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">112</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"date_changement_etat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"nature_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mesure_accompagnement_judiciaire"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"champ_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"protection_bien_personne"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"lieu_vie"</span><span class="p">:</span><span class="w"> </span><span class="s2">"etablissement"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75015"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paris"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"pays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type_etablissement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autre_etablissement_s_ms"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"etablissement_siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"ressources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"mesure_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">138671</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"annee"</span><span class="p">:</span><span class="w"> </span><span class="mi">2010</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"niveau_ressource"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"prestations_sociales"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[</span><span class="se">\"</span><span class="s2">PCH</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">RSA</span><span class="se">\"</span><span class="s2">]"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Modifie la mesure avec les paramètres passés.
-Tous les paramètres non passées resteront inchangés.
-Cette requête accepte quasiment les mêmes paramètres que pour la création d&#39;une mesure.</p>
+<p>Modifie la mesure avec les paramètres passés.</p>
 <h3 id='parametres-3'>Paramètres</h3>
-<p><strong>annee_naissance</strong> <code>number</code></p>
-
-<p>Année de naissance de la personne.</p>
-
-<p><strong>antenne_id</strong> <code>number</code> <code>optionnel</code></p>
-
-<p>ID de l&#39;antenne du service.</p>
-
-<p><strong>cause_sortie</strong> <code>string</code></p>
-
-<p>Causes de sortie de la mesure de protection, les valeurs possibles sont &quot;mainlevee&quot;, &quot;deces&quot;, &quot;caducite&quot;, &quot;dessaisissement_famille&quot;, ou &quot;dessaisissement_autre_mjpm&quot;.</p>
-
-<p><strong>civilite</strong> <code>string</code></p>
-
-<p>Civilité de la personne, les valeurs possibles sont &quot;H&quot; et &quot;F&quot;.</p>
-
-<p><strong>date_fin_mesure</strong> <code>date</code></p>
-
-<p><strong>date_nomination</strong> <code>date</code></p>
-
-<p><strong>date_premier_mesure</strong> <code>date</code></p>
-
-<p><strong>date_protection_en_cours</strong> <code>date</code></p>
-
-<p><strong>numero_dossier</strong> <code>string</code></p>
-
-<p>Numéro de dossier de la mesure.</p>
-
-<p><strong>numero_rg</strong> <code>string</code></p>
-
-<p>Numéro RG de la mesure.</p>
-
-<p><strong>tribunal_siret</strong> <code>string</code></p>
-
-<p>Siret du tribunal ayant attribué la mesure de protection.</p>
-
-<p><strong>tribunal_cabinet</strong> <code>string</code> <code>optionnel</code></p>
-
-<p>Cabinet du tribunal ayant attribué la mesure de protection.</p>
-
-<p><strong>etats</strong> <code>array</code></p>
-
-<p>Historique des état d&#39;une mesure de protection. Comprend les champs suivants:</p>
-
-<ul>
-<li>date_changement_etat: <code>string</code> <code>unique</code> Date de changement d&#39;état de la protection (exemple: 2020-02-01)</li>
-<li>nature_mesure: <code>string</code> Nature de la mesure de protection, les valeurs possibles sont &quot;curatelle_simple&quot;, &quot;curatelle_renforcee&quot;, &quot;tutelle&quot;, &quot;sauvegarde_justice&quot;, &quot;mesure_accompagnement_judiciaire&quot;, &quot;subroge_curateur&quot;, &quot;subroge_tuteur&quot;, &quot;mandat_protection_future&quot;, ou &quot;mesure_ad_hoc&quot;.</li>
-<li>champ_mesure: <code>string</code> Champ de la mesure de protection, les valeurs possibles sont &quot;protection_bien&quot;, &quot;protection_personne&quot;, ou &quot;protection_bien_personne&quot;.</li>
-</ul>
-
-<p><strong>ressources</strong> <code>array</code></p>
-
-<p>Historique des mesures de protection. Comprend les champs suivants:</p>
-
-<ul>
-<li>annee <code>number</code> <code>optionnel</code></li>
-<li>niveau_ressource: <code>number</code></li>
-<li>prestations_sociales: <code>array</code> Liste des prestations sociales perçues, les valeurs possibles sont &quot;AAH&quot;, &quot;PCH&quot;, &quot;ASI&quot;, &quot;RSA&quot;, &quot;ALS&quot;, &quot;APL&quot;, &quot;ASPA&quot;, ou &quot;APA&quot;.</li>
-</ul>
+<p>un objet <a href="/?javascript#l-39-objet-mesure">mesure</a>.</p>
 <h3 id='retours-4'>Retours</h3>
 <p>Retourne l&#39;objet <a href="/?javascript#l-39-objet-mesure">mesure</a>.
 Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est retournée.</p>
@@ -1030,17 +709,9 @@ Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est 
 <blockquote>
 <p>DELETE /api/editors/mesures/:id</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span>
-  <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span>
-  <span class="s2">"https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures/1"</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">emjpmApiMesuresUrl</span><span class="p">,</span> <span class="p">{</span>
-  <span class="na">method</span><span class="p">:</span> <span class="s2">"delete"</span><span class="p">,</span>
-  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">token</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
-  <span class="p">},</span>
-<span class="p">});</span>
+<pre class="highlight plaintext"><code>DELETE /api/editors/mesures/{ID} HTTP/1.1
+Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
 </code></pre>
 <blockquote>
 <p>REPONSE</p>
@@ -1057,17 +728,9 @@ Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est 
 <blockquote>
 <p>DELETE /api/editors/mesures</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span>
-  <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w"</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span>
-  <span class="s2">"https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures"</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">emjpmApiMesuresUrl</span><span class="p">,</span> <span class="p">{</span>
-  <span class="na">method</span><span class="p">:</span> <span class="s2">"delete"</span><span class="p">,</span>
-  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">token</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
-  <span class="p">},</span>
-<span class="p">});</span>
+<pre class="highlight plaintext"><code>DELETE /api/editors/mesures HTTP/1.1
+Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
 </code></pre>
 <blockquote>
 <p>REPONSE</p>
@@ -1083,16 +746,9 @@ Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est 
 <blockquote>
 <p>GET /api/editors/service-antennes</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span>
-  <span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEiLCJ1aWQiOiJYRTFIdUc2Z2dEN2NJQmFsYnNsZTJWQndFR29GUmVHeTVEanZwUG4xeWZwSmFrU1VJNFpCZDR3d1lDU250NDBSNGZrRWxCc2dOTlJzZUVaYmpEVEgwa3dBY2NFZ2hUem9Mc3hyMEZEM1NuaGNOWHlKV1VyUE0xMm5lcEx1RTBqVCIsInVzZXJJZCI6NTI2LCJlZGl0b3JJZCI6IjIiLCJlZGl0b3JUb2tlbiI6Imw0YWJicGdrOWlyIiwiaWF0IjoxNTk3ODM0NDAwLCJzdWIiOiJYRTFIdUc2Z2dEN2NJQmFsYnNsZTJWQndFR29GUmVHeTVEanZwUG4xeWZwSmFrU1VJNFpCZDR3d1lDU250NDBSNGZrRWxCc2dOTlJzZUVaYmpEVEgwa3dBY2NFZ2hUem9Mc3hyMEZEM1NuaGNOWHlKV1VyUE0xMm5lcEx1RTBqVCJ9.Risb6k_jlZ9C8uVbIBFj8wbCGhQ3p_I8xlYeFLYoc_Ts0NACumgJIH32lN-rO1BxW0NNlVIhuNGwbWm0jbA-MpQhToh0bcq0An2rXtMeSNSbcyFLD-KNQpjhXbJq87W6sJMEZ7rt2YxgJUyCa-9l6wED1FrAKntDOsKZCxFJ7tBDTsmIsNmJVTpURP28wBTUbOaqkBrhQ4rNYQp34dUeQ49QqArjZIwlAmBR9EJQnQLunIKGtsvLnLfLB7Nz_MqCRWOsLkWdcsrrwIQMS3-VsBMJ36bT5i707c0VeSaKf_AtBP-sRUiX_rIFhPdRUXbEcSYAAnvCq_VkhJMjCN1m_Q"</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">emjpmApiMesuresUrl</span> <span class="o">=</span>
-  <span class="s2">"https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/editors/service-antennes"</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">emjpmApiMesuresUrl</span><span class="p">,</span> <span class="p">{</span>
-  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">token</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
-  <span class="p">},</span>
-<span class="p">});</span>
+<pre class="highlight plaintext"><code>HET /api/editors/service-antennes HTTP/1.1
+Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
 </code></pre>
 <blockquote>
 <p>RESPONSE</p>
