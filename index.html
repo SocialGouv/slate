@@ -416,14 +416,6 @@ doit être égal à <code>authorization_code</code></p>
 
 <p>ID de la mesure.</p>
 
-<p><strong>code_postal</strong> <code>string</code></p>
-
-<p>Code postal de la personne.</p>
-
-<p><strong>ville</strong> <code>string</code></p>
-
-<p>Ville de la personne.</p>
-
 <p><strong>annee_naissance</strong> <code>number</code></p>
 
 <p>Année de naissance de la personne.</p>
@@ -451,18 +443,6 @@ doit être égal à <code>authorization_code</code></p>
 <p><strong>latitude</strong> <code>number</code></p>
 
 <p><strong>longitude</strong> <code>number</code></p>
-
-<p><strong>pays</strong> <code>string</code></p>
-
-<p>Code pays (ISO 3166-1 alpha-2) du lieu de vie du majeur protégé</p>
-
-<p><strong>lieu_vie</strong> <code>string</code></p>
-
-<p>Lieu de vie du majeur protégé, les valeurs possibles sont &quot;domicile&quot;, &quot;etablissement&quot;, ou &quot;etablissement_conservation_domicile&quot;.</p>
-
-<p><strong>type_etablissement</strong></p>
-
-<p>Type d&#39;établissement, les valeurs possibles sont &quot;etablissement_handicapes&quot;, &quot;etablissement_personne_agee&quot;, &quot;autre_etablissement&quot;, &quot;autre_etablissement_s_ms&quot;, &quot;etablissement_hospitalier&quot;, ou &quot;etablissement_psychiatrique&quot;.</p>
 
 <p><strong>civilite</strong> <code>string</code></p>
 
@@ -542,8 +522,6 @@ Authorization: Bearer {access-token}
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">138732</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75015"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paris"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"annee_naissance"</span><span class="p">:</span><span class="w"> </span><span class="mi">1989</span><span class="p">,</span><span class="w">
   </span><span class="s2">"date_nomination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"date_fin_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
@@ -553,8 +531,6 @@ Authorization: Bearer {access-token}
   </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">48.8402</span><span class="p">,</span><span class="w">
   </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.29356</span><span class="p">,</span><span class="w">
   </span><span class="s2">"pays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"lieu_vie"</span><span class="p">:</span><span class="w"> </span><span class="s2">"etablissement"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type_etablissement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autre_etablissement_s_ms"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"civilite"</span><span class="p">:</span><span class="w"> </span><span class="s2">"monsieur"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"cause_sortie"</span><span class="p">:</span><span class="w"> </span><span class="s2">"caducite"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"date_premier_mesure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
