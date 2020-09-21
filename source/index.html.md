@@ -30,51 +30,15 @@ Lors du développement de votre solution logicielle, nous vous recommandons d'ut
 
 [https://api-apitest-emjpm.dev.fabrique.social.gouv.fr](https://api-apitest-emjpm.dev.fabrique.social.gouv.fr)
 
-remplacez votre editor_id et votre editor_token de test par ceux obtenues suite à votre demande d'autorisation
+remplacez votre client_id et votre client_token de test par ceux obtenues suite à votre demande d'autorisation
 
 L'environnement de test est fonctionnellement identique à l'environnement de production.
-
-### Application de test
-
-Afin de faciliter les tests, une application exemple est mis à disposition
-
-[https://emjpm-editor-app.fabrique.social.gouv.fr](https://emjpm-editor-app.fabrique.social.gouv.fr)
-
-(Source [https://github.com/SocialGouv/emjpm-editor-app](https://github.com/SocialGouv/emjpm-editor-app))
-
-L'application implémente une demande de token configurable via l'interface,
-et des appels à l'API `/mesures` avec autorisation, vous permettant de tester
-des identifiants et des retours d'API rapidement sans code.
-
-### Comptes / Tokens de test
-
-Des comptes et tokens de test sont mis à disposition,
-[https://api-apitest-emjpm.dev.fabrique.social.gouv.fr](https://api-apitest-emjpm.dev.fabrique.social.gouv.fr),
-
-List des comptes utilisateur :
-
-| email                                 | mot de passe |
-| ------------------------------------- | ------------ |
-| admin: admin-45@justice.fr            | emjpm2019    |
-| individuel: individuel-134@justice.fr | emjpm2019    |
-| ti: ti-136@justice.fr                 | emjpm2019    |
-| prepose: prepose-63@justice.fr        | emjpm2019    |
-| direction: direction-823@justice.fr   | emjpm2019    |
-| service: service-363@justice.fr       | emjpm2019    |
-
-Liste des tokens d'API :
-
-| editor_id | editor_token |
-| --------- | ------------ |
-| 1         | 53tes5gy1zk  |
-| 2         | dlz65bkdzmi  |
-| 3         | ds3a96tf9l   |
 
 # Intégrer le login EMJPM en tant qu'editeur
 
 L'API eMJPM utilise des tokens pour authentifier les requêtes via le méchanisme HTTP Bearer.
 
-Pour utiliser l'API eMJPM en production (https://api-emjpm.fabrique.social.gouv.fr), vous devez obtenir un editor_id et un editor_token de production. Pour ce faire, veuillez remplir une demande d'autorisation sur notre [page dédié](https://emjpm.fabrique.social.gouv.fr/application/token-request).
+Pour utiliser l'API eMJPM en production (https://api-emjpm.fabrique.social.gouv.fr), vous devez obtenir un client_id et un client_token de production. Pour ce faire, veuillez remplir une demande d'autorisation sur notre [page dédié](https://emjpm.fabrique.social.gouv.fr/application/token-request).
 
 # Inviter les utilisateurs à se connecter
 
@@ -93,7 +57,7 @@ Pour utiliser l'API eMJPM en production (https://api-emjpm.fabrique.social.gouv.
 > Une valeur de chaîne créée par votre app pour stabiliser la demande et le rappel. Ce paramètre doit être utilisé pour prévenir la falsification de demande intersite et vous sera renvoyé intact dans votre URI de redirection.
 
 ```js
-const emjpmAuthTestUrl = `https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/application/authorization?client_id=${votre editor_id de test}&redirect_uri=${url de redirection vers votre application}&state={chaine aléatoire}`;
+`https://apitest-emjpm.dev.fabrique.social.gouv.fr/application/authorization?client_id=${votre editor_id de test}&redirect_uri=${url de redirection vers votre application}&state={chaine aléatoire}`;
 ```
 
 > Si l'utilisateur n'est pas déja connecté à EMJPM, il sera invité à se connecter, puis redirigé vers le processus de connexion. Vous n’avez rien à faire de votre côté pour activer ce comportement, car il s’exécute automatiquement.
@@ -120,9 +84,14 @@ Si l’utilisateur de votre app ne souhaite pas utiliser le login EMJPM et cliqu
 
 Pour obtenir un token d’accès, passez un appel HTTP GET au point de terminaison OAuth suivant :
 
+```http
+POST /api/oauth/token? HTTP/1.1
+Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Content-Type: application/x-www-form-urlencoded
+
+client_id={votre_identifiant_editeur}&redirect_uri={url_de_redirection}&client_secret={votre_secret_editeur}code={code_d_autorisation}&grant_type=authorization_code
 ```
-POST https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/oauth/token?client_id={votre id editeur}&redirect_uri={url de redirection}&client_secret={secret}&code={authorization code}&grant_type=authorization_code
-```
+
 
 Ce point de terminaison doit présenter les paramètres suivants :
 
@@ -139,7 +108,7 @@ Votre clé secrète unique. Cette clé secrète ne doit jamais être intégrée 
 Le paramètre reçu issu de la redirection de la boîte de dialogue Login mentionnée plus haut.
 
 **grant_type**
-`authorization_code`
+doit être égal à `authorization_code`
 
 Réponse
 
@@ -169,8 +138,7 @@ L'utilisateur peut révoquer l'accès d'un logiciel métier à son compte eMJPM.
   "id": 138732,
   "code_postal": "75015",
   "ville": "paris",
-  "created_at": "2020-09-02",
-  "annee_naissance": "1989",
+  "annee_naissance": 1989,
   "date_nomination": "2020-01-01",
   "date_fin_mesure": "2020-01-01",
   "numero_dossier": "354354354354",
@@ -188,7 +156,6 @@ L'utilisateur peut révoquer l'accès d'un logiciel métier à son compte eMJPM.
   "resultat_revision": "allegement",
   "etats": [
     {
-      "id": 112,
       "date_changement_etat": "2020-01-01",
       "nature_mesure": "mesure_accompagnement_judiciaire",
       "champ_mesure": "protection_bien_personne",
@@ -202,11 +169,9 @@ L'utilisateur peut révoquer l'accès d'un logiciel métier à son compte eMJPM.
   ],
   "ressources": [
     {
-      "id": 7,
-      "mesure_id": 138671,
       "annee": 2010,
       "niveau_ressource": 300,
-      "prestations_sociales": "[\"PCH\",\"RSA\"]"
+      "prestations_sociales": ["PCH","RSA"]
     }
   ]
 }
@@ -226,11 +191,7 @@ Code postal de la personne.
 
 Ville de la personne.
 
-**created_at** `string`
-
-Date de d'insertion de la mesure en base de données
-
-**annee_naissance** `string`
+**annee_naissance** `number`
 
 Année de naissance de la personne.
 
@@ -250,7 +211,7 @@ Numéro de dossier de la mesure.
 
 Numéro RG de la mesure.
 
-**antenne_id** `string`
+**antenne_id** `number`
 
 Dans le cas d'un service mandataire, identifiant unique emjpm de l'antenne'
 
@@ -292,8 +253,6 @@ Résultat de la révision de la mesure de protection, les valeurs possibles sont
 
 Historique des états de la mesure
 
-**etats.[*].id** `number`
-
 **etats.[*].date_changement_etat** `string`
 
 **etats.[*].nature_mesure** `string`
@@ -316,10 +275,6 @@ Champ de la mesure de protection, les valeurs possibles sont "protection_bien", 
 
 Historique des mesures de protection
 
-**ressources.[*].id** `number`
-
-**ressources.[*].mesure_id** `number`
-
 **ressources.[*].annee** `number`
 
 **ressources.[*].niveau_ressource** `number`
@@ -330,71 +285,10 @@ Historique des mesures de protection
 
 > GET /api/editors/mesures
 
-```javascript
-const token =
-  "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w";
-const emjpmApiMesuresUrl =
-  "https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures?status=en_cours";
-
-const response = await fetch(emjpmApiMesuresUrl, {
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-});
-```
-
-> RESPONSE
-
-```json
-{
-  "mesures": [
-    {
-      "id": 138732,
-      "code_postal": "75015",
-      "ville": "paris",
-      "created_at": "2020-09-02",
-      "annee_naissance": "1989",
-      "date_nomination": "2020-01-01",
-      "date_fin_mesure": "2020-01-01",
-      "numero_dossier": "354354354354",
-      "numero_rg": "RG4354354354",
-      "antenne_id": null,
-      "latitude": 48.8402,
-      "longitude": 2.29356,
-      "pays": "FR",
-      "lieu_vie": "etablissement",
-      "type_etablissement": "autre_etablissement_s_ms",
-      "civilite": "monsieur",
-      "cause_sortie": "caducite",
-      "date_premier_mesure": "2020-01-01",
-      "date_protection_en_cours": "2020-01-01",
-      "resultat_revision": "allegement",
-      "etats": [
-        {
-          "id": 112,
-          "date_changement_etat": "2020-01-01",
-          "nature_mesure": "mesure_accompagnement_judiciaire",
-          "champ_mesure": "protection_bien_personne",
-          "lieu_vie": "etablissement",
-          "code_postal": "75015",
-          "ville": "paris",
-          "pays": "FR",
-          "type_etablissement": "autre_etablissement_s_ms",
-          "etablissement_siret": ""
-        }
-      ],
-      "ressources": [
-        {
-          "id": 7,
-          "mesure_id": 138671,
-          "annee": 2010,
-          "niveau_ressource": 300,
-          "prestations_sociales": "[\"PCH\",\"RSA\"]"
-        }
-      ]
-    }
-  ]
-}
+```HTTP
+GET /api/editors/mesures HTTP/1.1
+Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures
+Authorization: Bearer {access-token}
 ```
 
 Retourne la liste de toutes les mesures associées à l'utilisateur.
@@ -408,21 +302,16 @@ Retourne uniquement les mesures ayant ce status. Les valeurs possibles sont "en_
 
 ### Retours
 
+Retourne un tableau de [mesure](/?javascript#l-39-objet-mesure).
+
 ## Récupérer une mesure
 
 > GET /api/editors/mesures/:id
 
-```javascript
-const token =
-  "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w";
-const emjpmApiMesuresUrl =
-  "https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures/1";
-
-const response = await fetch(emjpmApiMesuresUrl, {
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-});
+```HTTP
+GET /api/editors/mesures/{ID} HTTP/1.1
+Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
 ```
 
 > REPONSE
@@ -432,8 +321,7 @@ const response = await fetch(emjpmApiMesuresUrl, {
   "id": 138732,
   "code_postal": "75015",
   "ville": "paris",
-  "created_at": "2020-09-02",
-  "annee_naissance": "1989",
+  "annee_naissance": 1989,
   "date_nomination": "2020-01-01",
   "date_fin_mesure": "2020-01-01",
   "numero_dossier": "354354354354",
@@ -451,7 +339,6 @@ const response = await fetch(emjpmApiMesuresUrl, {
   "resultat_revision": "allegement",
   "etats": [
     {
-      "id": 112,
       "date_changement_etat": "2020-01-01",
       "nature_mesure": "mesure_accompagnement_judiciaire",
       "champ_mesure": "protection_bien_personne",
@@ -465,11 +352,9 @@ const response = await fetch(emjpmApiMesuresUrl, {
   ],
   "ressources": [
     {
-      "id": 7,
-      "mesure_id": 138671,
       "annee": 2010,
       "niveau_ressource": 300,
-      "prestations_sociales": "[\"PCH\",\"RSA\"]"
+      "prestations_sociales": ["PCH","RSA"]
     }
   ]
 }
@@ -486,266 +371,105 @@ Si la mesure n'existe pas, une [erreur](/?javascript#errors) est retournée.
 
 > POST /api/editors/mesures
 
-```javascript
-const token =
-  "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w";
-const emjpmApiMesuresUrl =
-  "https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures";
+```HTTP
+POST /api/editors/mesures HTTP/1.1
+Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
+Content-Type: application/json
 
-const response = await fetch(emjpmApiMesuresUrl, {
-  method: "post",
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-});
-```
-
-> REPONSE
-
-```json
 {
-  "id": 138732,
-  "code_postal": "75015",
-  "ville": "paris",
-  "created_at": "2020-09-02",
-  "annee_naissance": "1989",
-  "date_nomination": "2020-01-01",
-  "date_fin_mesure": "2020-01-01",
-  "numero_dossier": "354354354354",
-  "numero_rg": "RG4354354354",
-  "antenne_id": null,
-  "latitude": 48.8402,
-  "longitude": 2.29356,
-  "pays": "FR",
-  "lieu_vie": "etablissement",
-  "type_etablissement": "autre_etablissement_s_ms",
-  "civilite": "monsieur",
-  "cause_sortie": "caducite",
-  "date_premier_mesure": "2020-01-01",
-  "date_protection_en_cours": "2020-01-01",
-  "resultat_revision": "allegement",
-  "etats": [
-    {
-      "id": 112,
-      "date_changement_etat": "2020-01-01",
-      "nature_mesure": "mesure_accompagnement_judiciaire",
-      "champ_mesure": "protection_bien_personne",
-      "lieu_vie": "etablissement",
-      "code_postal": "75015",
-      "ville": "paris",
-      "pays": "FR",
-      "type_etablissement": "autre_etablissement_s_ms",
-      "etablissement_siret": ""
-    }
-  ],
-  "ressources": [
-    {
-      "id": 7,
-      "mesure_id": 138671,
-      "annee": 2010,
-      "niveau_ressource": 300,
-      "prestations_sociales": "[\"PCH\",\"RSA\"]"
-    }
-  ]
+    "numero_rg": "2020202020",
+    "numero_dossier": "TESTES",
+    "annee_naissance": 1957,
+    "civilite": "monsieur",
+    "date_premier_mesure": "2019-02-14",
+    "date_nomination": "2019-02-14",
+    "date_protection_en_cours": "2019-04-18",
+    "tribunal_siret": "17690111400080",
+    "etats": [
+        {
+            "date_changement_etat": "2020-09-19",
+            "nature_mesure": "curatelle_simple",
+            "champ_mesure": "protection_bien_personne",
+            "lieu_vie": "domicile",
+            "code_postal": "22190",
+            "ville": "PLRIN SUR MER",
+            "pays": "FR",
+            "type_etablissement": "etablissement_handicapes"
+        }
+    ],
+    "ressources": [
+        {
+            "annee": 2019,
+            "niveau_ressource": 14246,
+            "prestations_sociales": []
+        }
+    ]
 }
 ```
 
 Créer une mesure avec les paramètres passés.
-Tous les paramètres sont obligatoires sauf indiqué par `(optionnel)`.
 
 ### Paramètres
 
-**annee_naissance** `number`
-
-Année de naissance de la personne.
-
-**antenne_id** `number` `optionnel`
-
-ID de l'antenne du service.
-
-**cause_sortie** `string`
-
-Causes de sortie de la mesure de protection, les valeurs possibles sont "mainlevee", "deces", "caducite", "dessaisissement_famille", ou "dessaisissement_autre_mjpm".
-
-**civilite** `string`
-
-Civilité de la personne, les valeurs possibles sont "H" et "F".
-
-**date_fin_mesure** `date`
-
-**date_nomination** `date`
-
-**date_premier_mesure** `date`
-
-**date_protection_en_cours** `date`
-
-**numero_dossier** `string`
-
-Numéro de dossier de la mesure.
-
-**numero_rg** `string`
-
-Numéro RG de la mesure.
-
-**tribunal_siret** `string`
-
-Siret du tribunal ayant attribué la mesure de protection.
-
-**tribunal_cabinet** `string` `optionnel`
-
-Cabinet du tribunal ayant attribué la mesure de protection.
-
-**etats** `array`
-
-Historique des état d'une mesure de protection. Comprend les champs suivants:
-
-- date_changement_etat: `string` `unique` Date de changement d'état de la protection (exemple: 2020-02-01)
-- nature_mesure: `string` Nature de la mesure de protection, les valeurs possibles sont "curatelle_simple", "curatelle_renforcee", "tutelle", "sauvegarde_justice", "mesure_accompagnement_judiciaire", "subroge_curateur", "subroge_tuteur", "mandat_protection_future", ou "mesure_ad_hoc".
-- champ_mesure: `string` Champ de la mesure de protection, les valeurs possibles sont "protection_bien", "protection_personne", ou "protection_bien_personne".
-
-**ressources** `array`
-
-Historique des mesures de protection. Comprend les champs suivants:
-
-- annee `number` `optionnel`
-- niveau_ressource: `number`
-- prestations_sociales: `array` Liste des prestations sociales perçues, les valeurs possibles sont "AAH", "PCH", "ASI", "RSA", "ALS", "APL", "ASPA", ou "APA".
+un objet [mesure](/?javascript#l-39-objet-mesure).
 
 ### Retours
 
-Retourne l'objet [mesure](/?javascript#l-39-objet-mesure).
-Si la mesure n'existe pas, une [erreur](/?javascript#errors) est retournée.
+Retourne l'objet [mesure](/?javascript#l-39-objet-mesure) avec l'identifiant de la mesure créée.
 
 ## Modifier une mesure
 
 > PUT /api/editors/mesures/:id
 
-```javascript
-const token =
-  "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w";
-const emjpmApiMesuresUrl =
-  "https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures/1";
+```HTTP
+PUT /api/editors/mesures/{ID} HTTP/1.1
+Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
+Content-Type: application/json
 
-const response = await fetch(emjpmApiMesuresUrl, {
-  method: "put",
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-});
-```
-
-> REPONSE
-
-```json
 {
-  "id": 138732,
-  "code_postal": "75015",
-  "ville": "paris",
-  "created_at": "2020-09-02",
-  "annee_naissance": "1989",
-  "date_nomination": "2020-01-01",
-  "date_fin_mesure": "2020-01-01",
-  "numero_dossier": "354354354354",
-  "numero_rg": "RG4354354354",
-  "antenne_id": null,
-  "latitude": 48.8402,
-  "longitude": 2.29356,
-  "pays": "FR",
-  "lieu_vie": "etablissement",
-  "type_etablissement": "autre_etablissement_s_ms",
-  "civilite": "monsieur",
-  "cause_sortie": "caducite",
-  "date_premier_mesure": "2020-01-01",
-  "date_protection_en_cours": "2020-01-01",
-  "resultat_revision": "allegement",
-  "tribunal_siret": "17971111400134",
-  "etats": [
-    {
-      "id": 112,
-      "date_changement_etat": "2020-01-01",
-      "nature_mesure": "mesure_accompagnement_judiciaire",
-      "champ_mesure": "protection_bien_personne",
-      "lieu_vie": "etablissement",
-      "code_postal": "75015",
-      "ville": "paris",
-      "pays": "FR",
-      "type_etablissement": "autre_etablissement_s_ms",
-      "etablissement_siret": ""
-    }
-  ],
-  "ressources": [
-    {
-      "id": 7,
-      "mesure_id": 138671,
-      "annee": 2010,
-      "niveau_ressource": 300,
-      "prestations_sociales": "[\"PCH\",\"RSA\"]"
-    }
-  ]
+    "id": 147853
+    "numero_rg": "2020202020",
+    "numero_dossier": "TESTES",
+    "annee_naissance": 1957,
+    "civilite": "madame",
+    "date_premier_mesure": "2019-02-14",
+    "date_nomination": "2019-02-14",
+    "date_protection_en_cours": "2019-04-18",
+    "tribunal_siret": "17690111400080",
+    "etats": [
+        {
+            "date_changement_etat": "2020-09-19",
+            "nature_mesure": "curatelle_simple",
+            "champ_mesure": "protection_bien_personne",
+            "lieu_vie": "domicile",
+            "code_postal": "22190",
+            "ville": "PLRIN SUR MER",
+            "pays": "FR",
+            "type_etablissement": "etablissement_handicapes"
+        }
+    ],
+    "ressources": [
+        {
+            "annee": 2019,
+            "niveau_ressource": 14246,
+            "prestations_sociales": []
+        },
+        {
+            "annee": 2018,
+            "niveau_ressource": 15500,
+            "prestations_sociales": ["PCH","RSA"]
+        }
+    ]
 }
 ```
 
 Modifie la mesure avec les paramètres passés.
-Tous les paramètres non passées resteront inchangés.
-Cette requête accepte quasiment les mêmes paramètres que pour la création d'une mesure.
 
 ### Paramètres
 
-**annee_naissance** `number`
-
-Année de naissance de la personne.
-
-**antenne_id** `number` `optionnel`
-
-ID de l'antenne du service.
-
-**cause_sortie** `string`
-
-Causes de sortie de la mesure de protection, les valeurs possibles sont "mainlevee", "deces", "caducite", "dessaisissement_famille", ou "dessaisissement_autre_mjpm".
-
-**civilite** `string`
-
-Civilité de la personne, les valeurs possibles sont "H" et "F".
-
-**date_fin_mesure** `date`
-
-**date_nomination** `date`
-
-**date_premier_mesure** `date`
-
-**date_protection_en_cours** `date`
-
-**numero_dossier** `string`
-
-Numéro de dossier de la mesure.
-
-**numero_rg** `string`
-
-Numéro RG de la mesure.
-
-**tribunal_siret** `string`
-
-Siret du tribunal ayant attribué la mesure de protection.
-
-**tribunal_cabinet** `string` `optionnel`
-
-Cabinet du tribunal ayant attribué la mesure de protection.
-
-**etats** `array`
-
-Historique des état d'une mesure de protection. Comprend les champs suivants:
-
-- date_changement_etat: `string` `unique` Date de changement d'état de la protection (exemple: 2020-02-01)
-- nature_mesure: `string` Nature de la mesure de protection, les valeurs possibles sont "curatelle_simple", "curatelle_renforcee", "tutelle", "sauvegarde_justice", "mesure_accompagnement_judiciaire", "subroge_curateur", "subroge_tuteur", "mandat_protection_future", ou "mesure_ad_hoc".
-- champ_mesure: `string` Champ de la mesure de protection, les valeurs possibles sont "protection_bien", "protection_personne", ou "protection_bien_personne".
-
-**ressources** `array`
-
-Historique des mesures de protection. Comprend les champs suivants:
-
-- annee `number` `optionnel`
-- niveau_ressource: `number`
-- prestations_sociales: `array` Liste des prestations sociales perçues, les valeurs possibles sont "AAH", "PCH", "ASI", "RSA", "ALS", "APL", "ASPA", ou "APA".
+un objet [mesure](/?javascript#l-39-objet-mesure).
 
 ### Retours
 
@@ -756,18 +480,10 @@ Si la mesure n'existe pas, une [erreur](/?javascript#errors) est retournée.
 
 > DELETE /api/editors/mesures/:id
 
-```javascript
-const token =
-  "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w";
-const emjpmApiMesuresUrl =
-  "https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures/1";
-
-const response = await fetch(emjpmApiMesuresUrl, {
-  method: "delete",
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-});
+```HTTP
+DELETE /api/editors/mesures/{ID} HTTP/1.1
+Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
 ```
 
 > REPONSE
@@ -789,18 +505,10 @@ Si la mesure n'existe pas, une [erreur](/?javascript#errors) est retournée.
 
 > DELETE /api/editors/mesures
 
-```javascript
-const token =
-  "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwczovL2VtanBtLWVkaXRvci1kZW1vLm5ldGxpZnkuY29tIiwidWlkIjoiRFRDWDhmNlBDOHljcmxvVTBmbDhWcUdGdWpzSXllVVhrTDZ4THBITXNHSXJJTmhEeXBVSnF5UnRPSEZzWlpwSmZ4VENLVFh0OEY2MTJraFFvclljTjhLUkg3SlBsbVdkWGpnMUZ0NHBQaG9GR1BoWjhqY3kyRldmYWNVazNkNmUiLCJ1c2VySWQiOjEzMDIsImVkaXRvcklkIjoiMSIsImVkaXRvclRva2VuIjoiZzV2ZzRtdXU0NnMiLCJpYXQiOjE1ODIxMDYwOTQsInN1YiI6IkRUQ1g4ZjZQQzh5Y3Jsb1UwZmw4VnFHRnVqc0l5ZVVYa0w2eExwSE1zR0lySU5oRHlwVUpxeVJ0T0hGc1pacEpmeFRDS1RYdDhGNjEya2hRb3JZY044S1JIN0pQbG1XZFhqZzFGdDRwUGhvRkdQaFo4amN5MkZXZmFjVWszZDZlIn0.HHcDnAYgL6gKhjFxSE1xy9sgf1OoNS2-E5EWnphwhDYhsE0nTM73XLjY_Tz1UsFcWSZPDwOGpsv-IfXwFdJZq0fZmhRW7atWQoMdBtB-djWF373XUP_pDK4whX014tLF9oJPxeX_xpDXT0-tue_HlOmUHzBx7LGhWUC_OlZ3PKqSLtJdvhvc0fbesJVo4TpGoCb4xYvIbsQtTI8yOIso9aUdbdv9azLoQQcjN0IYgn1PCEX3kI1tqRgTYNFQRrGIMqHNckF76PlRsJa7MJFhHlxogEqEgKUyvH85LODuyNEv6a8cx5qKUuz-jEHh3zEGbv9qqVwQ879O23GPMeHE4w";
-const emjpmApiMesuresUrl =
-  "https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures";
-
-const response = await fetch(emjpmApiMesuresUrl, {
-  method: "delete",
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-});
+```HTTP
+DELETE /api/editors/mesures HTTP/1.1
+Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
 ```
 
 > REPONSE
@@ -823,17 +531,10 @@ Retourne le nombre de mesures [mesure](/?javascript#l-39-objet-mesure) supprimé
 
 > GET /api/editors/service-antennes
 
-```javascript
-const token =
-  "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEiLCJ1aWQiOiJYRTFIdUc2Z2dEN2NJQmFsYnNsZTJWQndFR29GUmVHeTVEanZwUG4xeWZwSmFrU1VJNFpCZDR3d1lDU250NDBSNGZrRWxCc2dOTlJzZUVaYmpEVEgwa3dBY2NFZ2hUem9Mc3hyMEZEM1NuaGNOWHlKV1VyUE0xMm5lcEx1RTBqVCIsInVzZXJJZCI6NTI2LCJlZGl0b3JJZCI6IjIiLCJlZGl0b3JUb2tlbiI6Imw0YWJicGdrOWlyIiwiaWF0IjoxNTk3ODM0NDAwLCJzdWIiOiJYRTFIdUc2Z2dEN2NJQmFsYnNsZTJWQndFR29GUmVHeTVEanZwUG4xeWZwSmFrU1VJNFpCZDR3d1lDU250NDBSNGZrRWxCc2dOTlJzZUVaYmpEVEgwa3dBY2NFZ2hUem9Mc3hyMEZEM1NuaGNOWHlKV1VyUE0xMm5lcEx1RTBqVCJ9.Risb6k_jlZ9C8uVbIBFj8wbCGhQ3p_I8xlYeFLYoc_Ts0NACumgJIH32lN-rO1BxW0NNlVIhuNGwbWm0jbA-MpQhToh0bcq0An2rXtMeSNSbcyFLD-KNQpjhXbJq87W6sJMEZ7rt2YxgJUyCa-9l6wED1FrAKntDOsKZCxFJ7tBDTsmIsNmJVTpURP28wBTUbOaqkBrhQ4rNYQp34dUeQ49QqArjZIwlAmBR9EJQnQLunIKGtsvLnLfLB7Nz_MqCRWOsLkWdcsrrwIQMS3-VsBMJ36bT5i707c0VeSaKf_AtBP-sRUiX_rIFhPdRUXbEcSYAAnvCq_VkhJMjCN1m_Q";
-const emjpmApiMesuresUrl =
-  "https://test-api-v25-21-0-emjpm.dev.fabrique.social.gouv.fr/api/editors/service-antennes";
-
-const response = await fetch(emjpmApiMesuresUrl, {
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-});
+```HTTP
+HET /api/editors/service-antennes HTTP/1.1
+Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
 ```
 
 > RESPONSE
