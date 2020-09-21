@@ -169,14 +169,6 @@ L'utilisateur peut révoquer l'accès d'un logiciel métier à son compte eMJPM.
 
 ID de la mesure.
 
-**code_postal** `string`
-
-Code postal de la personne.
-
-**ville** `string`
-
-Ville de la personne.
-
 **annee_naissance** `number`
 
 Année de naissance de la personne.
@@ -204,18 +196,6 @@ Dans le cas d'un service mandataire, identifiant unique emjpm de l'antenne'
 **latitude** `number`
 
 **longitude** `number`
-
-**pays** `string`
-
-Code pays (ISO 3166-1 alpha-2) du lieu de vie du majeur protégé
-
-**lieu_vie** `string`
-
-Lieu de vie du majeur protégé, les valeurs possibles sont "domicile", "etablissement", ou "etablissement_conservation_domicile".
-
-**type_etablissement**
-
-Type d'établissement, les valeurs possibles sont "etablissement_handicapes", "etablissement_personne_agee", "autre_etablissement", "autre_etablissement_s_ms", "etablissement_hospitalier", ou "etablissement_psychiatrique".
 
 **civilite** `string`
 
@@ -305,8 +285,6 @@ Authorization: Bearer {access-token}
 ```json
 {
   "id": 138732,
-  "code_postal": "75015",
-  "ville": "paris",
   "annee_naissance": 1989,
   "date_nomination": "2020-01-01",
   "date_fin_mesure": "2020-01-01",
@@ -316,8 +294,6 @@ Authorization: Bearer {access-token}
   "latitude": 48.8402,
   "longitude": 2.29356,
   "pays": "FR",
-  "lieu_vie": "etablissement",
-  "type_etablissement": "autre_etablissement_s_ms",
   "civilite": "monsieur",
   "cause_sortie": "caducite",
   "date_premier_mesure": "2020-01-01",
