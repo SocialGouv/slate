@@ -224,27 +224,19 @@
                   <li>
                     <a href="#environnements" class="toc-h2 toc-link" data-title="Environnements">Environnements</a>
                   </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#integrer-le-login-emjpm-en-tant-qu-39-editeur" class="toc-h1 toc-link" data-title="Intégrer le login EMJPM en tant qu'editeur">Intégrer le login EMJPM en tant qu'editeur</a>
-          </li>
-          <li>
-            <a href="#inviter-les-utilisateurs-a-se-connecter" class="toc-h1 toc-link" data-title="Inviter les utilisateurs à se connecter">Inviter les utilisateurs à se connecter</a>
-              <ul class="toc-list-h2">
                   <li>
-                    <a href="#l-39-utilisateur-doit-autoriser-votre-application-a-acceder-a-son-compte" class="toc-h2 toc-link" data-title="L'utilisateur doit autoriser votre application à accéder à son compte">L'utilisateur doit autoriser votre application à accéder à son compte</a>
-                  </li>
-                  <li>
-                    <a href="#connexion-annulee" class="toc-h2 toc-link" data-title="Connexion annulée">Connexion annulée</a>
+                    <a href="#demande-de-d-39-acces-a-l-39-api" class="toc-h2 toc-link" data-title="Demande de d'accès à l'API">Demande de d'accès à l'API</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#confirmer-l-identite-des-utilisateurs" class="toc-h1 toc-link" data-title="Confirmer l’identité des utilisateurs">Confirmer l’identité des utilisateurs</a>
+            <a href="#recuperer-les-jetons-oauth" class="toc-h1 toc-link" data-title="Récupérer les jetons OAuth.">Récupérer les jetons OAuth.</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#echanger-le-code-contre-un-token-d-acces" class="toc-h2 toc-link" data-title="Échanger le code contre un token d’accès">Échanger le code contre un token d’accès</a>
+                    <a href="#recuperer-un-code-d-39-autorisation" class="toc-h2 toc-link" data-title="Récupérer un code d'autorisation">Récupérer un code d'autorisation</a>
+                  </li>
+                  <li>
+                    <a href="#echanger-le-code-d-39-autorisation-contre-un-token-d-39-acces" class="toc-h2 toc-link" data-title="Echanger le code d'autorisation contre un token d'accès">Echanger le code d'autorisation contre un token d'accès</a>
                   </li>
               </ul>
           </li>
@@ -298,7 +290,7 @@
 
 <p>L&#39;API eMJPM est organisée en REST, elle retourne des réponses encodées en JSON,
 et utilise des verbes, des codes de réponses, et des méchanismes d&#39;authentification HTTP standard.</p>
-<h3 id='environnements'>Environnements</h3>
+<h2 id='environnements'>Environnements</h2>
 <p><strong>Test</strong> <a href="https://api-apitest-emjpm.dev.fabrique.social.gouv.fr">https://api-apitest-emjpm.dev.fabrique.social.gouv.fr</a></p>
 
 <p><strong>Production</strong> <a href="https://api-emjpm.fabrique.social.gouv.fr">https://api-emjpm.fabrique.social.gouv.fr</a></p>
@@ -310,49 +302,33 @@ et utilise des verbes, des codes de réponses, et des méchanismes d&#39;authent
 <p>remplacez votre client_id et votre client_token de test par ceux obtenues suite à votre demande d&#39;autorisation</p>
 
 <p>L&#39;environnement de test est fonctionnellement identique à l&#39;environnement de production.</p>
-<h1 id='integrer-le-login-emjpm-en-tant-qu-39-editeur'>Intégrer le login EMJPM en tant qu&#39;editeur</h1>
+<h2 id='demande-de-d-39-acces-a-l-39-api'>Demande de d&#39;accès à l&#39;API</h2>
 <p>L&#39;API eMJPM utilise des tokens pour authentifier les requêtes via le méchanisme HTTP Bearer.</p>
 
 <p>Pour utiliser l&#39;API eMJPM en production (https://api-emjpm.fabrique.social.gouv.fr), vous devez obtenir un client_id et un client_token de production. Pour ce faire, veuillez remplir une demande d&#39;autorisation sur notre <a href="https://emjpm.fabrique.social.gouv.fr/application/token-request">page dédié</a>.</p>
-<h1 id='inviter-les-utilisateurs-a-se-connecter'>Inviter les utilisateurs à se connecter</h1>
-<blockquote>
-<p>pour autoriser votre application à accèder à un compte utilisateur veuillez rediriger sur l&#39;url emjpm construite de la façon suivante:</p>
-</blockquote>
+<h1 id='recuperer-les-jetons-oauth'>Récupérer les jetons OAuth.</h1><h2 id='recuperer-un-code-d-39-autorisation'>Récupérer un code d&#39;autorisation</h2>
+<p>Pour obtenir un code d&#39;autorisation veuillez rediriger l&#39;utilisateur vers l&#39;url emjpm construite de la façon suivante:</p>
 
-<p><strong>client_id</strong></p>
+<p><strong>client_id</strong>: L’ID editor qui vous a été fourni.</p>
 
-<blockquote>
-<p>L’ID editor qui vous a été fourni.</p>
-</blockquote>
+<p><strong>redirect_uri</strong>: L’URL vers laquelle vous souhaitez rediriger l’utilisateur qui se connecte. Cette URL capturera la réponse provenant du login EMJPM.</p>
 
-<p><strong>redirect_uri</strong></p>
+<p><strong>state</strong> (optionnel): Une valeur de chaîne créée par votre app pour stabiliser la demande et le rappel. Ce paramètre doit être utilisé pour prévenir la falsification de demande intersite et vous sera renvoyé intact dans votre URI de redirection.</p>
 
-<blockquote>
-<p>L’URL vers laquelle vous souhaitez rediriger l’utilisateur qui se connecte. Cette URL capturera la réponse provenant du login EMJPM.</p>
-</blockquote>
+<p><code>https://apitest-emjpm.dev.fabrique.social.gouv.fr/application/authorization?client_id=${votre editor_id de test}&amp;redirect_uri=${url de redirection vers votre application}&amp;state={chaine aléatoire}</code></p>
 
-<p><strong>state</strong> (optionnel)</p>
-
-<blockquote>
-<p>Une valeur de chaîne créée par votre app pour stabiliser la demande et le rappel. Ce paramètre doit être utilisé pour prévenir la falsification de demande intersite et vous sera renvoyé intact dans votre URI de redirection.</p>
-</blockquote>
-<pre class="highlight javascript"><code><span class="s2">`https://apitest-emjpm.dev.fabrique.social.gouv.fr/application/authorization?client_id=</span><span class="p">${</span><span class="nx">votre</span> <span class="nx">editor_id</span> <span class="nx">de</span> <span class="nx">test</span><span class="p">}</span><span class="s2">&amp;redirect_uri=</span><span class="p">${</span><span class="nx">url</span> <span class="nx">de</span> <span class="nx">redirection</span> <span class="nx">vers</span> <span class="nx">votre</span> <span class="nx">application</span><span class="p">}</span><span class="s2">&amp;state={chaine aléatoire}`</span><span class="p">;</span>
-</code></pre>
-<blockquote>
 <p>Si l&#39;utilisateur n&#39;est pas déja connecté à EMJPM, il sera invité à se connecter, puis redirigé vers le processus de connexion. Vous n’avez rien à faire de votre côté pour activer ce comportement, car il s’exécute automatiquement.</p>
-</blockquote>
-<h2 id='l-39-utilisateur-doit-autoriser-votre-application-a-acceder-a-son-compte'>L&#39;utilisateur doit autoriser votre application à accéder à son compte</h2>
+
 <p>À cette étape du processus de connexion, l’utilisateur accède à un écran de permissions et peut choisir d’annuler l’opération ou d’autoriser l’app à accéder à ses données.</p>
 
-<p>Dans tous les cas, le navigateur revient à l’app et les données indiquant si l’utilisateur s’est connecté ou s’il a annulé l’opération sont incluses à la réponse.</p>
-<h2 id='connexion-annulee'>Connexion annulée</h2>
-<p>Si l’utilisateur de votre app ne souhaite pas utiliser le login EMJPM et clique sur Annuler, il sera redirigé vers :</p>
-<pre class="highlight javascript"><code><span class="s2">`</span><span class="p">${</span><span class="nx">url</span> <span class="nx">de</span> <span class="nx">redirection</span> <span class="nx">vers</span> <span class="nx">votre</span> <span class="nx">application</span><span class="p">}</span><span class="s2">?error_reason=user_denied&amp;error=access_denied&amp;error_description=Permissions+error`</span>
-</code></pre><h1 id='confirmer-l-identite-des-utilisateurs'>Confirmer l’identité des utilisateurs</h1>
-<blockquote>
-<p>Lorsque le code est reçu, il doit être échangé contre un token d’accès à l’aide d’un point de terminaison. L’appel doit être effectué de serveur à serveur étant donné qu’il nécessite l’utilisation de votre clé secrète. (Votre clé secrète ne doit jamais se retrouver dans le code client.)</p>
-</blockquote>
-<h2 id='echanger-le-code-contre-un-token-d-acces'>Échanger le code contre un token d’accès</h2>
+<p><strong>Si l’utilisateur autorise l&#39;éditeur à accéder à son compte</strong> il sera redirigé vers:
+<code>${url de redirection vers votre application}?code=${code_d_autorisation}</code></p>
+
+<p><strong>Si l’utilisateur refuse l&#39;éditeur à accéder à son compte</strong>, il sera redirigé vers:
+<code>${url de redirection vers votre application}?error_reason=user_denied&amp;error=access_denied&amp;error_description=Permissions+error</code></p>
+<h2 id='echanger-le-code-d-39-autorisation-contre-un-token-d-39-acces'>Echanger le code d&#39;autorisation contre un token d&#39;accès</h2>
+<p>Lorsque le code d&#39;autorisation est reçu, il doit être échangé contre un token d’accès à l’aide d’un point de terminaison. L’appel doit être effectué de serveur à serveur étant donné qu’il nécessite l’utilisation de votre clé secrète. (Votre clé secrète ne doit jamais se retrouver dans le code client.)</p>
+
 <p>Pour obtenir un token d’accès, passez un appel HTTP GET au point de terminaison OAuth suivant :</p>
 <pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/oauth/token?</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">https://api-apitest-emjpm.dev.fabrique.social.gouv.fr</span>
@@ -557,7 +533,7 @@ Les mesures retournées sont triées, avec la mesure la plus récente apparaissa
 <blockquote>
 <p>GET /api/editors/mesures/:id</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /api/editors/mesures/{ID} HTTP/1.1
+<pre class="highlight plaintext"><code>GET /api/editors/mesures/147853 HTTP/1.1
 Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 </code></pre>
@@ -658,7 +634,7 @@ Content-Type: application/json
 <blockquote>
 <p>PUT /api/editors/mesures/:id</p>
 </blockquote>
-<pre class="highlight plaintext"><code>PUT /api/editors/mesures/{ID} HTTP/1.1
+<pre class="highlight plaintext"><code>PUT /api/editors/mesures/147853 HTTP/1.1
 Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 Content-Type: application/json
@@ -709,7 +685,7 @@ Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est 
 <blockquote>
 <p>DELETE /api/editors/mesures/:id</p>
 </blockquote>
-<pre class="highlight plaintext"><code>DELETE /api/editors/mesures/{ID} HTTP/1.1
+<pre class="highlight plaintext"><code>DELETE /api/editors/mesures/147853 HTTP/1.1
 Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 </code></pre>
