@@ -20,7 +20,7 @@ Bienvenue dans la documentation de l'API eMJPM à destination des logiciels mét
 L'API eMJPM est organisée en REST, elle retourne des réponses encodées en JSON,
 et utilise des verbes, des codes de réponses, et des méchanismes d'authentification HTTP standard.
 
-### Environnements
+## Environnements
 
 **Test** [https://api-apitest-emjpm.dev.fabrique.social.gouv.fr](https://api-apitest-emjpm.dev.fabrique.social.gouv.fr)
 
@@ -34,53 +34,40 @@ remplacez votre client_id et votre client_token de test par ceux obtenues suite 
 
 L'environnement de test est fonctionnellement identique à l'environnement de production.
 
-# Intégrer le login EMJPM en tant qu'editeur
+## Demande de d'accès à l'API
 
 L'API eMJPM utilise des tokens pour authentifier les requêtes via le méchanisme HTTP Bearer.
 
 Pour utiliser l'API eMJPM en production (https://api-emjpm.fabrique.social.gouv.fr), vous devez obtenir un client_id et un client_token de production. Pour ce faire, veuillez remplir une demande d'autorisation sur notre [page dédié](https://emjpm.fabrique.social.gouv.fr/application/token-request).
 
-# Inviter les utilisateurs à se connecter
+# Récupérer les jetons OAuth.
 
-> pour autoriser votre application à accèder à un compte utilisateur veuillez rediriger sur l'url emjpm construite de la façon suivante:
+## Récupérer un code d'autorisation
 
-**client_id**
+Pour obtenir un code d'autorisation veuillez rediriger l'utilisateur vers l'url emjpm construite de la façon suivante:
 
-> L’ID editor qui vous a été fourni.
+**client_id**: L’ID editor qui vous a été fourni.
 
-**redirect_uri**
+**redirect_uri**: L’URL vers laquelle vous souhaitez rediriger l’utilisateur qui se connecte. Cette URL capturera la réponse provenant du login EMJPM.
 
-> L’URL vers laquelle vous souhaitez rediriger l’utilisateur qui se connecte. Cette URL capturera la réponse provenant du login EMJPM.
+**state** (optionnel): Une valeur de chaîne créée par votre app pour stabiliser la demande et le rappel. Ce paramètre doit être utilisé pour prévenir la falsification de demande intersite et vous sera renvoyé intact dans votre URI de redirection.
 
-**state** (optionnel)
+`https://apitest-emjpm.dev.fabrique.social.gouv.fr/application/authorization?client_id=${votre editor_id de test}&redirect_uri=${url de redirection vers votre application}&state={chaine aléatoire}`
 
-> Une valeur de chaîne créée par votre app pour stabiliser la demande et le rappel. Ce paramètre doit être utilisé pour prévenir la falsification de demande intersite et vous sera renvoyé intact dans votre URI de redirection.
+Si l'utilisateur n'est pas déja connecté à EMJPM, il sera invité à se connecter, puis redirigé vers le processus de connexion. Vous n’avez rien à faire de votre côté pour activer ce comportement, car il s’exécute automatiquement.
 
-```js
-`https://apitest-emjpm.dev.fabrique.social.gouv.fr/application/authorization?client_id=${votre editor_id de test}&redirect_uri=${url de redirection vers votre application}&state={chaine aléatoire}`;
-```
-
-> Si l'utilisateur n'est pas déja connecté à EMJPM, il sera invité à se connecter, puis redirigé vers le processus de connexion. Vous n’avez rien à faire de votre côté pour activer ce comportement, car il s’exécute automatiquement.
-
-## L'utilisateur doit autoriser votre application à accéder à son compte
 
 À cette étape du processus de connexion, l’utilisateur accède à un écran de permissions et peut choisir d’annuler l’opération ou d’autoriser l’app à accéder à ses données.
 
-Dans tous les cas, le navigateur revient à l’app et les données indiquant si l’utilisateur s’est connecté ou s’il a annulé l’opération sont incluses à la réponse.
+**Si l’utilisateur autorise l'éditeur à accéder à son compte** il sera redirigé vers:
+`${url de redirection vers votre application}?code=${code_d_autorisation}`
 
-## Connexion annulée
-
-Si l’utilisateur de votre app ne souhaite pas utiliser le login EMJPM et clique sur Annuler, il sera redirigé vers :
-
-```js
+**Si l’utilisateur refuse l'éditeur à accéder à son compte**, il sera redirigé vers:
 `${url de redirection vers votre application}?error_reason=user_denied&error=access_denied&error_description=Permissions+error`
-```
 
-# Confirmer l’identité des utilisateurs
+## Echanger le code d'autorisation contre un token d'accès
 
-> Lorsque le code est reçu, il doit être échangé contre un token d’accès à l’aide d’un point de terminaison. L’appel doit être effectué de serveur à serveur étant donné qu’il nécessite l’utilisation de votre clé secrète. (Votre clé secrète ne doit jamais se retrouver dans le code client.)
-
-## Échanger le code contre un token d’accès
+Lorsque le code d'autorisation est reçu, il doit être échangé contre un token d’accès à l’aide d’un point de terminaison. L’appel doit être effectué de serveur à serveur étant donné qu’il nécessite l’utilisation de votre clé secrète. (Votre clé secrète ne doit jamais se retrouver dans le code client.)
 
 Pour obtenir un token d’accès, passez un appel HTTP GET au point de terminaison OAuth suivant :
 
@@ -91,7 +78,6 @@ Content-Type: application/x-www-form-urlencoded
 
 client_id={votre_identifiant_editeur}&redirect_uri={url_de_redirection}&client_secret={votre_secret_editeur}code={code_d_autorisation}&grant_type=authorization_code
 ```
-
 
 Ce point de terminaison doit présenter les paramètres suivants :
 
@@ -309,7 +295,7 @@ Retourne un tableau de [mesure](/?javascript#l-39-objet-mesure).
 > GET /api/editors/mesures/:id
 
 ```HTTP
-GET /api/editors/mesures/{ID} HTTP/1.1
+GET /api/editors/mesures/147853 HTTP/1.1
 Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 ```
@@ -423,7 +409,7 @@ Retourne l'objet [mesure](/?javascript#l-39-objet-mesure) avec l'identifiant de 
 > PUT /api/editors/mesures/:id
 
 ```HTTP
-PUT /api/editors/mesures/{ID} HTTP/1.1
+PUT /api/editors/mesures/147853 HTTP/1.1
 Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 Content-Type: application/json
@@ -481,7 +467,7 @@ Si la mesure n'existe pas, une [erreur](/?javascript#errors) est retournée.
 > DELETE /api/editors/mesures/:id
 
 ```HTTP
-DELETE /api/editors/mesures/{ID} HTTP/1.1
+DELETE /api/editors/mesures/147853 HTTP/1.1
 Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 ```
