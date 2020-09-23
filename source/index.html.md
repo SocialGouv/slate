@@ -22,13 +22,13 @@ et utilise des verbes, des codes de réponses, et des méchanismes d'authentific
 
 ## Environnements
 
-**Test** [https://api-apitest-emjpm.dev.fabrique.social.gouv.fr](https://api-apitest-emjpm.dev.fabrique.social.gouv.fr)
+**Test** [https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr](https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr)
 
 **Production** [https://api-emjpm.fabrique.social.gouv.fr](https://api-emjpm.fabrique.social.gouv.fr)
 
 Lors du développement de votre solution logicielle, nous vous recommandons d'utiliser l'environnement de test
 
-[https://api-apitest-emjpm.dev.fabrique.social.gouv.fr](https://api-apitest-emjpm.dev.fabrique.social.gouv.fr)
+[https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr](https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr)
 
 remplacez votre client_id et votre client_token de test par ceux obtenues suite à votre demande d'autorisation
 
@@ -52,7 +52,7 @@ Pour obtenir un code d'autorisation veuillez rediriger l'utilisateur vers l'url 
 
 **state** (optionnel): Une valeur de chaîne créée par votre app pour stabiliser la demande et le rappel. Ce paramètre doit être utilisé pour prévenir la falsification de demande intersite et vous sera renvoyé intact dans votre URI de redirection.
 
-`https://apitest-emjpm.dev.fabrique.social.gouv.fr/application/authorization?client_id=${votre editor_id de test}&redirect_uri=${url de redirection vers votre application}&state={chaine aléatoire}`
+`https://apitest-emjpm.dev2.fabrique.social.gouv.fr/application/authorization?client_id=${votre editor_id de test}&redirect_uri=${url de redirection vers votre application}&state={chaine aléatoire}`
 
 Si l'utilisateur n'est pas déja connecté à EMJPM, il sera invité à se connecter, puis redirigé vers le processus de connexion. Vous n’avez rien à faire de votre côté pour activer ce comportement, car il s’exécute automatiquement.
 
@@ -73,7 +73,7 @@ Pour obtenir un token d’accès, passez un appel HTTP GET au point de terminais
 
 ```http
 POST /api/oauth/token? HTTP/1.1
-Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
 Content-Type: application/x-www-form-urlencoded
 
 client_id={votre_identifiant_editeur}&redirect_uri={url_de_redirection}&client_secret={votre_secret_editeur}code={code_d_autorisation}&grant_type=authorization_code
@@ -253,7 +253,7 @@ Historique des mesures de protection
 
 ```HTTP
 GET /api/editors/mesures HTTP/1.1
-Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr/api/editors/mesures
 Authorization: Bearer {access-token}
 ```
 
@@ -276,7 +276,7 @@ Retourne un tableau de [mesure](/?javascript#l-39-objet-mesure).
 
 ```HTTP
 GET /api/editors/mesures/147853 HTTP/1.1
-Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 ```
 
@@ -335,7 +335,7 @@ Si la mesure n'existe pas, une [erreur](/?javascript#errors) est retournée.
 
 ```HTTP
 POST /api/editors/mesures HTTP/1.1
-Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 Content-Type: application/json
 
@@ -386,7 +386,7 @@ Retourne l'objet [mesure](/?javascript#l-39-objet-mesure) avec l'identifiant de 
 
 ```HTTP
 PUT /api/editors/mesures/147853 HTTP/1.1
-Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 Content-Type: application/json
 
@@ -444,7 +444,7 @@ Si la mesure n'existe pas, une [erreur](/?javascript#errors) est retournée.
 
 ```HTTP
 DELETE /api/editors/mesures/147853 HTTP/1.1
-Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 ```
 
@@ -469,7 +469,7 @@ Si la mesure n'existe pas, une [erreur](/?javascript#errors) est retournée.
 
 ```HTTP
 DELETE /api/editors/mesures HTTP/1.1
-Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 ```
 
@@ -495,7 +495,7 @@ Retourne le nombre de mesures [mesure](/?javascript#l-39-objet-mesure) supprimé
 
 ```HTTP
 HET /api/editors/service-antennes HTTP/1.1
-Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 ```
 
