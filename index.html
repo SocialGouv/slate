@@ -291,13 +291,13 @@
 <p>L&#39;API eMJPM est organisée en REST, elle retourne des réponses encodées en JSON,
 et utilise des verbes, des codes de réponses, et des méchanismes d&#39;authentification HTTP standard.</p>
 <h2 id='environnements'>Environnements</h2>
-<p><strong>Test</strong> <a href="https://api-apitest-emjpm.dev.fabrique.social.gouv.fr">https://api-apitest-emjpm.dev.fabrique.social.gouv.fr</a></p>
+<p><strong>Test</strong> <a href="https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr">https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr</a></p>
 
 <p><strong>Production</strong> <a href="https://api-emjpm.fabrique.social.gouv.fr">https://api-emjpm.fabrique.social.gouv.fr</a></p>
 
 <p>Lors du développement de votre solution logicielle, nous vous recommandons d&#39;utiliser l&#39;environnement de test</p>
 
-<p><a href="https://api-apitest-emjpm.dev.fabrique.social.gouv.fr">https://api-apitest-emjpm.dev.fabrique.social.gouv.fr</a></p>
+<p><a href="https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr">https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr</a></p>
 
 <p>remplacez votre client_id et votre client_token de test par ceux obtenues suite à votre demande d&#39;autorisation</p>
 
@@ -315,7 +315,7 @@ et utilise des verbes, des codes de réponses, et des méchanismes d&#39;authent
 
 <p><strong>state</strong> (optionnel): Une valeur de chaîne créée par votre app pour stabiliser la demande et le rappel. Ce paramètre doit être utilisé pour prévenir la falsification de demande intersite et vous sera renvoyé intact dans votre URI de redirection.</p>
 
-<p><code>https://apitest-emjpm.dev.fabrique.social.gouv.fr/application/authorization?client_id=${votre editor_id de test}&amp;redirect_uri=${url de redirection vers votre application}&amp;state={chaine aléatoire}</code></p>
+<p><code>https://apitest-emjpm.dev2.fabrique.social.gouv.fr/application/authorization?client_id=${votre editor_id de test}&amp;redirect_uri=${url de redirection vers votre application}&amp;state={chaine aléatoire}</code></p>
 
 <p>Si l&#39;utilisateur n&#39;est pas déja connecté à EMJPM, il sera invité à se connecter, puis redirigé vers le processus de connexion. Vous n’avez rien à faire de votre côté pour activer ce comportement, car il s’exécute automatiquement.</p>
 
@@ -331,7 +331,7 @@ et utilise des verbes, des codes de réponses, et des méchanismes d&#39;authent
 
 <p>Pour obtenir un token d’accès, passez un appel HTTP GET au point de terminaison OAuth suivant :</p>
 <pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/oauth/token?</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">https://api-apitest-emjpm.dev.fabrique.social.gouv.fr</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
 client_id={votre_identifiant_editeur}&amp;redirect_uri={url_de_redirection}&amp;client_secret={votre_secret_editeur}code={code_d_autorisation}&amp;grant_type=authorization_code
@@ -498,7 +498,7 @@ doit être égal à <code>authorization_code</code></p>
 <p>GET /api/editors/mesures</p>
 </blockquote>
 <pre class="highlight plaintext"><code>GET /api/editors/mesures HTTP/1.1
-Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr/api/editors/mesures
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr/api/editors/mesures
 Authorization: Bearer {access-token}
 </code></pre>
 <p>Retourne la liste de toutes les mesures associées à l&#39;utilisateur.
@@ -514,7 +514,7 @@ Les mesures retournées sont triées, avec la mesure la plus récente apparaissa
 <p>GET /api/editors/mesures/:id</p>
 </blockquote>
 <pre class="highlight plaintext"><code>GET /api/editors/mesures/147853 HTTP/1.1
-Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 </code></pre>
 <blockquote>
@@ -567,7 +567,7 @@ Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est 
 <p>POST /api/editors/mesures</p>
 </blockquote>
 <pre class="highlight plaintext"><code>POST /api/editors/mesures HTTP/1.1
-Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 Content-Type: application/json
 
@@ -611,7 +611,7 @@ Content-Type: application/json
 <p>PUT /api/editors/mesures/:id</p>
 </blockquote>
 <pre class="highlight plaintext"><code>PUT /api/editors/mesures/147853 HTTP/1.1
-Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 Content-Type: application/json
 
@@ -662,7 +662,7 @@ Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est 
 <p>DELETE /api/editors/mesures/:id</p>
 </blockquote>
 <pre class="highlight plaintext"><code>DELETE /api/editors/mesures/147853 HTTP/1.1
-Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 </code></pre>
 <blockquote>
@@ -681,7 +681,7 @@ Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est 
 <p>DELETE /api/editors/mesures</p>
 </blockquote>
 <pre class="highlight plaintext"><code>DELETE /api/editors/mesures HTTP/1.1
-Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 </code></pre>
 <blockquote>
@@ -699,7 +699,7 @@ Authorization: Bearer {access-token}
 <p>GET /api/editors/service-antennes</p>
 </blockquote>
 <pre class="highlight plaintext"><code>HET /api/editors/service-antennes HTTP/1.1
-Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 </code></pre>
 <blockquote>
