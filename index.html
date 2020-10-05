@@ -256,6 +256,9 @@
                     <a href="#creer-une-mesure" class="toc-h2 toc-link" data-title="Créer une mesure">Créer une mesure</a>
                   </li>
                   <li>
+                    <a href="#creer-des-mesures" class="toc-h2 toc-link" data-title="Créer des mesures">Créer des mesures</a>
+                  </li>
+                  <li>
                     <a href="#modifier-une-mesure" class="toc-h2 toc-link" data-title="Modifier une mesure">Modifier une mesure</a>
                   </li>
                   <li>
@@ -606,6 +609,111 @@ Content-Type: application/json
 <p>un objet <a href="/?javascript#l-39-objet-mesure">mesure</a>.</p>
 <h3 id='retours-3'>Retours</h3>
 <p>Retourne l&#39;objet <a href="/?javascript#l-39-objet-mesure">mesure</a> avec l&#39;identifiant de la mesure créée.</p>
+<h2 id='creer-des-mesures'>Créer des mesures</h2>
+<blockquote>
+<p>POST /api/editors/mesures/batch</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST /api/editors/mesures/batch HTTP/1.1
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
+Content-Type: application/json
+
+{
+  "mesures": [
+    {
+      "numero_rg": "2020202020",
+      "numero_dossier": "TESTES",
+      "annee_naissance": 1957,
+      "civilite": "monsieur",
+      "date_premier_mesure": "2019-02-14",
+      "date_nomination": "2019-02-14",
+      "date_protection_en_cours": "2019-04-18",
+      "tribunal_siret": "17690111400080",
+      "etats": [
+        {
+          "date_changement_etat": "2020-09-19",
+          "nature_mesure": "curatelle_simple",
+          "champ_mesure": "protection_bien_personne",
+          "lieu_vie": "domicile",
+          "code_postal": "22190",
+          "ville": "PLRIN SUR MER",
+          "pays": "FR",
+          "type_etablissement": "etablissement_handicapes"
+        }
+      ],
+      "ressources": [
+        {
+          "annee": 2019,
+          "niveau_ressource": 14246,
+          "prestations_sociales": []
+        }
+      ]
+    },
+    {
+      "numero_rg": "18/A/3245",
+      "numero_dossier": "20190512",
+      "annee_naissance": 1982,
+      "civilite": "monsieur",
+      "date_premier_mesure": "2014-01-01",
+      "date_nomination": "2018-02-01",
+      "date_protection_en_cours": "2020-05-12",
+      "tribunal_siret": "17690111400080",
+      "etats": [
+        {
+          "date_changement_etat": "2020-05-12",
+          "nature_mesure": "curatelle_renforcee",
+          "champ_mesure": "protection_bien_personne",
+          "lieu_vie": "etablissement",
+          "code_postal": "22190",
+          "ville": "PLRIN SUR MER",
+          "pays": "FR",
+          "type_etablissement": "autre_etablissement_s_ms"
+        },
+        {
+          "date_changement_etat": "2019-09-19",
+          "nature_mesure": "curatelle_simple",
+          "champ_mesure": "protection_bien_personne",
+          "lieu_vie": "domicile",
+          "code_postal": "75005",
+          "ville": "PARIS",
+          "pays": "FR"
+        },
+        {
+          "date_changement_etat": "2018-02-01",
+          "nature_mesure": "curatelle_simple",
+          "champ_mesure": "protection_personne",
+          "lieu_vie": "domicile",
+          "code_postal": "75005",
+          "ville": "PARIS",
+          "pays": "FR"
+        }
+      ],
+      "ressources": [
+        {
+          "annee": 2020,
+          "niveau_ressource": 25000,
+          "prestations_sociales": []
+        },
+        {
+          "annee": 2019,
+          "niveau_ressource": 28000,
+          "prestations_sociales": []
+        },
+        {
+          "annee": 2018,
+          "niveau_ressource": 30000,
+          "prestations_sociales": []
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+<p>Créer un tableau de mesures avec les paramètres passés.</p>
+<h3 id='parametres-3'>Paramètres</h3>
+<p>un tableau d&#39;objet <a href="/?javascript#l-39-objet-mesure">mesure</a>.</p>
+<h3 id='retours-4'>Retours</h3>
+<p>Retourne le tableau d&#39;objet <a href="/?javascript#l-39-objet-mesure">mesure</a> avec les identifiants des mesures crées.</p>
 <h2 id='modifier-une-mesure'>Modifier une mesure</h2>
 <blockquote>
 <p>PUT /api/editors/mesures/:id</p>
@@ -652,9 +760,9 @@ Content-Type: application/json
 }
 </code></pre>
 <p>Modifie la mesure avec les paramètres passés.</p>
-<h3 id='parametres-3'>Paramètres</h3>
+<h3 id='parametres-4'>Paramètres</h3>
 <p>un objet <a href="/?javascript#l-39-objet-mesure">mesure</a>.</p>
-<h3 id='retours-4'>Retours</h3>
+<h3 id='retours-5'>Retours</h3>
 <p>Retourne l&#39;objet <a href="/?javascript#l-39-objet-mesure">mesure</a>.
 Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est retournée.</p>
 <h2 id='supprimer-une-mesure'>Supprimer une mesure</h2>
@@ -673,7 +781,7 @@ Authorization: Bearer {access-token}
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Supprime la mesure associé à l&#39;ID passé.</p>
-<h3 id='retours-5'>Retours</h3>
+<h3 id='retours-6'>Retours</h3>
 <p>Retourne le nombre de mesures <a href="/?javascript#l-39-objet-mesure">mesure</a> supprimées.
 Si la mesure n&#39;existe pas, une <a href="/?javascript#errors">erreur</a> est retournée.</p>
 <h2 id='supprimer-toutes-les-mesure'>Supprimer toutes les mesure</h2>
@@ -692,7 +800,7 @@ Authorization: Bearer {access-token}
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Supprime toutes les mesures de l&#39;utilisateur</p>
-<h3 id='retours-6'>Retours</h3>
+<h3 id='retours-7'>Retours</h3>
 <p>Retourne le nombre de mesures <a href="/?javascript#l-39-objet-mesure">mesure</a> supprimées.</p>
 <h1 id='antennes-service'>Antennes (service)</h1><h2 id='lister-toutes-les-antennes'>Lister toutes les antennes</h2>
 <blockquote>
