@@ -380,6 +380,118 @@ un objet [mesure](/?javascript#l-39-objet-mesure).
 
 Retourne l'objet [mesure](/?javascript#l-39-objet-mesure) avec l'identifiant de la mesure créée.
 
+## Créer des mesures
+
+> POST /api/editors/mesures/batch
+
+```HTTP
+POST /api/editors/mesures/batch HTTP/1.1
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
+Content-Type: application/json
+
+{
+  "mesures": [
+    {
+      "numero_rg": "2020202020",
+      "numero_dossier": "TESTES",
+      "annee_naissance": 1957,
+      "civilite": "monsieur",
+      "date_premier_mesure": "2019-02-14",
+      "date_nomination": "2019-02-14",
+      "date_protection_en_cours": "2019-04-18",
+      "tribunal_siret": "17690111400080",
+      "etats": [
+        {
+          "date_changement_etat": "2020-09-19",
+          "nature_mesure": "curatelle_simple",
+          "champ_mesure": "protection_bien_personne",
+          "lieu_vie": "domicile",
+          "code_postal": "22190",
+          "ville": "PLRIN SUR MER",
+          "pays": "FR",
+          "type_etablissement": "etablissement_handicapes"
+        }
+      ],
+      "ressources": [
+        {
+          "annee": 2019,
+          "niveau_ressource": 14246,
+          "prestations_sociales": []
+        }
+      ]
+    },
+    {
+      "numero_rg": "18/A/3245",
+      "numero_dossier": "20190512",
+      "annee_naissance": 1982,
+      "civilite": "monsieur",
+      "date_premier_mesure": "2014-01-01",
+      "date_nomination": "2018-02-01",
+      "date_protection_en_cours": "2020-05-12",
+      "tribunal_siret": "17690111400080",
+      "etats": [
+        {
+          "date_changement_etat": "2020-05-12",
+          "nature_mesure": "curatelle_renforcee",
+          "champ_mesure": "protection_bien_personne",
+          "lieu_vie": "etablissement",
+          "code_postal": "22190",
+          "ville": "PLRIN SUR MER",
+          "pays": "FR",
+          "type_etablissement": "autre_etablissement_s_ms"
+        },
+        {
+          "date_changement_etat": "2019-09-19",
+          "nature_mesure": "curatelle_simple",
+          "champ_mesure": "protection_bien_personne",
+          "lieu_vie": "domicile",
+          "code_postal": "75005",
+          "ville": "PARIS",
+          "pays": "FR"
+        },
+        {
+          "date_changement_etat": "2018-02-01",
+          "nature_mesure": "curatelle_simple",
+          "champ_mesure": "protection_personne",
+          "lieu_vie": "domicile",
+          "code_postal": "75005",
+          "ville": "PARIS",
+          "pays": "FR"
+        }
+      ],
+      "ressources": [
+        {
+          "annee": 2020,
+          "niveau_ressource": 25000,
+          "prestations_sociales": []
+        },
+        {
+          "annee": 2019,
+          "niveau_ressource": 28000,
+          "prestations_sociales": []
+        },
+        {
+          "annee": 2018,
+          "niveau_ressource": 30000,
+          "prestations_sociales": []
+        }
+      ]
+    }
+  ]
+}
+```
+
+Créer un tableau de mesures avec les paramètres passés.
+
+### Paramètres
+
+un tableau d'objet [mesure](/?javascript#l-39-objet-mesure).
+
+### Retours
+
+Retourne le tableau d'objet [mesure](/?javascript#l-39-objet-mesure) avec les identifiants des mesures crées.
+
 ## Modifier une mesure
 
 > PUT /api/editors/mesures/:id
