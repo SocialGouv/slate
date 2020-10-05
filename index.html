@@ -278,6 +278,14 @@
               </ul>
           </li>
           <li>
+            <a href="#tribunaux" class="toc-h1 toc-link" data-title="Tribunaux">Tribunaux</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#lister-toutes-les-tribunaux" class="toc-h2 toc-link" data-title="Lister toutes les tribunaux">Lister toutes les tribunaux</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -835,6 +843,219 @@ Authorization: Bearer {access-token}
     </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"69520"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GRIGNY"</span><span class="w">
   </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Retourne la liste de toutes les antennes associées à votre service.</p>
+<h1 id='tribunaux'>Tribunaux</h1><h2 id='lister-toutes-les-tribunaux'>Lister toutes les tribunaux</h2>
+<blockquote>
+<p>GET /api/editors/tribunaux</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HET /api/editors/tribunaux HTTP/1.1
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
+</code></pre>
+<blockquote>
+<p>RESPONSE</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire de Valence"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALENCE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17380111900020"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 place Simone VEIL"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.923</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.91444</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire de Cayenne"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97300"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAYENNE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13001580300021"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15 avenue du Général de Gaulle"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.02174</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-52.5013</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire de La Roche-sur-Yon"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LA ROCHE SUR YON"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17860111800023"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55 Boulevard Aristide Briand"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">46.6675</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-1.4078</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire de Dieppe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"76200"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DIEPPE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17760111900023"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Square Carnot"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">49.9222</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.08681</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire d'Aix-en-Provence"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13080"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AIX EN PROVENCE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17130111200024"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40 Boulevard Carnot"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.5361</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.39857</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire de Guéret"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GUERET"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17870111600026"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23 Place Bonnyaud"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">46.1632</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.87079</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire de Saint-Denis-de-La-Réunion"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97400"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ST DENIS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17974111100027"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5 avenue André Malraux"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-20.933</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">55.4469</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire de Cherbourg-en-Cotentin"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50460"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHERBOURG EN COTENTIN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17140111000027"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15 rue des Tribunaux"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">49.6334</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-1.6339</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire d'Albertville"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73200"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALBERTVILLE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17730111600030"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avenue des Chasseurs Alpins"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">45.6684</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.4046</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire des Sables-d'Olonne"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LES SABLES D OLONNE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17860111800031"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place du Palais de Justice"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">46.5008</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-1.79255</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire de Saint-Pierre"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97410"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ST PIERRE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17974111100035"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28 rue Augustin Archambaud"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-21.3123</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">55.4936</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire de Basse-Terre"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BASSE TERRE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17971111400035"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4 Boulevard Félix Eboué"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">16.0005</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-61.7281</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire de Tarbes"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TARBES"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17640111500041"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6 bis rue du Maréchal Foch"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.2348</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0660094</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire de Reims"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REIMS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17510111200043"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place Myron Herrick"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">49.2515</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.04023</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire d'Auch"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUCH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17470111000044"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allée d'Etigny"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.6534</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.57519</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal de Première Instance de Mata-Utu"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98600"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UVEA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13000313000049"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">48.8534</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.3488</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire d'Agen"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGEN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17470111000051"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avenue de Lattre de Tassigny"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.2028</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.625584</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire de Vienne"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"38200"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIENNE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17380111900053"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16 Place Charles de Gaulle"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">45.5206</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.88135</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire de Châteauroux"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHATEAUROUX"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17180111100054"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place Lucien Germereau"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">46.803</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.694</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire de Béthune"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"62400"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BETHUNE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17590111500055"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Place Lamartine"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.5289</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.64242</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire de Poitiers"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"86000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POITIERS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17860111800056"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4 Bld Maréchal de Lattre de Tassigny"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">46.5839</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.359948</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tribunal judiciaire d'Angers"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"49000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANGERS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17490111600056"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rue Waldeck Rousseau"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">47.4768</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.556126</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>Retourne la liste de toutes les antennes associées à votre service.</p>
