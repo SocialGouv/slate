@@ -149,8 +149,7 @@ L'utilisateur peut révoquer l'accès d'un logiciel métier à son compte eMJPM.
       "code_postal": "75015",
       "ville": "paris",
       "pays": "FR",
-      "type_etablissement": "autre_etablissement_s_ms",
-      "etablissement_siret": ""
+      "type_etablissement": "autre_etablissement_s_ms"
     }
   ],
   "ressources": [
@@ -235,8 +234,6 @@ Champ de la mesure de protection, les valeurs possibles sont "protection_bien", 
 
 **etats.[*].type_etablissement** `string`
 
-**etats.[*].etablissement_siret** `string`
-
 **ressources** `array`
 
 Historique des mesures de protection
@@ -308,8 +305,7 @@ Authorization: Bearer {access-token}
       "code_postal": "75015",
       "ville": "paris",
       "pays": "FR",
-      "type_etablissement": "autre_etablissement_s_ms",
-      "etablissement_siret": ""
+      "type_etablissement": "autre_etablissement_s_ms"
     }
   ],
   "ressources": [
