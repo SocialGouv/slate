@@ -18,16 +18,14 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout
-      - uses: actions/checkout@v2
-      - name: setup-ruby
-      - uses: actions/setup-ruby@v1
+        uses: actions/checkout@v2
+      - name: build-install
+        uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.6' # Version range or exact version of a Ruby version to use, using semvers version range syntax.
-      - name: install
       - run: gem update --system
       - run: gem install bundler
-      - run: bundle install
-      - name: build        
+      - run: bundle install     
       - run: bundle exec middleman build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
