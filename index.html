@@ -281,15 +281,15 @@
             <a href="#tribunaux" class="toc-h1 toc-link" data-title="Tribunaux">Tribunaux</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#lister-toutes-les-tribunaux" class="toc-h2 toc-link" data-title="Lister toutes les tribunaux">Lister toutes les tribunaux</a>
+                    <a href="#lister-tous-les-tribunaux" class="toc-h2 toc-link" data-title="Lister tous les tribunaux">Lister tous les tribunaux</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#mandoline" class="toc-h1 toc-link" data-title="Mandoline">Mandoline</a>
+            <a href="#information-utilisateur" class="toc-h1 toc-link" data-title="Information utilisateur">Information utilisateur</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#api-user" class="toc-h2 toc-link" data-title="API User">API User</a>
+                    <a href="#recuperer-les-informations-de-l-39-utilisateur-courant" class="toc-h2 toc-link" data-title="Récupérer les informations de l'utilisateur courant">Récupérer les informations de l'utilisateur courant</a>
                   </li>
               </ul>
           </li>
@@ -852,7 +852,7 @@ Authorization: Bearer {access-token}
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>Retourne la liste de toutes les antennes associées à votre service.</p>
-<h1 id='tribunaux'>Tribunaux</h1><h2 id='lister-toutes-les-tribunaux'>Lister toutes les tribunaux</h2>
+<h1 id='tribunaux'>Tribunaux</h1><h2 id='lister-tous-les-tribunaux'>Lister tous les tribunaux</h2>
 <blockquote>
 <p>GET /api/editors/tribunaux</p>
 </blockquote>
@@ -1065,7 +1065,9 @@ Authorization: Bearer {access-token}
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>Retourne la liste de toutes les antennes associées à votre service.</p>
-<h1 id='mandoline'>Mandoline</h1><h2 id='api-user'>API User</h2><h3 id='recupere-les-informations-relative-a-l-39-utilisateur-courant'>Récupère les informations relative à l&#39;utilisateur courant</h3>
+<h1 id='information-utilisateur'>Information utilisateur</h1><h2 id='recuperer-les-informations-de-l-39-utilisateur-courant'>Récupérer les informations de l&#39;utilisateur courant</h2>
+<p>Retourne les informations de l&#39;utilisateur courant</p>
+
 <blockquote>
 <p>GET /api/mandoline/user</p>
 </blockquote>
@@ -1076,51 +1078,45 @@ Authorization: Bearer {access-token}
 <blockquote>
 <p>RESPONSE</p>
 </blockquote>
-
-<p>pour un utilisateur de type direction</p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">979</span><span class="p">,</span><span class="w">
+  </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"direction"</span><span class="p">,</span><span class="w">
+  </span><span class="err">email</span><span class="p">:</span><span class="w"> </span><span class="s2">"direction-979@justice.fr"</span><span class="p">,</span><span class="w">
+  </span><span class="err">nom</span><span class="p">:</span><span class="w"> </span><span class="s2">"direction"</span><span class="p">,</span><span class="w">
+  </span><span class="err">prenom</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paula"</span><span class="p">,</span><span class="w">
   </span><span class="err">direction</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="err">departement</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">code</span><span class="p">:</span><span class="w"> </span><span class="s2">"75"</span><span class="p">,</span><span class="w"> </span><span class="err">nom</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paris"</span><span class="w"> </span><span class="p">},</span><span class="w">
     </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"departemental"</span><span class="p">,</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="err">email</span><span class="p">:</span><span class="w"> </span><span class="s2">"direction-979@justice.fr"</span><span class="p">,</span><span class="w">
-  </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">979</span><span class="p">,</span><span class="w">
-  </span><span class="err">nom</span><span class="p">:</span><span class="w"> </span><span class="s2">"direction"</span><span class="p">,</span><span class="w">
-  </span><span class="err">prenom</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paula"</span><span class="p">,</span><span class="w">
-  </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"direction"</span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>pour un utilisateur de type service
-<code>json
-{
-  email: &quot;service-2042@justice.fr&quot;,
-  id: 2042,
-  nom: &quot;service&quot;,
-  prenom: &quot;Paula&quot;,
-  service: {
-    departement: { code: &quot;75&quot;, nom: &quot;Paris&quot; },
-    dispo_max: 325,
-    email: &quot;service-50@justice.fr&quot;,
-    etablissement: &quot;service-50&quot;,
-    lb_adresse: &quot;Rue du service tutellaire&quot;,
-    lb_code_postal: &quot;75010&quot;,
-    lb_ville: &quot;Paris&quot;,
-    mesures_en_attente: 330,
-    mesures_en_cours: 0,
-    nom: null,
-    org_adresse: &quot;Rue de l&#39;organisme gestionnaire&quot;,
-    org_code_postal: null,
-    org_gestionnaire: null,
-    org_nom: &quot;Organisme gestionnaire&quot;,
-    org_ville: null,
-    prenom: null,
-    siret: null,
-    telephone: &quot;0140506070&quot;,
-  },
-  type: &quot;service&quot;,
-}
-</code></p>
-<h1 id='errors'>Errors</h1>
+</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">2042</span><span class="p">,</span><span class="w">
+  </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"service"</span><span class="p">,</span><span class="w">
+  </span><span class="err">email</span><span class="p">:</span><span class="w"> </span><span class="s2">"service-2042@justice.fr"</span><span class="p">,</span><span class="w">
+  </span><span class="err">nom</span><span class="p">:</span><span class="w"> </span><span class="s2">"service"</span><span class="p">,</span><span class="w">
+  </span><span class="err">prenom</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paula"</span><span class="p">,</span><span class="w">
+  </span><span class="err">service</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">departement</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">code</span><span class="p">:</span><span class="w"> </span><span class="s2">"75"</span><span class="p">,</span><span class="w"> </span><span class="err">nom</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paris"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="err">dispo_max</span><span class="p">:</span><span class="w"> </span><span class="mi">325</span><span class="p">,</span><span class="w">
+    </span><span class="err">email</span><span class="p">:</span><span class="w"> </span><span class="s2">"service-50@justice.fr"</span><span class="p">,</span><span class="w">
+    </span><span class="err">etablissement</span><span class="p">:</span><span class="w"> </span><span class="s2">"service-50"</span><span class="p">,</span><span class="w">
+    </span><span class="err">lb_adresse</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rue du service tutellaire"</span><span class="p">,</span><span class="w">
+    </span><span class="err">lb_code_postal</span><span class="p">:</span><span class="w"> </span><span class="s2">"75010"</span><span class="p">,</span><span class="w">
+    </span><span class="err">lb_ville</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
+    </span><span class="err">mesures_en_attente</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+    </span><span class="err">mesures_en_cours</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="err">nom</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="err">org_adresse</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rue de l'organisme gestionnaire"</span><span class="p">,</span><span class="w">
+    </span><span class="err">org_code_postal</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="err">org_gestionnaire</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="err">org_nom</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organisme gestionnaire"</span><span class="p">,</span><span class="w">
+    </span><span class="err">org_ville</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="err">prenom</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="err">siret</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="err">telephone</span><span class="p">:</span><span class="w"> </span><span class="s2">"0140506070"</span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
 </aside>
