@@ -31,7 +31,7 @@ jobs:
         uses: Decathlon/slate-builder-action@v1.0.0
       
       - name: Deploy to GitHub Pages
-        uses: docker://maxheld83/ghpages@v0.2.1
+        uses: maxheld83/ghpages@v0.3.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BUILD_DIR: test-documentation/build/
