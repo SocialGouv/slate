@@ -641,7 +641,7 @@ Retourne la liste de toutes les antennes associées à votre service.
 
 # Tribunaux
 
-## Lister toutes les tribunaux
+## Lister tous les tribunaux
 
 > GET /api/editors/tribunaux
 
@@ -859,10 +859,11 @@ Authorization: Bearer {access-token}
 Retourne la liste de toutes les antennes associées à votre service.
 
 
-# Mandoline
-## API User
+# Information utilisateur
 
-### Récupère les informations relative à l'utilisateur courant
+## Récupérer les informations de l'utilisateur courant
+
+Retourne les informations de l'utilisateur courant
 
 > GET /api/mandoline/user
 
@@ -874,27 +875,26 @@ Authorization: Bearer {access-token}
 
 > RESPONSE
 
-pour un utilisateur de type direction
-
 ```json
+
 {
+  id: 979,
+  type: "direction",
+  email: "direction-979@justice.fr",
+  nom: "direction",
+  prenom: "Paula",
   direction: {
     departement: { code: "75", nom: "Paris" },
     type: "departemental",
-  },
-  email: "direction-979@justice.fr",
-  id: 979,
-  nom: "direction",
-  prenom: "Paula",
-  type: "direction",
+  }
 }
 ```
 
-pour un utilisateur de type service
 ```json
 {
-  email: "service-2042@justice.fr",
   id: 2042,
+  type: "service",
+  email: "service-2042@justice.fr",
   nom: "service",
   prenom: "Paula",
   service: {
@@ -916,7 +916,5 @@ pour un utilisateur de type service
     prenom: null,
     siret: null,
     telephone: "0140506070",
-  },
-  type: "service",
-}
+  }
 ```
