@@ -15,7 +15,7 @@ on:
 
 jobs:
   build:
-    runs-on: ruby-2.7.2
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
