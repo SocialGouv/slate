@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Build documentation
-      uses: decathlon/slate-builder-action:master
+      uses: decathlon/slate-builder-action:2.0.0
       env:
         DOC_BASE_FOLDER: .
         ZIP_BUILD: false
