@@ -14,15 +14,26 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-18.04
     steps:
+      - name: Checkout
       - uses: actions/checkout@v2
+      - name: setup-ruby
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.6' # Version range or exact version of a Ruby version to use, using semvers version range syntax.
+      - name: install
       - run: gem update --system
       - run: gem install bundler
       - run: bundle install
+      - name: build        
       - run: bundle exec middleman build
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: build # The folder the action should deploy.
+          CLEAN: true # Automatically remove deleted files from the deploy branch
 
