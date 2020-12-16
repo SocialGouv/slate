@@ -27,7 +27,7 @@ jobs:
       with:
         args: .*\\.md$
     - name: Build documentation
-      uses: docker://decathlon/slate-builder-action:2.0.0
+      uses: decathlon/slate-builder-action:master
       env:
         DOC_BASE_FOLDER: .
         ZIP_BUILD: false
