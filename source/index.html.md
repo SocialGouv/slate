@@ -76,7 +76,7 @@ POST /api/oauth/token? HTTP/1.1
 Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
 Content-Type: application/x-www-form-urlencoded
 
-client_id={votre_identifiant_editeur}&redirect_uri={url_de_redirection}&client_secret={votre_secret_editeur}code={code_d_autorisation}&grant_type=authorization_code
+client_id={votre_identifiant_editeur}&redirect_uri={url_de_redirection}&client_secret={votre_secret_editeur}&code={code_d_autorisation}&grant_type=authorization_code
 ```
 
 Ce point de terminaison doit présenter les paramètres suivants :
@@ -112,6 +112,8 @@ La réponse que vous recevez de ce point de terminaison est renvoyée au format 
 L'access token vous permettra par la suite de passer des requetes sur l'api Emjpm relative à cet utilisateur et votre application.
 
 L'utilisateur peut révoquer l'accès d'un logiciel métier à son compte eMJPM.
+
+La durée de vie de `access_token` sera indiquée par `expires_in`, par défaut elle est de 24h. Lorsque le token aura expiré, utilisez le `refresh_token` pour obtenir un nouveau token. La durée de vie du `refresh_token` est de 2 semaines par défaut.
 
 # Mesures
 
@@ -855,3 +857,66 @@ Authorization: Bearer {access-token}
 ```
 
 Retourne la liste de toutes les antennes associées à votre service.
+
+
+# Mandoline
+## API User
+
+### Récupère les informations relative à l'utilisateur courant
+
+> GET /api/mandoline/user
+
+```HTTP
+HET /api/mandoline/user HTTP/1.1
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
+```
+
+> RESPONSE
+
+pour un utilisateur de type direction
+
+```json
+{
+  direction: {
+    departement: { code: "75", nom: "Paris" },
+    type: "departemental",
+  },
+  email: "direction-979@justice.fr",
+  id: 979,
+  nom: "direction",
+  prenom: "Paula",
+  type: "direction",
+}
+```
+
+pour un utilisateur de type service
+```json
+{
+  email: "service-2042@justice.fr",
+  id: 2042,
+  nom: "service",
+  prenom: "Paula",
+  service: {
+    departement: { code: "75", nom: "Paris" },
+    dispo_max: 325,
+    email: "service-50@justice.fr",
+    etablissement: "service-50",
+    lb_adresse: "Rue du service tutellaire",
+    lb_code_postal: "75010",
+    lb_ville: "Paris",
+    mesures_en_attente: 330,
+    mesures_en_cours: 0,
+    nom: null,
+    org_adresse: "Rue de l'organisme gestionnaire",
+    org_code_postal: null,
+    org_gestionnaire: null,
+    org_nom: "Organisme gestionnaire",
+    org_ville: null,
+    prenom: null,
+    siret: null,
+    telephone: "0140506070",
+  },
+  type: "service",
+}
+```
