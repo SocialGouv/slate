@@ -113,7 +113,7 @@ L'access token vous permettra par la suite de passer des requetes sur l'api Emjp
 
 L'utilisateur peut révoquer l'accès d'un logiciel métier à son compte eMJPM.
 
-La durée de vie de `access_token` sera indiqué par `expires_in`, par défaut elle est de 24h. Lorsque le token aura expiré, utilisez le `refresh_token` pour obtenir un nouveau token.
+La durée de vie de `access_token` sera indiquée par `expires_in`, par défaut elle est de 24h. Lorsque le token aura expiré, utilisez le `refresh_token` pour obtenir un nouveau token. La durée de vie du `refresh_token` est de 2 semaines par défaut.
 
 # Mesures
 
