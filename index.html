@@ -286,6 +286,14 @@
               </ul>
           </li>
           <li>
+            <a href="#mandoline" class="toc-h1 toc-link" data-title="Mandoline">Mandoline</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#api-user" class="toc-h2 toc-link" data-title="API User">API User</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -345,7 +353,7 @@ et utilise des verbes, des codes de réponses, et des méchanismes d&#39;authent
 <span class="na">Host</span><span class="p">:</span> <span class="s">https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
-client_id={votre_identifiant_editeur}&amp;redirect_uri={url_de_redirection}&amp;client_secret={votre_secret_editeur}code={code_d_autorisation}&amp;grant_type=authorization_code
+client_id={votre_identifiant_editeur}&amp;redirect_uri={url_de_redirection}&amp;client_secret={votre_secret_editeur}&amp;code={code_d_autorisation}&amp;grant_type=authorization_code
 </code></pre>
 <p>Ce point de terminaison doit présenter les paramètres suivants :</p>
 
@@ -377,6 +385,8 @@ doit être égal à <code>authorization_code</code></p>
 <p>L&#39;access token vous permettra par la suite de passer des requetes sur l&#39;api Emjpm relative à cet utilisateur et votre application.</p>
 
 <p>L&#39;utilisateur peut révoquer l&#39;accès d&#39;un logiciel métier à son compte eMJPM.</p>
+
+<p>La durée de vie de <code>access_token</code> sera indiquée par <code>expires_in</code>, par défaut elle est de 24h. Lorsque le token aura expiré, utilisez le <code>refresh_token</code> pour obtenir un nouveau token. La durée de vie du <code>refresh_token</code> est de 2 semaines par défaut.</p>
 <h1 id='mesures'>Mesures</h1><h2 id='l-39-objet-mesure'>L&#39;objet mesure</h2>
 <blockquote>
 <p>L&#39;objet mesure</p>
@@ -1055,6 +1065,61 @@ Authorization: Bearer {access-token}
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>Retourne la liste de toutes les antennes associées à votre service.</p>
+<h1 id='mandoline'>Mandoline</h1><h2 id='api-user'>API User</h2><h3 id='recupere-les-informations-relative-a-l-39-utilisateur-courant'>Récupère les informations relative à l&#39;utilisateur courant</h3>
+<blockquote>
+<p>GET /api/mandoline/user</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HET /api/mandoline/user HTTP/1.1
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
+</code></pre>
+<blockquote>
+<p>RESPONSE</p>
+</blockquote>
+
+<p>pour un utilisateur de type direction</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">direction</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">departement</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">code</span><span class="p">:</span><span class="w"> </span><span class="s2">"75"</span><span class="p">,</span><span class="w"> </span><span class="err">nom</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paris"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"departemental"</span><span class="p">,</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">email</span><span class="p">:</span><span class="w"> </span><span class="s2">"direction-979@justice.fr"</span><span class="p">,</span><span class="w">
+  </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">979</span><span class="p">,</span><span class="w">
+  </span><span class="err">nom</span><span class="p">:</span><span class="w"> </span><span class="s2">"direction"</span><span class="p">,</span><span class="w">
+  </span><span class="err">prenom</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paula"</span><span class="p">,</span><span class="w">
+  </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"direction"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>pour un utilisateur de type service
+<code>json
+{
+  email: &quot;service-2042@justice.fr&quot;,
+  id: 2042,
+  nom: &quot;service&quot;,
+  prenom: &quot;Paula&quot;,
+  service: {
+    departement: { code: &quot;75&quot;, nom: &quot;Paris&quot; },
+    dispo_max: 325,
+    email: &quot;service-50@justice.fr&quot;,
+    etablissement: &quot;service-50&quot;,
+    lb_adresse: &quot;Rue du service tutellaire&quot;,
+    lb_code_postal: &quot;75010&quot;,
+    lb_ville: &quot;Paris&quot;,
+    mesures_en_attente: 330,
+    mesures_en_cours: 0,
+    nom: null,
+    org_adresse: &quot;Rue de l&#39;organisme gestionnaire&quot;,
+    org_code_postal: null,
+    org_gestionnaire: null,
+    org_nom: &quot;Organisme gestionnaire&quot;,
+    org_ville: null,
+    prenom: null,
+    siret: null,
+    telephone: &quot;0140506070&quot;,
+  },
+  type: &quot;service&quot;,
+}
+</code></p>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
