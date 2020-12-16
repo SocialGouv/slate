@@ -23,5 +23,6 @@ jobs:
           ruby-version: '2.6' # Version range or exact version of a Ruby version to use, using semvers version range syntax.
       - run: gem update --system
       - run: gem install bundler
+      - run: bundle install
       - run: bundle exec middleman build
 
