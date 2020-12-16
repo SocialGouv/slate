@@ -2,7 +2,7 @@
 
 name: CI
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
@@ -14,17 +14,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  action-filter:
-    runs-on: ubuntu-18.04
+  build:
+    runs-on: ruby-2.7.2
     steps:
     - uses: actions/checkout@master
-    - name: Build documentation
-      uses: decathlon/slate-builder-action:2.0.0
-      env:
-        DOC_BASE_FOLDER: .
-        ZIP_BUILD: false
-    - name: Deploy to GitHub Pages
-      uses: docker://maxheld83/ghpages@v0.2.1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BUILD_DIR: test-documentation/build/
+    - run: gem update --system
+    - run: gem install bundler
+    - run: bundle exec middleman build
+
+
