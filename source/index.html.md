@@ -660,7 +660,7 @@ Authorization: Bearer {access-token}
         "code_postal": "26000",
         "ville": "VALENCE",
         "siret": "17380111900020",
-        "address": "2 place Simone VEIL",
+        "adresse": "2 place Simone VEIL",
         "latitude": 44.923,
         "longitude": 4.91444
     },
@@ -669,7 +669,7 @@ Authorization: Bearer {access-token}
         "code_postal": "97300",
         "ville": "CAYENNE",
         "siret": "13001580300021",
-        "address": "15 avenue du Général de Gaulle",
+        "adresse": "15 avenue du Général de Gaulle",
         "latitude": 5.02174,
         "longitude": -52.5013
     },
@@ -678,7 +678,7 @@ Authorization: Bearer {access-token}
         "code_postal": "85000",
         "ville": "LA ROCHE SUR YON",
         "siret": "17860111800023",
-        "address": "55 Boulevard Aristide Briand",
+        "adresse": "55 Boulevard Aristide Briand",
         "latitude": 46.6675,
         "longitude": -1.4078
     },
@@ -687,7 +687,7 @@ Authorization: Bearer {access-token}
         "code_postal": "76200",
         "ville": "DIEPPE",
         "siret": "17760111900023",
-        "address": "Square Carnot",
+        "adresse": "Square Carnot",
         "latitude": 49.9222,
         "longitude": 1.08681
     },
@@ -696,7 +696,7 @@ Authorization: Bearer {access-token}
         "code_postal": "13080",
         "ville": "AIX EN PROVENCE",
         "siret": "17130111200024",
-        "address": "40 Boulevard Carnot",
+        "adresse": "40 Boulevard Carnot",
         "latitude": 43.5361,
         "longitude": 5.39857
     },
@@ -705,7 +705,7 @@ Authorization: Bearer {access-token}
         "code_postal": "23000",
         "ville": "GUERET",
         "siret": "17870111600026",
-        "address": "23 Place Bonnyaud",
+        "adresse": "23 Place Bonnyaud",
         "latitude": 46.1632,
         "longitude": 1.87079
     },
@@ -714,7 +714,7 @@ Authorization: Bearer {access-token}
         "code_postal": "97400",
         "ville": "ST DENIS",
         "siret": "17974111100027",
-        "address": "5 avenue André Malraux",
+        "adresse": "5 avenue André Malraux",
         "latitude": -20.933,
         "longitude": 55.4469
     },
@@ -723,7 +723,7 @@ Authorization: Bearer {access-token}
         "code_postal": "50460",
         "ville": "CHERBOURG EN COTENTIN",
         "siret": "17140111000027",
-        "address": "15 rue des Tribunaux",
+        "adresse": "15 rue des Tribunaux",
         "latitude": 49.6334,
         "longitude": -1.6339
     },
@@ -732,7 +732,7 @@ Authorization: Bearer {access-token}
         "code_postal": "73200",
         "ville": "ALBERTVILLE",
         "siret": "17730111600030",
-        "address": "avenue des Chasseurs Alpins",
+        "adresse": "avenue des Chasseurs Alpins",
         "latitude": 45.6684,
         "longitude": 6.4046
     },
@@ -741,7 +741,7 @@ Authorization: Bearer {access-token}
         "code_postal": "85100",
         "ville": "LES SABLES D OLONNE",
         "siret": "17860111800031",
-        "address": "Place du Palais de Justice",
+        "adresse": "Place du Palais de Justice",
         "latitude": 46.5008,
         "longitude": -1.79255
     },
@@ -750,7 +750,7 @@ Authorization: Bearer {access-token}
         "code_postal": "97410",
         "ville": "ST PIERRE",
         "siret": "17974111100035",
-        "address": "28 rue Augustin Archambaud",
+        "adresse": "28 rue Augustin Archambaud",
         "latitude": -21.3123,
         "longitude": 55.4936
     },
@@ -759,7 +759,7 @@ Authorization: Bearer {access-token}
         "code_postal": "97100",
         "ville": "BASSE TERRE",
         "siret": "17971111400035",
-        "address": "4 Boulevard Félix Eboué",
+        "adresse": "4 Boulevard Félix Eboué",
         "latitude": 16.0005,
         "longitude": -61.7281
     },
@@ -768,7 +768,7 @@ Authorization: Bearer {access-token}
         "code_postal": "65000",
         "ville": "TARBES",
         "siret": "17640111500041",
-        "address": "6 bis rue du Maréchal Foch",
+        "adresse": "6 bis rue du Maréchal Foch",
         "latitude": 43.2348,
         "longitude": 0.0660094
     },
@@ -777,7 +777,7 @@ Authorization: Bearer {access-token}
         "code_postal": "51100",
         "ville": "REIMS",
         "siret": "17510111200043",
-        "address": "Place Myron Herrick",
+        "adresse": "Place Myron Herrick",
         "latitude": 49.2515,
         "longitude": 4.04023
     },
@@ -786,7 +786,7 @@ Authorization: Bearer {access-token}
         "code_postal": "32000",
         "ville": "AUCH",
         "siret": "17470111000044",
-        "address": "Allée d'Etigny",
+        "adresse": "Allée d'Etigny",
         "latitude": 43.6534,
         "longitude": 0.57519
     },
@@ -795,7 +795,7 @@ Authorization: Bearer {access-token}
         "code_postal": "98600",
         "ville": "UVEA",
         "siret": "13000313000049",
-        "address": null,
+        "adresse": null,
         "latitude": 48.8534,
         "longitude": 2.3488
     },
@@ -804,7 +804,7 @@ Authorization: Bearer {access-token}
         "code_postal": "47000",
         "ville": "AGEN",
         "siret": "17470111000051",
-        "address": "Avenue de Lattre de Tassigny",
+        "adresse": "Avenue de Lattre de Tassigny",
         "latitude": 44.2028,
         "longitude": 0.625584
     },
@@ -813,7 +813,7 @@ Authorization: Bearer {access-token}
         "code_postal": "38200",
         "ville": "VIENNE",
         "siret": "17380111900053",
-        "address": "16 Place Charles de Gaulle",
+        "adresse": "16 Place Charles de Gaulle",
         "latitude": 45.5206,
         "longitude": 4.88135
     },
@@ -822,7 +822,7 @@ Authorization: Bearer {access-token}
         "code_postal": "36000",
         "ville": "CHATEAUROUX",
         "siret": "17180111100054",
-        "address": "Place Lucien Germereau",
+        "adresse": "Place Lucien Germereau",
         "latitude": 46.803,
         "longitude": 1.694
     },
@@ -831,7 +831,7 @@ Authorization: Bearer {access-token}
         "code_postal": "62400",
         "ville": "BETHUNE",
         "siret": "17590111500055",
-        "address": "Place Lamartine",
+        "adresse": "Place Lamartine",
         "latitude": 50.5289,
         "longitude": 2.64242
     },
@@ -840,7 +840,7 @@ Authorization: Bearer {access-token}
         "code_postal": "86000",
         "ville": "POITIERS",
         "siret": "17860111800056",
-        "address": "4 Bld Maréchal de Lattre de Tassigny",
+        "adresse": "4 Bld Maréchal de Lattre de Tassigny",
         "latitude": 46.5839,
         "longitude": 0.359948
     },
@@ -849,7 +849,7 @@ Authorization: Bearer {access-token}
         "code_postal": "49000",
         "ville": "ANGERS",
         "siret": "17490111600056",
-        "address": "Rue Waldeck Rousseau",
+        "adresse": "Rue Waldeck Rousseau",
         "latitude": 47.4768,
         "longitude": -0.556126
     }
