@@ -876,7 +876,6 @@ Authorization: Bearer {access-token}
 > RESPONSE
 
 ```json
-
 {
   id: 979,
   type: "direction",
@@ -917,4 +916,84 @@ Authorization: Bearer {access-token}
     siret: null,
     telephone: "0140506070",
   }
+```
+
+
+# Direction
+
+## Récupérer les services correspondants à un profil direction
+
+Retourne les services l'utilisateur courant (l'utilisateur doit être de type direction)
+
+> GET /api/mandoline/direction-services
+
+```HTTP
+HET /api/mandoline/user HTTP/1.1
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
+```
+
+> RESPONSE
+
+```json
+[
+    {
+        "id": 121,
+        "etablissement": "service-121",
+        "email": "service-121@justice.fr",
+        "nom": null,
+        "prenom": null,
+        "code_postal": "50004",
+        "ville": "Saint-Lô",
+        "telephone": "0140506070",
+        "adresse": "Rue du service tutelaire",
+        "dispo_max": 300,
+        "created_at": "2019-10-23T16:20:50.869Z",
+        "competences": null,
+        "mesures_in_progress": 0,
+        "mesures_awaiting": 0,
+        "latitude": null,
+        "longitude": null,
+        "siret": null,
+        "org_gestionnaire": false,
+        "org_nom": "Organisme gestionnaire",
+        "org_adresse": "Rue de l'organisme gestionnaire",
+        "org_code_postal": "",
+        "org_ville": "",
+        "lb_adresse": "Rue du service tutelaire",
+        "lb_code_postal": "50004",
+        "lb_ville": "Saint-Lô",
+        "departement_code": "50",
+        "mesures_last_update": null
+    },
+    {
+        "id": 110,
+        "etablissement": "service-110",
+        "email": "service-110@justice.fr",
+        "nom": null,
+        "prenom": null,
+        "code_postal": "50000",
+        "ville": "Saint Lô",
+        "telephone": "0140506070",
+        "adresse": "Rue du service tutelaire",
+        "dispo_max": 2136,
+        "created_at": "2019-10-09T14:17:11.334Z",
+        "competences": null,
+        "mesures_in_progress": 0,
+        "mesures_awaiting": 0,
+        "latitude": 49.1423,
+        "longitude": -1.07833,
+        "siret": null,
+        "org_gestionnaire": false,
+        "org_nom": "Organisme gestionnaire",
+        "org_adresse": "Rue de l'organisme gestionnaire",
+        "org_code_postal": "",
+        "org_ville": "",
+        "lb_adresse": "Rue du service tutelaire",
+        "lb_code_postal": "50000",
+        "lb_ville": "Saint Lô",
+        "departement_code": "50",
+        "mesures_last_update": null
+    }
+]
 ```
