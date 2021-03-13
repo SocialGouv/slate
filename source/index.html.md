@@ -928,7 +928,7 @@ Retourne les services l'utilisateur courant (l'utilisateur doit être de type di
 > GET /api/mandoline/direction-services
 
 ```HTTP
-HET /api/mandoline/user HTTP/1.1
+HET /api/mandoline/direction-services HTTP/1.1
 Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 ```
