@@ -294,6 +294,14 @@
               </ul>
           </li>
           <li>
+            <a href="#direction" class="toc-h1 toc-link" data-title="Direction">Direction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#recuperer-les-services-correspondants-a-un-profil-direction" class="toc-h2 toc-link" data-title="Récupérer les services correspondants à un profil direction">Récupérer les services correspondants à un profil direction</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -1078,8 +1086,7 @@ Authorization: Bearer {access-token}
 <blockquote>
 <p>RESPONSE</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="w">
-</span><span class="p">{</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">979</span><span class="p">,</span><span class="w">
   </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"direction"</span><span class="p">,</span><span class="w">
   </span><span class="err">email</span><span class="p">:</span><span class="w"> </span><span class="s2">"direction-979@justice.fr"</span><span class="p">,</span><span class="w">
@@ -1116,6 +1123,79 @@ Authorization: Bearer {access-token}
     </span><span class="err">siret</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="err">telephone</span><span class="p">:</span><span class="w"> </span><span class="s2">"0140506070"</span><span class="p">,</span><span class="w">
   </span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='direction'>Direction</h1><h2 id='recuperer-les-services-correspondants-a-un-profil-direction'>Récupérer les services correspondants à un profil direction</h2>
+<p>Retourne les services l&#39;utilisateur courant (l&#39;utilisateur doit être de type direction)</p>
+
+<blockquote>
+<p>GET /api/mandoline/direction-services</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HET /api/mandoline/user HTTP/1.1
+Host: https://api-apitest-emjpm.dev2.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
+</code></pre>
+<blockquote>
+<p>RESPONSE</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">121</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"etablissement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"service-121"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"service-121@justice.fr"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"prenom"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50004"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Saint-Lô"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0140506070"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"adresse"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rue du service tutelaire"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dispo_max"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-23T16:20:50.869Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"competences"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mesures_in_progress"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mesures_awaiting"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"org_gestionnaire"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"org_nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organisme gestionnaire"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"org_adresse"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rue de l'organisme gestionnaire"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"org_code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"org_ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lb_adresse"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rue du service tutelaire"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lb_code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50004"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lb_ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Saint-Lô"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"departement_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mesures_last_update"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"etablissement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"service-110"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"service-110@justice.fr"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"nom"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"prenom"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Saint Lô"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0140506070"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"adresse"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rue du service tutelaire"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dispo_max"</span><span class="p">:</span><span class="w"> </span><span class="mi">2136</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-09T14:17:11.334Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"competences"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mesures_in_progress"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mesures_awaiting"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">49.1423</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-1.07833</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"siret"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"org_gestionnaire"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"org_nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organisme gestionnaire"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"org_adresse"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rue de l'organisme gestionnaire"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"org_code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"org_ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lb_adresse"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rue du service tutelaire"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lb_code_postal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lb_ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Saint Lô"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"departement_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mesures_last_update"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre><h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
