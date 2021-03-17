@@ -964,7 +964,12 @@ Authorization: Bearer {access-token}
         "lb_code_postal": "50004",
         "lb_ville": "Saint-Lô",
         "departement_code": "50",
-        "mesures_last_update": null
+        "mesures_last_update": null,
+        "departement": {
+            "id_region": 28,
+            "id": "50",
+            "nom": "Manche"
+        }
     },
     {
         "id": 110,
@@ -993,7 +998,12 @@ Authorization: Bearer {access-token}
         "lb_code_postal": "50000",
         "lb_ville": "Saint Lô",
         "departement_code": "50",
-        "mesures_last_update": null
+        "mesures_last_update": null,
+        "departement": {
+            "id_region": 28,
+            "id": "50",
+            "nom": "Manche"
+        }
     }
 ]
 ```
