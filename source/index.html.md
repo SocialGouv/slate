@@ -267,7 +267,7 @@ Retourne uniquement les mesures ayant ce status. Les valeurs possibles sont "en_
 
 ### Retours
 
-Retourne un tableau de [mesure](/#l-39-objet-mesure).
+Retourne un tableau de [mesure](#l-39-objet-mesure).
 
 ## Récupérer une mesure
 
@@ -324,8 +324,8 @@ Récupère la mesure associée à l'ID passé.
 
 ### Retours
 
-Retourne l'objet [mesure](/#l-39-objet-mesure).
-Si la mesure n'existe pas, une [erreur](/#errors) est retournée.
+Retourne l'objet [mesure](#l-39-objet-mesure).
+Si la mesure n'existe pas, une [erreur](#errors) est retournée.
 
 ## Créer une mesure
 
@@ -372,11 +372,11 @@ Créer une mesure avec les paramètres passés.
 
 ### Paramètres
 
-un objet [mesure](/#l-39-objet-mesure).
+un objet [mesure](#l-39-objet-mesure).
 
 ### Retours
 
-Retourne l'objet [mesure](/#l-39-objet-mesure) avec l'identifiant de la mesure créée.
+Retourne l'objet [mesure](#l-39-objet-mesure) avec l'identifiant de la mesure créée.
 
 ## Créer des mesures
 
@@ -484,11 +484,11 @@ Créer un tableau de mesures avec les paramètres passés.
 
 ### Paramètres
 
-un tableau d'objet [mesure](/#l-39-objet-mesure).
+un tableau d'objet [mesure](#l-39-objet-mesure).
 
 ### Retours
 
-Retourne le tableau d'objet [mesure](/#l-39-objet-mesure) avec les identifiants des mesures crées.
+Retourne le tableau d'objet [mesure](#l-39-objet-mesure) avec les identifiants des mesures crées.
 
 ## Modifier une mesure
 
@@ -541,12 +541,12 @@ Modifie la mesure avec les paramètres passés.
 
 ### Paramètres
 
-un objet [mesure](/#l-39-objet-mesure).
+un objet [mesure](#l-39-objet-mesure).
 
 ### Retours
 
-Retourne l'objet [mesure](/#l-39-objet-mesure).
-Si la mesure n'existe pas, une [erreur](/#errors) est retournée.
+Retourne l'objet [mesure](#l-39-objet-mesure).
+Si la mesure n'existe pas, une [erreur](#errors) est retournée.
 
 ## Supprimer une mesure
 
@@ -570,8 +570,8 @@ Supprime la mesure associé à l'ID passé.
 
 ### Retours
 
-Retourne le nombre de mesures [mesure](/#l-39-objet-mesure) supprimées.
-Si la mesure n'existe pas, une [erreur](/#errors) est retournée.
+Retourne le nombre de mesures [mesure](#l-39-objet-mesure) supprimées.
+Si la mesure n'existe pas, une [erreur](#errors) est retournée.
 
 ## Supprimer toutes les mesure
 
@@ -595,7 +595,7 @@ Supprime toutes les mesures de l'utilisateur
 
 ### Retours
 
-Retourne le nombre de mesures [mesure](/#l-39-objet-mesure) supprimées.
+Retourne le nombre de mesures [mesure](#l-39-objet-mesure) supprimées.
 
 # Antennes (service)
 
