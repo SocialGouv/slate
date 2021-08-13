@@ -130,7 +130,7 @@ La durée de vie de `access_token` sera indiquée par `expires_in`, par défaut 
   "date_nomination": "2020-01-01",
   "date_fin_mesure": "2020-01-01",
   "numero_dossier": "354354354354",
-  "numero_rg": "RG4354354354",
+  "numero_rg": "RG435435",
   "antenne_id": null,
   "latitude": 48.8402,
   "longitude": 2.29356,
@@ -288,7 +288,7 @@ Authorization: Bearer {access-token}
   "date_nomination": "2020-01-01",
   "date_fin_mesure": "2020-01-01",
   "numero_dossier": "354354354354",
-  "numero_rg": "RG4354354354",
+  "numero_rg": "RG435435",
   "antenne_id": null,
   "latitude": 48.8402,
   "longitude": 2.29356,
@@ -338,7 +338,7 @@ Authorization: Bearer {access-token}
 Content-Type: application/json
 
 {
-    "numero_rg": "2020202020",
+    "numero_rg": "20202020",
     "numero_dossier": "TESTES",
     "annee_naissance": 1957,
     "civilite": "monsieur",
@@ -370,6 +370,10 @@ Content-Type: application/json
 
 Créer une mesure avec les paramètres passés.
 
+Le champs `numero_rg` doit respecter le format suivant: 8 caractères alphanumériques dont les lettres sont en majuscule. Une erreur de validation sera retourné dans le cas contraire. Pour convertir automatiquement les `numero_rg` envoyés il est possible d'utiliser le paramètre optionnel `"strictNumeroRG"`:`false` dans le JSON envoyé en POST.
+
+Si une mesure avec le même `numero_rg` existe déjà pour le même `tribunal_siret` et pour le même mandataire, cette mesure sera mise à jour, sinon une nouvelle mesure sera créée.
+
 ### Paramètres
 
 un objet [mesure](#l-39-objet-mesure).
@@ -391,7 +395,7 @@ Content-Type: application/json
 {
   "mesures": [
     {
-      "numero_rg": "2020202020",
+      "numero_rg": "20202020",
       "numero_dossier": "TESTES",
       "annee_naissance": 1957,
       "civilite": "monsieur",
@@ -420,7 +424,7 @@ Content-Type: application/json
       ]
     },
     {
-      "numero_rg": "18/A/3245",
+      "numero_rg": "18A32456",
       "numero_dossier": "20190512",
       "annee_naissance": 1982,
       "civilite": "monsieur",
@@ -481,6 +485,10 @@ Content-Type: application/json
 ```
 
 Créer un tableau de mesures avec les paramètres passés.
+
+Le champs `numero_rg` doit respecter le format suivant: 8 caractères alphanumériques dont les lettres sont en majuscule. Une erreur de validation sera retourné dans le cas contraire. Pour convertir automatiquement les `numero_rg` envoyés il est possible d'utiliser le paramètre optionnel `"strictNumeroRG"`:`false` dans le JSON envoyé en POST.
+
+Si une mesure avec le même `numero_rg` existe déjà pour le même `tribunal_siret` et pour le même mandataire, cette mesure sera mise à jour, sinon une nouvelle mesure sera créée.
 
 ### Paramètres
 
