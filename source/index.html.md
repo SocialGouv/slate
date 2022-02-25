@@ -178,6 +178,10 @@ Année de naissance de la personne.
 
 Date de jugement ou ordonnance de nomination (yyyy-MM-dd)
 
+**date_protection_en_cours** `string`
+
+Date du dernier renouvellement pour la mesure en cours; date du dernier changement d'état qui induit un changement des champs "nature de la mesure" et/ou "champ de la mesure" mais PAS s'il y un changement de domicile ou date de nomination s'il n'y a pas eu de changement d'état (yyyy-MM-dd)
+
 **date_fin_mesure** `string`
 
 Date de fin de la mesure de protection (yyyy-MM-dd)
@@ -207,10 +211,6 @@ Civilité de la personne, les valeurs possibles sont "monsieur" et "madame".
 **date_premier_mesure** `string`
 
 Date de la première mise sous protection juridique (yyyy-MM-dd)
-
-**date_protection_en_cours** `string`
-
-Date de la protection en cours (yyyy-MM-dd)
 
 **resultat_revision** `string`
 
