@@ -599,7 +599,13 @@ Authorization: Bearer {access-token}
 }
 ```
 
-Supprime toutes les mesures de l'utilisateur
+Supprime toutes les mesures de l'utilisateur, excepté celles en attente, pour forcer la suppression des mesures en attente, vous pouvez transmettre le paramètre `forceDeleteAwaitingMesures` à `true` dans l'url de la requête.
+
+```HTTP
+DELETE /api/editors/mesures?forceDeleteAwaitingMesures=true HTTP/1.1
+Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
+
 
 ### Retours
 
