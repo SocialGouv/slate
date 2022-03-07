@@ -270,14 +270,6 @@
               </ul>
           </li>
           <li>
-            <a href="#antennes-service" class="toc-h1 toc-link" data-title="Antennes (service)">Antennes (service)</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#lister-toutes-les-antennes" class="toc-h2 toc-link" data-title="Lister toutes les antennes">Lister toutes les antennes</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#tribunaux" class="toc-h1 toc-link" data-title="Tribunaux">Tribunaux</a>
               <ul class="toc-list-h2">
                   <li>
@@ -829,14 +821,24 @@ Authorization: Bearer {access-token}
   </span><span class="s2">"affected_rows"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Supprime toutes les mesures de l&#39;utilisateur</p>
-<h3 id='retours-7'>Retours</h3>
-<p>Retourne le nombre de mesures <a href="#l-39-objet-mesure">mesure</a> supprimées.</p>
-<h1 id='antennes-service'>Antennes (service)</h1><h2 id='lister-toutes-les-antennes'>Lister toutes les antennes</h2>
-<blockquote>
-<p>GET /api/editors/service-antennes</p>
-</blockquote>
-<pre class="highlight plaintext"><code>HET /api/editors/service-antennes HTTP/1.1
+<p>Supprime toutes les mesures de l&#39;utilisateur, excepté celles en attente, pour forcer la suppression des mesures en attente, vous pouvez transmettre le paramètre <code>forceDeleteAwaitingMesures</code> à <code>true</code> dans l&#39;url de la requête.</p>
+<pre class="highlight plaintext"><code>DELETE /api/editors/mesures?forceDeleteAwaitingMesures=true HTTP/1.1
+Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
+Authorization: Bearer {access-token}
+
+
+### Retours
+
+Retourne le nombre de mesures [mesure](#l-39-objet-mesure) supprimées.
+
+# Antennes (service)
+
+## Lister toutes les antennes
+
+&gt; GET /api/editors/service-antennes
+
+```HTTP
+HET /api/editors/service-antennes HTTP/1.1
 Host: https://api-apitest-emjpm.dev.fabrique.social.gouv.fr
 Authorization: Bearer {access-token}
 </code></pre>
